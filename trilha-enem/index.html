@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Trilha ENEM</title>
+    <meta name="description" content="Estude para o ENEM em lições curtas, com XP, sequência e trilhas por área." />
+    <meta name="theme-color" content="#5B2EFF" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Trilha ENEM" />
+    <meta name="application-name" content="Trilha ENEM" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B2EFF'/%3E%3Cpath d='M14 46c10-2 8-14 18-16s10-12 18-14' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-dasharray='1 9'/%3E%3Cpath d='M46 8l3 6 6 1-4.5 4 1 6.5L46 22l-5.5 3.5 1-6.5L37 15l6-1z' fill='%23FFC83D'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%235B2EFF'/%3E%3Cpath d='M46 8l3 6 6 1-4.5 4 1 6.5L46 22l-5.5 3.5 1-6.5L37 15l6-1z' fill='%23FFC83D'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Nunito:wght@600;700;800;900&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <style>
+      :root { --x-violet: #5B2EFF; --x-yellow: #FFC83D; --x-green: #1FBF75; --x-red: #F04452; --x-font: "Nunito", var(--sans); --x-bar: 68px; }
+      .x-app { font-family: var(--x-font); max-width: 560px; margin: 0 auto; padding: 0 var(--gutter) calc(var(--x-bar) + 32px + env(safe-area-inset-bottom)); }
+      .x-app h1, .x-app h2, .x-app h3, .x-lesson h2, .x-onb h1 { font-family: var(--x-font); font-weight: 900; }
+      .x-top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 8px; padding: 12px 0; background: var(--fill-primary-on); border-bottom: 1px solid var(--stroke-secondary); margin-bottom: 20px; }
+      .x-brand { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 17px; margin-right: auto; color: var(--text-primary); }
+      .x-stat { display: inline-flex; align-items: center; gap: 4px; min-height: 36px; padding: 0 10px; border-radius: var(--r-pill); background: var(--fill-tertiary); font-weight: 800; font-size: 14px; }
+      .x-tabs { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; background: var(--fill-primary-on); border-top: 1px solid var(--stroke-primary); padding-bottom: env(safe-area-inset-bottom); }
+      .x-tabs button { flex: 1; max-width: 140px; min-height: var(--x-bar); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 0; background: none; color: var(--text-secondary); font: 700 12px var(--x-font); cursor: pointer; }
+      .x-tabs button span { font-size: 22px; line-height: 1; filter: grayscale(1); opacity: .7; }
+      .x-tabs button[aria-selected="true"] { color: var(--x-violet); }
+      .x-tabs button[aria-selected="true"] span { filter: none; opacity: 1; }
+      .x-view[hidden], .x-onb[hidden], .x-lesson[hidden], .x-app[hidden] { display: none !important; }
+      .x-view { display: grid; gap: 20px; }
+      .x-hello { font-size: 26px; line-height: 1.2; margin: 0; }
+      .x-row { display: flex; gap: 12px; align-items: center; }
+      .x-panel { background: var(--fill-tertiary); border-radius: var(--r-l); padding: 20px; }
+      .x-ring { flex: none; width: 96px; height: 96px; }
+      .x-ring circle { fill: none; stroke-width: 10; }
+      .x-ring .bg { stroke: var(--stroke-primary); }
+      .x-ring .fg { stroke: var(--x-green); stroke-linecap: round; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset var(--dur-draw) var(--ease-out); }
+      .x-ring text { font: 900 18px var(--x-font); fill: var(--text-primary); }
+      .x-big { width: 100%; min-height: 52px; border: 0; border-radius: var(--r-m); background: var(--x-violet); color: #fff; font: 900 16px var(--x-font); letter-spacing: .02em; cursor: pointer; box-shadow: 0 4px 0 #3d1bc2; }
+      .x-big:active { transform: translateY(2px); box-shadow: 0 2px 0 #3d1bc2; }
+      .x-big:disabled { background: var(--fill-tertiary); color: var(--text-secondary); box-shadow: none; cursor: default; }
+      .x-big.ok { background: var(--x-green); box-shadow: 0 4px 0 #128a52; }
+      .x-big.bad { background: var(--x-red); box-shadow: 0 4px 0 #b52a35; }
+      .x-areas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .x-area { text-align: left; border: 0; border-radius: var(--r-l); padding: 16px; min-height: 120px; color: #fff; font-family: var(--x-font); cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
+      .x-area b { font-size: 16px; font-weight: 900; }
+      .x-area small { font-size: 12px; font-weight: 700; opacity: .9; }
+      .x-area i { font-style: normal; font-size: 28px; }
+      .x-bar { height: 8px; border-radius: var(--r-pill); background: rgba(255,255,255,.35); overflow: hidden; }
+      .x-bar > div { height: 100%; background: #fff; border-radius: inherit; }
+      .x-unit { border-radius: var(--r-l); padding: 16px 20px; color: #fff; }
+      .x-unit h2 { margin: 0; font-size: 20px; }
+      .x-unit p { margin: 4px 0 0; font-size: 14px; font-weight: 700; opacity: .9; }
+      .x-path { display: grid; justify-items: center; gap: 18px; padding: 20px 0 8px; }
+      .x-node { position: relative; width: 72px; height: 72px; border-radius: 50%; border: 0; font-size: 28px; cursor: pointer; color: #fff; box-shadow: 0 6px 0 rgba(0,0,0,.22); }
+      .x-node:nth-child(4n+2) { transform: translateX(48px); } .x-node:nth-child(4n+4) { transform: translateX(-48px); }
+      .x-node.locked { background: var(--fill-tertiary) !important; color: var(--text-secondary); cursor: not-allowed; box-shadow: 0 6px 0 var(--stroke-primary); }
+      .x-node .x-stars { position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%); font-size: 13px; white-space: nowrap; letter-spacing: -1px; }
+      .x-node .x-lbl { position: absolute; top: 50%; left: calc(100% + 10px); transform: translateY(-50%); width: 104px; line-height: 1.25; font: 800 12px var(--x-font); color: var(--text-primary); text-align: left; }
+      .x-node.cur::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 3px solid var(--x-yellow); animation: x-pulse 1.6s infinite; }
+      @keyframes x-pulse { 50% { transform: scale(1.08); opacity: .5; } }
+      @media (prefers-reduced-motion: reduce) { .x-node.cur::after { animation: none; } }
+      .x-panel > h2, .x-h2 { margin: 0 0 12px; font-size: 20px; }
+      .x-panel > .x-list { margin: 16px 0 12px; }
+      .x-sub { font-weight: 700; font-size: 14px; color: var(--text-secondary); }
+      .x-list { display: grid; gap: 10px; }
+      .x-list label, label.x-list { display: grid; gap: 6px; font-weight: 800; font-size: 14px; }
+      .x-list label small { font-weight: 600; color: var(--text-secondary); }
+      .x-av { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--x-violet); color: #fff; display: grid; place-items: center; font: 900 28px var(--x-font); }
+      .x-ach { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .x-ach div { text-align: center; padding: 12px 6px; border-radius: var(--r-m); background: var(--fill-primary-on); font: 800 12px/1.3 var(--x-font); }
+      .x-ach i { display: block; font-style: normal; font-size: 30px; margin-bottom: 4px; }
+      .x-ach .off i { filter: grayscale(1); opacity: .4; }
+      .x-ach small { display: block; font-weight: 600; color: var(--text-secondary); }
+      .x-rev { padding: 12px 0; border-top: 1px solid var(--stroke-secondary); }
+      .x-rev:first-child { border-top: 0; padding-top: 0; }
+      .x-rev p { margin: 4px 0; font-size: 14px; line-height: 1.45; }
+      .x-onb, .x-lesson { position: fixed; inset: 0; z-index: 50; background: var(--fill-primary-on); overflow-y: auto; font-family: var(--x-font); }
+      .x-inner { max-width: 560px; margin: 0 auto; padding: 20px var(--gutter) 140px; display: grid; gap: 16px; }
+      .x-onb input, .x-in { width: 100%; min-height: 52px; padding: 0 16px; border: 2px solid var(--stroke-primary); border-radius: var(--r-m); background: var(--fill-primary-on); color: var(--text-primary); font: 700 17px var(--x-font); }
+      .x-onb input:focus, .x-in:focus { outline: none; border-color: var(--x-violet); }
+      .x-goals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .x-opt { min-height: 56px; width: 100%; text-align: left; padding: 12px 16px; border: 2px solid var(--stroke-primary); border-bottom-width: 4px; border-radius: var(--r-m); background: var(--fill-primary-on); color: var(--text-primary); font: 700 15px/1.35 var(--x-font); cursor: pointer; display: flex; gap: 12px; align-items: center; }
+      .x-goals .x-opt { flex-direction: column; text-align: center; gap: 2px; justify-content: center; }
+      .x-opt kbd { flex: none; width: 30px; height: 30px; border-radius: 8px; border: 2px solid var(--stroke-primary); display: grid; place-items: center; font: 900 13px var(--x-font); }
+      .x-opt[aria-pressed="true"] { border-color: var(--x-violet); background: color-mix(in srgb, var(--x-violet) 10%, transparent); color: var(--x-violet); }
+      .x-opt.right { border-color: var(--x-green); background: color-mix(in srgb, var(--x-green) 14%, transparent); }
+      .x-opt.wrong { border-color: var(--x-red); background: color-mix(in srgb, var(--x-red) 12%, transparent); }
+      .x-lhead { display: flex; align-items: center; gap: 12px; }
+      .x-x { width: var(--tap); height: var(--tap); border: 0; background: none; font-size: 22px; color: var(--text-secondary); cursor: pointer; }
+      .x-prog { flex: 1; height: 14px; border-radius: var(--r-pill); background: var(--fill-tertiary); overflow: hidden; }
+      .x-prog div { height: 100%; background: var(--x-green); border-radius: inherit; transition: width var(--dur-draw) var(--ease-out); }
+      .x-q { font-size: 19px; font-weight: 800; line-height: 1.4; margin: 0; }
+      .x-teoria { font-size: 16px; line-height: 1.6; font-weight: 600; }
+      .x-teoria li { margin-bottom: 8px; }
+      .x-foot { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 16px var(--gutter) calc(16px + env(safe-area-inset-bottom)); background: var(--fill-primary-on); border-top: 1px solid var(--stroke-primary); }
+      .x-foot > div { max-width: 560px; margin: 0 auto; display: grid; gap: 10px; }
+      .x-foot.ok { background: color-mix(in srgb, var(--x-green) 16%, var(--fill-primary-on)); border-color: transparent; }
+      .x-foot.bad { background: color-mix(in srgb, var(--x-red) 14%, var(--fill-primary-on)); border-color: transparent; }
+      .x-foot h3 { margin: 0; font: 900 20px var(--x-font); }
+      .x-foot.ok h3 { color: var(--x-green); } .x-foot.bad h3 { color: var(--x-red); }
+      .x-foot p { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.45; }
+      .x-end { text-align: center; padding-top: 40px; }
+      .x-end .x-starsbig { font-size: 52px; letter-spacing: 4px; }
+      .x-hero h1 { font-family: var(--x-font); }
+      .x-prem { flex: none; min-height: 36px; padding: 0 12px; border: 0; border-radius: var(--r-pill); background: var(--x-yellow); color: #1d1d1f; font: 900 13px var(--x-font); white-space: nowrap; cursor: pointer; box-shadow: 0 3px 0 #c9971f; }
+      .x-prem:active { transform: translateY(2px); box-shadow: 0 1px 0 #c9971f; }
+      @media (max-width: 460px) { .x-bname { display: none; } .x-top .x-stat { padding: 0 8px; } }
+      .x-sheet { z-index: 70; }
+      .x-gold { display: inline-block; margin-top: 4px; padding: 2px 8px; border-radius: var(--r-pill); background: var(--x-yellow); color: #1d1d1f; font: 800 12px/1.4 var(--x-font); white-space: nowrap; }
+      .x-node.sim { border-radius: 24px; outline: 3px solid var(--x-yellow); outline-offset: 3px; }
+      .x-node.sim.locked { outline-color: var(--stroke-primary); }
+      .x-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .x-plans .x-opt { flex-direction: column; align-items: flex-start; gap: 2px; }
+      .x-plans .x-opt b { font-size: 18px; font-weight: 900; }
+      .x-plans .x-opt small { font-weight: 700; color: var(--text-secondary); }
+      .x-ok { padding: 16px; border-radius: var(--r-m); background: color-mix(in srgb, var(--x-green) 14%, transparent); color: var(--text-primary); font-weight: 800; margin: 0; }
+      .x-doc h3 { margin: 20px 0 6px; font: 900 17px var(--x-font); }
+      .x-doc p, .x-doc li { font-size: 15px; line-height: 1.6; }
+      .x-legal { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 0; }
+      .x-list[hidden], .x-auth[hidden] { display: none !important; }
+      .x-auth-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .x-auth-mode .x-opt, .x-center { justify-content: center; text-align: center; }
+      .x-err { margin: 0; color: var(--x-red); font-weight: 800; font-size: 14px; }
+      .x-or { margin: 0; text-align: center; font-weight: 800; color: var(--text-secondary); }
+      .x-buy { display: grid; gap: 12px; }
+      .x-big.x-alt { background: var(--fill-primary-on); color: var(--text-primary); border: 2px solid var(--stroke-primary); box-shadow: 0 4px 0 var(--stroke-primary); }
+      .x-big .x-tag { display: block; font: 800 12px/1.4 var(--x-font); opacity: .9; }
+      .x-linkbtn { justify-self: center; min-height: var(--tap); border: 0; background: none; padding: 0; color: var(--text-secondary); font: 700 14px var(--x-font); text-decoration: underline; cursor: pointer; }
+      .x-prem.is-on { box-shadow: 0 0 0 2px #c9971f inset; }
+      .x-legal button { min-height: var(--tap); border: 0; background: none; padding: 0; color: var(--text-secondary); font: 700 14px var(--x-font); text-decoration: underline; cursor: pointer; }
+    </style>
+  <link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));</script>
+</head>
+  <body>
+    <div class="page" id="top">
+      <!-- Onboarding -->
+      <section class="x-onb" id="onb" hidden aria-label="Boas-vindas">
+        <div class="x-inner">
+          <svg width="72" height="72" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo" /></svg>
+          <h1 style="margin:0;font-size:28px">Bem-vindo à Trilha ENEM</h1>
+          <p style="margin:0;font-weight:600;color:var(--text-secondary)">Lições de 3 minutos para chegar pronto no dia 8 de novembro.</p>
+          <label for="nome" style="font-weight:800">Como podemos te chamar?</label>
+          <input id="nome" autocomplete="given-name" maxlength="24" placeholder="Seu nome" />
+          <p style="margin:8px 0 0;font-weight:800">Meta diária</p>
+          <div class="x-goals" id="goals"></div>
+          <button class="x-big" id="start" disabled>Continuar sem conta</button>
+          <p class="x-or" id="onbOr">ou</p>
+          <button class="x-opt x-center" id="onbAuthBtn" aria-expanded="false" aria-controls="onbAuth">☁️ Criar conta / Entrar</button>
+          <div class="x-list x-auth" id="onbAuth" hidden></div>
+        </div>
+      </section>
+
+      <!-- App -->
+      <div class="x-app" id="app" hidden>
+        <header class="x-top">
+          <span class="x-brand"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo" /></svg><span class="x-bname">Trilha ENEM</span></span>
+          <span class="x-stat" title="Sequência de dias">🔥 <b id="hSeq">0</b></span>
+          <span class="x-stat" title="XP total">⚡ <b id="hXp">0</b></span>
+          <span class="x-stat" title="Vidas">❤️ <b id="hVid">5</b></span>
+          <button class="x-prem" id="hPrem" data-open="premium" aria-label="Conhecer o Trilha ENEM Premium">⭐ Premium</button>
+        </header>
+        <main class="main" style="padding:0">
+          <section class="x-view" id="v-inicio" data-view>
+            <section class="hero x-hero">
+              <img class="hero__img" src="enem-hero.jpg" alt="Estudante estudando com caderno e livros" />
+              <div class="hero__copy">
+                <p class="hero__eyebrow" id="countdown">ENEM 2026</p>
+                <h1 id="hello">Olá!</h1>
+                <p class="hero__sub">Uma lição por dia já faz diferença.</p>
+              </div>
+            </section>
+            <div class="x-panel x-row">
+              <svg class="x-ring" viewBox="0 0 100 100" role="img" aria-label="Progresso da meta diária">
+                <circle class="bg" cx="50" cy="50" r="42" />
+                <circle class="fg" id="ring" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="263.9" />
+                <text x="50" y="57" text-anchor="middle" id="ringTxt">0%</text>
+              </svg>
+              <div style="display:grid;gap:4px">
+                <h2 style="margin:0;font-size:18px">Meta de hoje</h2>
+                <p style="margin:0;font-weight:700;color:var(--text-secondary)" id="metaTxt">0 de 20 XP</p>
+              </div>
+            </div>
+            <button class="x-big" id="cont">Continuar</button>
+            <div>
+              <h2 style="margin:0 0 12px;font-size:20px">Áreas do conhecimento</h2>
+              <div class="x-areas" id="areas"></div>
+            </div>
+          </section>
+          <section class="x-view" id="v-trilha" data-view hidden></section>
+          <section class="x-view" id="v-redacao" data-view hidden>
+            <h1 class="x-hello">Redação nota 1.000</h1>
+            <div class="x-panel">
+              <h2>As 5 competências</h2>
+              <div class="breakdown">
+                <dl>
+                  <div class="row"><dt>C1 <small>Domínio da norma-padrão</small></dt><dd>200</dd></div>
+                  <div class="row"><dt>C2 <small>Compreender a proposta e o tipo dissertativo-argumentativo</small></dt><dd>200</dd></div>
+                  <div class="row"><dt>C3 <small>Selecionar e organizar argumentos</small></dt><dd>200</dd></div>
+                  <div class="row"><dt>C4 <small>Mecanismos de coesão</small></dt><dd>200</dd></div>
+                  <div class="row"><dt>C5 <small>Proposta de intervenção respeitando os direitos humanos</small></dt><dd>200</dd></div>
+                  <div class="row row--total"><dt>Total</dt><dd>1.000</dd></div>
+                </dl>
+              </div>
+            </div>
+            <div>
+              <h2 class="x-h2">Estrutura em 4 parágrafos</h2>
+              <div class="steps">
+                <article class="step"><div class="step__intro"><p class="step__num">01</p><p class="step__eyebrow">Introdução</p></div><div><h3>Contextualização + tese</h3><p>Apresente o tema e deixe claro o seu ponto de vista.</p></div></article>
+                <article class="step"><div class="step__intro"><p class="step__num">02</p><p class="step__eyebrow">Desenvolvimento 1</p></div><div><h3>Argumento + repertório</h3><p>Defenda a tese com um argumento sustentado por repertório.</p></div></article>
+                <article class="step"><div class="step__intro"><p class="step__num">03</p><p class="step__eyebrow">Desenvolvimento 2</p></div><div><h3>Argumento + repertório</h3><p>Um segundo argumento, com outro repertório.</p></div></article>
+                <article class="step"><div class="step__intro"><p class="step__num">04</p><p class="step__eyebrow">Conclusão</p></div><div><h3>Proposta de intervenção</h3><ul class="step__pills"><li>Agente</li><li>Ação</li><li>Meio/modo</li><li>Finalidade</li><li>Detalhamento</li></ul></div></article>
+              </div>
+            </div>
+            <div class="x-panel">
+              <div class="x-row" style="justify-content:space-between"><h2 style="margin:0">Antes de entregar</h2><span class="x-sub" id="chkN"></span></div>
+              <div class="x-list" id="chk"></div>
+              <button class="btn" id="chkClr">Desmarcar tudo</button>
+            </div>
+            <div class="x-panel">
+              <div class="x-row" style="justify-content:space-between"><h2 style="margin:0">Monte sua proposta de intervenção</h2><span class="x-sub" id="propN"></span></div>
+              <div class="x-list" id="prop">
+                <label>Agente <small>quem faz</small><input class="x-in" data-p="0" maxlength="80" placeholder="o Ministério da Educação" /></label>
+                <label>Ação <small>o que faz</small><input class="x-in" data-p="1" maxlength="120" placeholder="promover campanhas nas escolas" /></label>
+                <label>Meio/modo <small>por meio de…</small><input class="x-in" data-p="2" maxlength="120" placeholder="palestras e redes sociais" /></label>
+                <label>Finalidade <small>a fim de…</small><input class="x-in" data-p="3" maxlength="120" placeholder="conscientizar os jovens" /></label>
+                <label>Detalhamento <small>um elemento a mais</small><input class="x-in" data-p="4" maxlength="120" placeholder="órgão responsável pela política educacional" /></label>
+              </div>
+              <aside class="callout" aria-label="Sua proposta" aria-live="polite"><p class="callout__head">Sua proposta</p><p class="callout__lead" id="propOut"></p></aside>
+            </div>
+          </section>
+          <section class="x-view" id="v-perfil" data-view hidden>
+            <div class="x-panel x-row">
+              <div class="x-av" id="pAv" aria-hidden="true">E</div>
+              <label class="x-list" style="flex:1;margin:0">Seu nome<input class="x-in" id="pNomeIn" maxlength="24" autocomplete="given-name" /></label>
+            </div>
+            <div class="x-panel" id="pCloud">
+              <div class="x-row" style="justify-content:space-between;flex-wrap:wrap"><h2 style="margin:0" id="pCloudT">Salve seu progresso na nuvem</h2><span class="x-sub" id="pSync" role="status" aria-live="polite"></span></div>
+              <div id="pOut">
+                <p class="x-sub" style="margin:8px 0 0">Crie uma conta para guardar XP, sequência e lições e continuar em outro aparelho.</p>
+                <div class="x-list x-auth" id="pAuth" style="margin-top:12px"></div>
+              </div>
+              <div id="pIn" hidden>
+                <p style="margin:8px 0 12px;font-weight:700">Conectado como <b id="pEmail"></b></p>
+                <button class="btn" id="pSair">Sair</button>
+              </div>
+            </div>
+            <div class="x-panel">
+              <div class="x-row" style="justify-content:space-between"><h2 style="margin:0" id="pLv">Nível 1</h2><span class="x-sub" id="pLvTxt"></span></div>
+              <div class="x-prog" style="margin-top:12px"><div id="pLvBar"></div></div>
+              <p class="fineprint" style="margin:8px 0 0">Um nível novo a cada 200 XP.</p>
+            </div>
+            <section class="stats">
+              <div class="stat"><span class="stat__fig" id="pXp">0</span><span class="stat__label">XP total</span></div>
+              <div class="stat"><span class="stat__fig" id="pSeq">0</span><span class="stat__label">Sequência</span></div>
+              <div class="stat"><span class="stat__fig" id="pPct">–</span><span class="stat__label">De acerto</span></div>
+            </section>
+            <div class="x-panel"><h2>Acertos por área</h2><div class="x-list" id="pAreas"></div></div>
+            <div class="x-panel"><h2>Conquistas</h2><div class="x-ach" id="pAch"></div></div>
+            <div class="x-panel">
+              <h2>Ajustes</h2>
+              <p class="x-sub" style="margin:0 0 8px">Meta diária</p>
+              <div class="x-goals" id="pGoals"></div>
+              <button class="x-opt" id="pSom" style="margin-top:12px" aria-pressed="true"></button>
+            </div>
+            <div class="x-panel"><h2>Revisar erros</h2><div id="pErr"></div></div>
+            <button class="btn" id="reset" style="justify-self:center">Recomeçar do zero</button>
+            <p class="x-legal"><button data-open="termos">Termos de uso</button><button data-open="privacidade">Política de Privacidade</button></p>
+          </section>
+        </main>
+        <footer class="foot"><p>Trilha ENEM · Conteúdo de estudo independente, sem vínculo com o Inep/MEC.</p></footer>
+        <nav class="x-tabs" role="tablist" aria-label="Navegação">
+          <button role="tab" data-tab="inicio" aria-selected="true"><span>🏠</span>Início</button>
+          <button role="tab" data-tab="trilha" aria-selected="false"><span>🗺️</span>Trilha</button>
+          <button role="tab" data-tab="redacao" aria-selected="false"><span>✍️</span>Redação</button>
+          <button role="tab" data-tab="perfil" aria-selected="false"><span>👤</span>Perfil</button>
+        </nav>
+      </div>
+
+      <!-- Lesson -->
+      <section class="x-lesson" id="lesson" hidden aria-live="polite"><div class="x-inner" id="lsBody"></div></section>
+      <div class="x-foot" id="lsFoot" hidden><div id="lsFootIn"></div></div>
+
+      <!-- Premium -->
+      <section class="x-lesson x-sheet" id="premium" hidden role="dialog" aria-modal="true" aria-labelledby="premT">
+        <div class="x-inner">
+          <div class="x-lhead"><button class="x-x" data-close aria-label="Fechar">✕</button></div>
+          <h2 id="premT" style="margin:0;font-size:28px">⭐ Trilha ENEM Premium</h2>
+          <p style="margin:0;font-weight:600;color:var(--text-secondary)">Estude sem limites até o dia da prova, com simulados completos e uma revisão que aprende com os seus erros.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Recurso</th><th scope="col">Grátis</th><th scope="col">Premium</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Vidas</th><td>5 por dia</td><td class="num">Ilimitadas</td></tr>
+                <tr><th scope="row">Lições</th><td>Lições básicas</td><td>Novas lições toda semana</td></tr>
+                <tr><th scope="row">Guia de redação</th><td>✓ Incluído</td><td>✓ Incluído</td></tr>
+                <tr><th scope="row">Simulados completos por área</th><td class="muted">—</td><td>✓ Incluído</td></tr>
+                <tr><th scope="row">Revisão inteligente de erros</th><td class="muted">—</td><td>✓ Incluída</td></tr>
+                <tr><th scope="row">Anúncios</th><td class="muted">—</td><td>✓ Sem anúncios</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="x-ok" id="premOn" hidden role="status" tabindex="-1">
+            <h3 style="margin:0 0 4px;font-size:20px">Você é Premium 💛</h3>
+            <p style="margin:0" id="premPlan"></p>
+            <p class="fineprint" style="margin:8px 0 0">Para cancelar, acesse Mercado Pago → Assinaturas.</p>
+          </div>
+          <div class="x-buy" id="premBuy">
+            <p style="margin:8px 0 0;font-weight:800">Escolha seu plano</p>
+            <div class="x-buy" id="plans">
+              <button class="x-big x-alt" data-plan="mensal">Assinar mensal · R$ 9,90</button>
+              <button class="x-big" data-plan="anual">Assinar anual · R$ 79,90<span class="x-tag">Economize 33%</span></button>
+            </div>
+            <div class="x-list" id="premAuth" hidden>
+              <p style="margin:0;font-weight:800">Crie sua conta para assinar</p>
+              <div class="x-list x-auth" id="premAuthF"></div>
+            </div>
+            <p class="x-err" id="payErr" role="alert" hidden>Não foi possível abrir o pagamento. Tente novamente.</p>
+            <p class="fineprint" style="margin:0">Pagamento seguro pelo Mercado Pago. Cancele quando quiser.</p>
+            <button class="x-linkbtn" id="wlToggle" aria-expanded="false" aria-controls="wlForm">Só avisar quando tiver novidades</button>
+            <div id="wlForm" class="x-list" hidden>
+              <label for="wlEmail" style="font-weight:800">Seu e-mail</label>
+              <input class="x-in" id="wlEmail" type="email" autocomplete="email" inputmode="email" placeholder="voce@email.com" maxlength="120" />
+              <p class="fineprint" id="wlErr" style="margin:0" hidden>Digite um e-mail válido.</p>
+              <button class="btn" id="wlGo" style="justify-self:start">Me avisar</button>
+              <p class="fineprint" style="margin:0">Seu e-mail fica salvo neste aparelho e na nossa lista de novidades. Veja a <button class="link" data-open="privacidade" style="border:0;background:none;padding:0;font:inherit;color:inherit;cursor:pointer">Política de Privacidade</button>.</p>
+            </div>
+            <p class="x-ok" id="wlOk" hidden role="status">Pronto! Avisaremos quando tiver novidades.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Termos de uso -->
+      <section class="x-lesson x-sheet" id="termos" hidden role="dialog" aria-modal="true" aria-labelledby="termT">
+        <div class="x-inner x-doc">
+          <div class="x-lhead"><button class="x-x" data-close aria-label="Fechar">✕</button></div>
+          <h2 id="termT" style="margin:0;font-size:28px">Termos de uso</h2>
+          <p class="fineprint" style="margin:0">Última atualização: outubro de 2026</p>
+          <div class="prose">
+            <h3>1. O que é a Trilha ENEM</h3>
+            <p>A Trilha ENEM é um conteúdo educacional independente de preparação para o Exame Nacional do Ensino Médio. As lições, questões e explicações foram criadas para estudo e não reproduzem provas oficiais.</p>
+            <h3>2. Sem vínculo oficial</h3>
+            <p>A Trilha ENEM não tem vínculo com o Inep, o MEC ou qualquer órgão do governo. “ENEM” é citado apenas para identificar o exame a que o conteúdo se refere.</p>
+            <h3>3. Sem garantia de aprovação</h3>
+            <p>O app ajuda a organizar e praticar os estudos, mas não garante nota, aprovação ou vaga em qualquer instituição. O resultado depende de cada estudante.</p>
+            <h3>4. Uso pessoal</h3>
+            <p>O conteúdo é licenciado para uso pessoal e não comercial. Não é permitido copiar, revender ou redistribuir as lições e questões sem autorização.</p>
+            <h3>5. Premium</h3>
+            <p>O Premium é uma assinatura recorrente cobrada pelo Mercado Pago: mensal (R$ 9,90) ou anual (R$ 79,90), renovada automaticamente a cada período. Você pode cancelar a qualquer momento pelo Mercado Pago, em Assinaturas; o acesso continua até o fim do período já pago. Pedir avisos de novidades por e-mail não gera cobrança.</p>
+            <h3>6. Alterações e contato</h3>
+            <p>Estes termos podem ser atualizados; a data acima indica a versão vigente. Dúvidas: <a class="link" href="mailto:joaovictorborgessoares6@gmail.com">joaovictorborgessoares6@gmail.com</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Política de Privacidade -->
+      <section class="x-lesson x-sheet" id="privacidade" hidden role="dialog" aria-modal="true" aria-labelledby="privT">
+        <div class="x-inner x-doc">
+          <div class="x-lhead"><button class="x-x" data-close aria-label="Fechar">✕</button></div>
+          <h2 id="privT" style="margin:0;font-size:28px">Política de Privacidade</h2>
+          <p class="fineprint" style="margin:0">Última atualização: outubro de 2026 · Em conformidade com a LGPD (Lei nº 13.709/2018)</p>
+          <div class="prose">
+            <h3>1. Quais dados guardamos</h3>
+            <ul>
+              <li><b>Nome</b> que você informa ao começar.</li>
+              <li><b>Progresso</b>: XP, sequência, lições, simulados, acertos e erros, metas e ajustes.</li>
+              <li><b>E-mail da lista de espera</b> do Premium, se você optar por informá-lo.</li>
+              <li><b>E-mail e senha da conta</b>, se você criar uma. A senha é guardada criptografada.</li>
+            </ul>
+            <h3>2. Onde ficam</h3>
+            <p><b>Sem conta:</b> nome e progresso ficam só no próprio aparelho, no armazenamento local do navegador, e não são enviados a servidores.</p>
+            <p><b>Com conta:</b> seu e-mail e seu progresso ficam guardados nos servidores do Supabase, nosso provedor de banco de dados, para sincronizar entre os seus aparelhos. O e-mail da lista de espera do Premium também é guardado lá.</p>
+            <h3>3. Não vendemos dados</h3>
+            <p>A Trilha ENEM não vende, aluga nem compartilha seus dados pessoais.</p>
+            <h3>4. Seus direitos</h3>
+            <p>Você pode corrigir seu nome no Perfil e apagar tudo a qualquer momento em “Recomeçar do zero” ou limpando os dados do navegador. Sem conta, os dados ficam só no aparelho e apagá-los é definitivo. Com conta, você pode pedir a exclusão da conta e do progresso guardado na nuvem pelo e-mail <a class="link" href="mailto:joaovictorborgessoares6@gmail.com">joaovictorborgessoares6@gmail.com</a>.</p>
+            <h3>5. Contato</h3>
+            <p>Para dúvidas ou solicitações sobre privacidade: <a class="link" href="mailto:joaovictorborgessoares6@gmail.com">joaovictorborgessoares6@gmail.com</a>.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="logo" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="16" fill="#5B2EFF" />
+        <path d="M12 48c10-2 9-14 19-16s10-12 19-15" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 9" />
+        <circle cx="12" cy="48" r="5" fill="#1FBF75" />
+        <path d="M48 7l3.2 6.4 7 1-5 4.9 1.2 7L48 23l-6.3 3.3 1.2-7-5-4.9 7-1z" fill="#FFC83D" />
+      </symbol>
+    </svg>
+
+    <script>
+      /* DATA: units → lessons → teoria + questions [enunciado, [A,B,C,D], índice correto, explicação] */
+      const UNITS = [
+        { t: "Matemática", e: "📐", c: "#5B2EFF", d: "Porcentagem, proporção, estatística e geometria", lessons: [
+          { t: "Porcentagem e proporção", e: "%",
+            teoria: ["<b>Porcentagem</b> é uma fração de 100: 25% = 25/100 = 0,25.", "Aumento de x%: multiplique por (1 + x/100). Desconto de x%: por (1 − x/100).", "<b>Regra de três</b>: grandezas diretamente proporcionais crescem juntas; inversamente, uma cresce e a outra diminui.", "Aumentos sucessivos se <b>multiplicam</b>, não se somam."],
+            q: [
+              ["Uma camiseta de R$ 80 tem desconto de 15%. Qual o preço final?", ["R$ 65,00", "R$ 68,00", "R$ 70,00", "R$ 72,00"], 1, "15% de 80 = 12. Então 80 − 12 = R$ 68. Ou direto: 80 × 0,85 = 68."],
+              ["Um produto subiu 10% e depois mais 10%. O aumento total foi de:", ["20%", "21%", "19%", "22%"], 1, "Aumentos se multiplicam: 1,1 × 1,1 = 1,21, ou seja, 21% de aumento."],
+              ["3 torneiras enchem um tanque em 12 h. Em quanto tempo 4 torneiras iguais o enchem?", ["16 h", "10 h", "9 h", "8 h"], 2, "Grandezas inversas: 3 × 12 = 4 × t, logo t = 36/4 = 9 h."],
+              ["Num mapa de escala 1:50.000, 4 cm representam quantos km?", ["0,2 km", "2 km", "20 km", "200 km"], 1, "4 × 50.000 = 200.000 cm = 2.000 m = 2 km."],
+              ["Uma receita usa 3 ovos para 250 g de farinha. Para 1 kg de farinha, são necessários:", ["9 ovos", "10 ovos", "12 ovos", "15 ovos"], 2, "1 kg = 1.000 g = 4 × 250 g. Então 4 × 3 = 12 ovos."]
+            ] },
+          { t: "Estatística e geometria", e: "📊",
+            teoria: ["<b>Média</b>: soma dos valores dividida pela quantidade.", "<b>Mediana</b>: valor central com os dados em ordem. <b>Moda</b>: o valor que mais aparece.", "Área do retângulo = base × altura. Do triângulo = (base × altura) / 2. Do círculo = π·r².", "<b>Probabilidade</b> = casos favoráveis / casos possíveis."],
+            q: [
+              ["As notas de um aluno foram 6, 7, 8 e 9. Qual a média?", ["7", "7,5", "8", "8,5"], 1, "(6 + 7 + 8 + 9) / 4 = 30 / 4 = 7,5."],
+              ["Qual a mediana de 3, 9, 1, 7, 5?", ["5", "7", "3", "9"], 0, "Em ordem: 1, 3, 5, 7, 9. O valor central é 5."],
+              ["Um terreno retangular mede 12 m por 25 m. Sua área é:", ["37 m²", "74 m²", "300 m²", "150 m²"], 2, "Área = base × altura = 12 × 25 = 300 m²."],
+              ["Ao lançar um dado comum, qual a probabilidade de sair número par?", ["1/6", "1/3", "1/2", "2/3"], 2, "Pares: 2, 4, 6 → 3 casos em 6 possíveis = 3/6 = 1/2."],
+              ["Uma praça circular tem raio 10 m. Usando π = 3, sua área é:", ["30 m²", "60 m²", "100 m²", "300 m²"], 3, "A = π·r² = 3 × 10² = 3 × 100 = 300 m²."]
+            ] }
+        ] },
+        { t: "Natureza", e: "🧪", c: "#1FBF75", d: "Biologia, química e física do dia a dia", lessons: [
+          { t: "Ecologia e biologia", e: "🌱",
+            teoria: ["<b>Cadeia alimentar</b>: produtores (plantas) → consumidores → decompositores.", "A energia <b>diminui</b> a cada nível trófico; a matéria é reciclada.", "<b>Fotossíntese</b>: CO₂ + água + luz → glicose + O₂.", "Vacinas estimulam o corpo a produzir <b>anticorpos</b> e memória imunológica."],
+            q: [
+              ["Numa cadeia alimentar, os organismos que produzem o próprio alimento são:", ["Decompositores", "Consumidores primários", "Produtores", "Predadores"], 2, "Produtores, como plantas e algas, fazem fotossíntese e produzem matéria orgânica."],
+              ["Qual gás é liberado pelas plantas na fotossíntese?", ["Gás carbônico", "Oxigênio", "Nitrogênio", "Metano"], 1, "A fotossíntese consome CO₂ e água e libera O₂."],
+              ["A energia disponível ao longo da cadeia alimentar:", ["Aumenta a cada nível", "Permanece igual", "Diminui a cada nível", "É criada pelos decompositores"], 2, "Cerca de 90% da energia se perde (calor, metabolismo) em cada nível trófico."],
+              ["Como as vacinas protegem o organismo?", ["Matando todos os vírus do corpo", "Estimulando a produção de anticorpos e memória", "Substituindo os glóbulos brancos", "Funcionando como antibiótico"], 1, "Vacinas apresentam antígenos inofensivos e o sistema imune cria memória contra o agente."],
+              ["O desmatamento de matas ciliares tende a causar:", ["Aumento da biodiversidade do rio", "Assoreamento dos rios", "Redução da erosão", "Mais chuvas locais"], 1, "Sem a vegetação nas margens, o solo é carregado para o rio e ele fica assoreado."]
+            ] },
+          { t: "Física e química", e: "⚡",
+            teoria: ["<b>Velocidade média</b> = distância / tempo.", "<b>Potência elétrica</b>: P = U × i. Energia = potência × tempo (kWh na conta de luz).", "<b>pH</b>: abaixo de 7 é ácido, 7 é neutro, acima de 7 é básico.", "Mudanças de estado: fusão (sólido → líquido), vaporização (líquido → gás), condensação (gás → líquido)."],
+            q: [
+              ["Um ônibus percorre 180 km em 3 h. Sua velocidade média é:", ["50 km/h", "60 km/h", "90 km/h", "540 km/h"], 1, "v = d / t = 180 / 3 = 60 km/h."],
+              ["Um chuveiro de 5.000 W ligado 1 h por dia, em 30 dias, consome:", ["15 kWh", "50 kWh", "150 kWh", "5.000 kWh"], 2, "5 kW × 1 h × 30 dias = 150 kWh."],
+              ["Uma solução com pH 3 é:", ["Básica", "Neutra", "Ácida", "Salina"], 2, "pH menor que 7 indica solução ácida."],
+              ["As gotas que se formam do lado de fora de um copo gelado resultam de:", ["Fusão", "Condensação", "Evaporação", "Sublimação"], 1, "O vapor d'água do ar esfria em contato com o copo e passa a líquido: condensação."],
+              ["Ligar vários aparelhos na mesma tomada (benjamim) pode causar:", ["Redução da corrente", "Superaquecimento dos fios", "Economia de energia", "Queda da tensão a zero"], 1, "A corrente total soma; fios sobrecarregados aquecem e podem causar incêndio."]
+            ] }
+        ] },
+        { t: "Humanas", e: "🌎", c: "#F04452", d: "História, geografia, sociologia e filosofia", lessons: [
+          { t: "História do Brasil", e: "🏛️",
+            teoria: ["<b>Brasil Colônia</b> (1500–1822): economia do açúcar e do ouro, mão de obra escravizada.", "<b>Independência</b> em 1822; <b>Lei Áurea</b> em 1888; <b>República</b> em 1889.", "<b>Era Vargas</b> (1930–1945): CLT, voto feminino (1932) e Estado Novo.", "<b>Ditadura militar</b> (1964–1985) e a <b>Constituição Cidadã</b> de 1988."],
+            q: [
+              ["A Lei Áurea, que aboliu a escravidão no Brasil, foi assinada em:", ["1822", "1850", "1888", "1889"], 2, "Assinada pela princesa Isabel em 13 de maio de 1888."],
+              ["A Consolidação das Leis do Trabalho (CLT) foi criada no governo de:", ["Dom Pedro II", "Getúlio Vargas", "Juscelino Kubitschek", "Fernando Henrique"], 1, "A CLT é de 1943, durante o Estado Novo de Getúlio Vargas."],
+              ["O principal produto da economia colonial nos séculos XVI e XVII foi:", ["Café", "Borracha", "Açúcar", "Soja"], 2, "O ciclo do açúcar, no Nordeste, dominou a economia colonial nesse período."],
+              ["A Constituição de 1988 ficou conhecida como “Cidadã” porque:", ["Criou a monarquia", "Ampliou direitos sociais e políticos", "Proibiu partidos", "Acabou com o voto direto"], 1, "Ela garantiu direitos após a ditadura, como saúde universal (SUS) e voto aos 16 anos."],
+              ["O AI-5, de 1968, é associado a:", ["Abertura democrática", "Endurecimento da ditadura", "Fim da escravidão", "Proclamação da República"], 1, "O AI-5 fechou o Congresso, suspendeu o habeas corpus e ampliou a censura."]
+            ] },
+          { t: "Geografia e sociedade", e: "🗺️",
+            teoria: ["<b>Urbanização</b> brasileira acelerou a partir de 1950 com o êxodo rural.", "<b>Biomas</b>: Amazônia, Cerrado, Mata Atlântica, Caatinga, Pampa e Pantanal.", "<b>Globalização</b>: integração de mercados, informação e cultura.", "Sociologia: <b>cidadania</b> é o exercício de direitos e deveres civis, políticos e sociais."],
+            q: [
+              ["O bioma brasileiro mais devastado historicamente, por ocupar o litoral, é:", ["Amazônia", "Mata Atlântica", "Pantanal", "Pampa"], 1, "A Mata Atlântica foi ocupada desde a colonização e restam cerca de 12% da cobertura original."],
+              ["O êxodo rural é:", ["Migração da cidade para o campo", "Migração do campo para a cidade", "Saída de brasileiros para o exterior", "Migração entre estados do Sul"], 1, "É o deslocamento da população rural para as cidades, intenso no Brasil a partir de 1950."],
+              ["O bioma de clima semiárido, típico do Nordeste, é a:", ["Caatinga", "Cerrado", "Mata de Araucárias", "Restinga"], 0, "A Caatinga tem chuvas escassas e irregulares e vegetação adaptada à seca."],
+              ["Um efeito da globalização é:", ["Isolamento das economias", "Maior circulação de mercadorias e informações", "Fim das empresas multinacionais", "Redução do comércio exterior"], 1, "A globalização integra mercados e acelera fluxos de capital, bens e informação."],
+              ["Votar, ter acesso à saúde e à educação são exemplos de:", ["Deveres militares", "Direitos de cidadania", "Privilégios de classe", "Normas religiosas"], 1, "São direitos políticos e sociais que compõem a cidadania."]
+            ] }
+        ] },
+        { t: "Linguagens", e: "📚", c: "#FFC83D", d: "Interpretação, gêneros e gramática", lessons: [
+          { t: "Interpretação e gêneros", e: "📖",
+            teoria: ["Leia o <b>comando</b> antes do texto: ele diz o que procurar.", "<b>Gêneros</b>: notícia informa, artigo de opinião argumenta, charge critica com humor.", "<b>Inferir</b> é concluir algo que o texto sugere sem dizer diretamente.", "Atenção à <b>intencionalidade</b>: para que e para quem o texto foi escrito?"],
+            q: [
+              ["O gênero que defende um ponto de vista com argumentos é o:", ["Notícia", "Artigo de opinião", "Receita", "Bula"], 1, "O artigo de opinião é argumentativo; a notícia busca relatar fatos."],
+              ["A charge costuma:", ["Ensinar um procedimento", "Criticar um fato atual com humor", "Narrar uma lenda antiga", "Listar ingredientes"], 1, "A charge usa humor e exagero para criticar acontecimentos do momento."],
+              ["Inferir uma informação significa:", ["Copiar uma frase do texto", "Concluir algo implícito no texto", "Contar as palavras", "Ignorar o contexto"], 1, "A inferência é uma conclusão apoiada em pistas do texto, não dita literalmente."],
+              ["Um anúncio de campanha de vacinação tem como objetivo principal:", ["Entreter", "Convencer o público a agir", "Narrar uma história", "Descrever uma paisagem"], 1, "Textos publicitários e campanhas são persuasivos: querem levar o leitor a agir."],
+              ["Na expressão “chover canivetes”, há uso de:", ["Linguagem denotativa", "Linguagem conotativa", "Linguagem técnica", "Linguagem científica"], 1, "É sentido figurado: significa chover muito, não cair canivetes de fato."]
+            ] },
+          { t: "Gramática e funções", e: "✏️",
+            teoria: ["<b>Funções da linguagem</b>: referencial (informar), emotiva (emoção do emissor), conativa (convencer o receptor), metalinguística (a língua falando de si), fática (testar o canal), poética (forma da mensagem).", "<b>Variação linguística</b>: regional, social e de situação; nenhuma é “errada”, há adequação.", "<b>Conectivos</b>: “mas” opõe, “portanto” conclui, “porque” explica."],
+            q: [
+              ["“Compre já! Você merece!” Predomina a função:", ["Referencial", "Emotiva", "Conativa", "Fática"], 2, "A função conativa (apelativa) se dirige ao receptor para convencê-lo, com imperativos e “você”."],
+              ["Um dicionário explicando o que é “verbo” exemplifica a função:", ["Poética", "Metalinguística", "Fática", "Emotiva"], 1, "É a língua explicando a própria língua: metalinguagem."],
+              ["“Alô? Está me ouvindo?” é exemplo de função:", ["Fática", "Referencial", "Conativa", "Poética"], 0, "A função fática testa ou mantém o canal de comunicação."],
+              ["No ENEM, a variação linguística deve ser vista como:", ["Erro a ser corrigido", "Marca de identidade e adequação ao contexto", "Exclusiva das regiões rurais", "Proibida na fala"], 1, "O ENEM valoriza o respeito às variedades e a adequação ao contexto, combatendo o preconceito linguístico."],
+              ["“Estudou muito, portanto passou.” O conectivo “portanto” indica:", ["Oposição", "Conclusão", "Condição", "Tempo"], 1, "“Portanto” introduz uma conclusão do que foi dito antes."]
+            ] }
+        ] }
+      ];
+    </script>
+    <script src="hark.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      (function () {
+        const $ = (id) => document.getElementById(id);
+        const KEY = "trilha-enem-v1", MAXV = 5, ENEM = new Date(2026, 10, 8);
+        const today = () => new Date().toLocaleDateString("sv");
+        const yesterday = () => { const d = new Date(); d.setDate(d.getDate() - 1); return d.toLocaleDateString("sv"); };
+        const ink = (c) => (c === "#FFC83D" ? "#1d1d1f" : "#fff");
+        /* Conta e nuvem (Supabase); sem a biblioteca, o app segue só local */
+        const SUPABASE_URL = "https://nfzfhqjvzpukltajppma.supabase.co", SUPABASE_KEY = "sb_publishable_m4MtIiU6B1FI-kNsFglQMg_B_xIQ8IH";
+        let sb = null, user = null, syncT = null, syncedFor = null, cloud = "";
+        try { if (window.supabase && window.supabase.createClient) sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY); } catch (e) { sb = null; }
+        const DEF = () => ({ nome: "", meta: 20, xp: 0, xpHoje: 0, dia: today(), seq: 0, ultimo: "", vidas: MAXV, done: {}, chk: {}, prop: ["", "", "", "", ""], area: {}, err: [], sons: true, seqMax: 0, sim: {}, wl: null, premium: null });
+        function norm(x) {
+          const s = Object.assign(DEF(), x || {});
+          s.seqMax = Math.max(s.seqMax, s.seq);
+          if (s.dia !== today()) { s.dia = today(); s.xpHoje = 0; s.vidas = MAXV; }
+          if (s.ultimo && s.ultimo !== today() && s.ultimo !== yesterday()) s.seq = 0;
+          return s;
+        }
+        function setCloud(t) { cloud = t; const el = $("pSync"); if (el) el.textContent = user ? t : ""; }
+        async function push() {
+          clearTimeout(syncT);
+          if (!sb || !user) return;
+          try {
+            const { error } = await sb.from("progress").upsert({ user_id: user.id, data: S, updated_at: new Date().toISOString() });
+            setCloud(error ? (navigator.onLine ? "⚠️ Não salvou na nuvem" : "⚠️ Sem internet") : "☁️ Salvo");
+          } catch (e) { setCloud("⚠️ Sem internet"); }
+        }
+        function queueSync() { if (!sb || !user) return; clearTimeout(syncT); setCloud("☁️ Salvando…"); syncT = setTimeout(push, 2000); }
+        window.addEventListener("online", () => { if (user) push(); });
+        let S;
+        try { S = JSON.parse(localStorage.getItem(KEY)) || null; } catch (e) { S = null; }
+        S = norm(S);
+        const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} queueSync(); };
+        save();
+        const isPrem = () => !!(S.premium && S.premium.premium);
+
+        /* Sons (Web Audio) */
+        let AC;
+        function tone(notes) {
+          if (!S.sons) return;
+          try {
+            AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+            if (AC.state === "suspended") AC.resume();
+            notes.forEach(([f, t, d, type]) => {
+              const o = AC.createOscillator(), g = AC.createGain(), s = AC.currentTime + t;
+              o.type = type || "sine"; o.frequency.value = f;
+              g.gain.setValueAtTime(0.0001, s); g.gain.exponentialRampToValueAtTime(0.18, s + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, s + d);
+              o.connect(g).connect(AC.destination); o.start(s); o.stop(s + d + 0.05);
+            });
+          } catch (e) {}
+        }
+        const SND = {
+          tap: () => tone([[660, 0, 0.06, "triangle"]]),
+          ok: () => tone([[784, 0, 0.12], [1047, 0.1, 0.2]]),
+          bad: () => tone([[220, 0, 0.18, "sawtooth"], [180, 0.15, 0.25, "sawtooth"]]),
+          win: () => tone([[523, 0, 0.14], [659, 0.12, 0.14], [784, 0.24, 0.14], [1047, 0.36, 0.35]]),
+        };
+
+        /* Progresso */
+        const lessonKey = (u, l) => u + "-" + l;
+        const flat = UNITS.flatMap((u, ui) => u.lessons.map((l, li) => [ui, li]));
+        const unlocked = (ui, li) => { const i = flat.findIndex(([a, b]) => a === ui && b === li); return i === 0 || S.done[lessonKey(...flat[i - 1])] != null; };
+        const nextLesson = () => flat.find(([a, b]) => S.done[lessonKey(a, b)] == null) || flat[0];
+        const unitDone = (ui) => UNITS[ui].lessons.filter((_, li) => S.done[lessonKey(ui, li)] != null).length;
+
+        function header() {
+          const p = isPrem(), hp = $("hPrem");
+          $("hSeq").textContent = S.seq; $("hXp").textContent = S.xp; $("hVid").textContent = p ? "∞" : S.vidas;
+          hp.textContent = p ? "Premium ✓" : "⭐ Premium"; hp.classList.toggle("is-on", p);
+          hp.setAttribute("aria-label", p ? "Você é Premium: ver assinatura" : "Conhecer o Trilha ENEM Premium");
+        }
+        function renderInicio() {
+          const days = Math.max(0, Math.ceil((ENEM - new Date().setHours(0, 0, 0, 0)) / 864e5));
+          $("countdown").textContent = `Faltam ${days} dias · ENEM 8/11/2026`;
+          $("hello").textContent = `Olá, ${S.nome || "estudante"}!`;
+          const p = Math.min(1, S.xpHoje / S.meta);
+          $("ring").style.strokeDashoffset = 263.9 * (1 - p);
+          $("ringTxt").textContent = Math.round(p * 100) + "%";
+          $("metaTxt").textContent = `${S.xpHoje} de ${S.meta} XP${p >= 1 ? " · meta batida! 🎉" : ""}`;
+          const [nu, nl] = nextLesson();
+          $("cont").textContent = `Continuar: ${UNITS[nu].lessons[nl].t}`;
+          $("areas").innerHTML = UNITS.map((u, i) => {
+            const n = unitDone(i), tot = u.lessons.length;
+            return `<button class="x-area" data-unit="${i}" style="background:${u.c};color:${ink(u.c)}"><i>${u.e}</i><span><b>${u.t}</b><br><small>${n} de ${tot} lições</small></span><div class="x-bar" style="${u.c === "#FFC83D" ? "background:rgba(0,0,0,.15)" : ""}"><div style="width:${(n / tot) * 100}%;${u.c === "#FFC83D" ? "background:#1d1d1f" : ""}"></div></div></button>`;
+          }).join("");
+        }
+        function renderTrilha() {
+          const [nu, nl] = nextLesson();
+          $("v-trilha").innerHTML = UNITS.map((u, ui) => `
+            <div id="unit-${ui}">
+              <div class="x-unit" style="background:${u.c};color:${ink(u.c)}"><h2>Unidade ${ui + 1} · ${u.t}</h2><p>${u.d}</p></div>
+              <div class="x-path">${u.lessons.map((l, li) => {
+                const st = S.done[lessonKey(ui, li)], open = unlocked(ui, li), cur = ui === nu && li === nl && st == null;
+                const stars = st != null ? "⭐".repeat(st) + "☆".repeat(3 - st) : "";
+                return `<button class="x-node${open ? "" : " locked"}${cur ? " cur" : ""}" style="background:${st != null ? "var(--x-green)" : u.c}" data-u="${ui}" data-l="${li}" ${open ? "" : "aria-disabled=\"true\""} aria-label="${l.t}${open ? "" : " (bloqueada)"}${st != null ? ", " + st + " estrelas" : ""}">${open ? (st != null ? "✓" : l.e) : "🔒"}<span class="x-stars">${stars}</span><span class="x-lbl">${l.t}</span></button>`;
+              }).join("")}${(() => {
+                const open = unitDone(ui) === u.lessons.length, best = S.sim[ui];
+                return `<button class="x-node sim${open ? "" : " locked"}" style="background:${best != null ? "var(--x-green)" : u.c}" data-sim="${ui}" ${open ? "" : "aria-disabled=\"true\""} aria-label="Simulado da área, ${u.t}${open ? "" : " (bloqueado: conclua as 2 lições)"}${best != null ? ", melhor nota " + best + "%" : ""}${isPrem() ? "" : ". Premium em breve"}">${open ? "🏁" : "🔒"}<span class="x-stars">${best != null ? best + "%" : ""}</span><span class="x-lbl">Simulado da área${isPrem() ? "" : '<br><span class="x-gold">⭐ Premium em breve</span>'}</span></button>`;
+              })()}</div>
+            </div>`).join("");
+        }
+        /* Perfil */
+        const GOALS = [[10, "Leve"], [20, "Regular"], [30, "Intensa"]];
+        const ACH = [
+          ["🎓", "Primeira lição", () => Object.keys(S.done).length > 0],
+          ["🔥", "Sequência de 3 dias", () => S.seqMax >= 3],
+          ["🏆", "Sequência de 7 dias", () => S.seqMax >= 7],
+          ["⚡", "500 XP", () => S.xp >= 500],
+          ["💯", "Gabaritou uma lição", () => Object.values(S.done).includes(3)],
+          ["🗺️", "Área concluída", () => UNITS.some((u, i) => unitDone(i) === u.lessons.length)],
+        ];
+        function renderPerfil() {
+          $("pAv").textContent = (S.nome || "E")[0].toUpperCase();
+          if (document.activeElement !== $("pNomeIn")) $("pNomeIn").value = S.nome;
+          const lv = Math.floor(S.xp / 200) + 1, r = S.xp % 200;
+          $("pLv").textContent = `Nível ${lv}`; $("pLvTxt").textContent = `${r}/200 XP`; $("pLvBar").style.width = r / 2 + "%";
+          let c = 0, a = 0; Object.values(S.area).forEach(([x, y]) => { c += x; a += y; });
+          $("pXp").textContent = S.xp; $("pSeq").textContent = "🔥 " + S.seq; $("pPct").textContent = a ? Math.round((c / a) * 100) + "%" : "–";
+          $("pAreas").innerHTML = UNITS.map((u, i) => { const [x, y] = S.area[i] || [0, 0];
+            return `<div><div class="x-row" style="justify-content:space-between;font-weight:800;font-size:14px"><span>${u.e} ${u.t}</span><span class="x-sub">${y ? `${x}/${y} · ${Math.round((x / y) * 100)}%` : "Sem respostas"}</span></div><div class="x-prog" style="height:10px;margin-top:6px"><div style="width:${y ? (x / y) * 100 : 0}%;background:${u.c}"></div></div></div>`; }).join("");
+          $("pAch").innerHTML = ACH.map(([e, t, f]) => { const on = f(); return `<div class="${on ? "" : "off"}"><i>${e}</i>${t}<small>${on ? "Desbloqueada" : "🔒 Bloqueada"}</small></div>`; }).join("");
+          $("pGoals").innerHTML = GOALS.map(([x, n]) => `<button class="x-opt" data-g="${x}" aria-pressed="${x === S.meta}"><b>${x} XP</b><small>${n}</small></button>`).join("");
+          $("pSom").setAttribute("aria-pressed", S.sons); $("pSom").textContent = S.sons ? "🔊 Sons ligados" : "🔇 Sons desligados";
+          const errs = S.err.map((k) => { const [ui, li, i] = k.split("-").map(Number), l = UNITS[ui] && UNITS[ui].lessons[li]; return l && l.q[i] && [UNITS[ui], l, l.q[i]]; }).filter(Boolean);
+          $("pErr").innerHTML = errs.length ? errs.map(([u, l, [q, o, ans, exp]]) => `<div class="x-rev"><p class="fineprint">${u.e} ${l.t}</p><p style="font-weight:800">${q}</p><p><span class="chip chip--solid">Resposta: ${"ABCD"[ans]}) ${o[ans]}</span></p><p><b>Explicação:</b> ${exp}</p></div>`).join("") : `<p class="x-sub" style="margin:0">Nenhum erro para revisar. 🎉</p>`;
+        }
+        $("pNomeIn").oninput = (e) => { const v = e.target.value.trim(); if (v) { S.nome = v; save(); render(); } };
+        $("pNomeIn").onblur = (e) => (e.target.value = S.nome);
+        $("pGoals").onclick = (e) => { const b = e.target.closest("[data-g]"); if (!b) return; SND.tap(); S.meta = +b.dataset.g; save(); render(); };
+        $("pSom").onclick = () => { S.sons = !S.sons; save(); SND.tap(); renderPerfil(); };
+
+        /* Redação */
+        const CHK = ["Entre 7 e 30 linhas", "Não fugi do tema", "Tese clara na introdução", "Repertório em cada desenvolvimento", "Proposta com os 5 elementos", "Respeitei os direitos humanos"];
+        function renderChk() {
+          const n = CHK.filter((_, i) => S.chk[i]).length;
+          $("chkN").textContent = `${n} de ${CHK.length}${n === CHK.length ? " ✅" : ""}`;
+          $("chk").innerHTML = CHK.map((t, i) => `<button class="x-opt" data-c="${i}" aria-pressed="${!!S.chk[i]}"><kbd>${S.chk[i] ? "✓" : ""}</kbd>${t}</button>`).join("");
+        }
+        $("chk").onclick = (e) => { const b = e.target.closest("[data-c]"); if (!b) return; SND.tap(); S.chk[b.dataset.c] = !S.chk[b.dataset.c]; save(); renderChk(); };
+        $("chkClr").onclick = () => { S.chk = {}; save(); renderChk(); };
+        function propOut() {
+          const p = S.prop, f = (v, ph) => v || `[${ph}]`;
+          const s = `${f(p[0], "agente")} deve ${f(p[1], "ação")}, por meio de ${f(p[2], "meio/modo")}, a fim de ${f(p[3], "finalidade")}${p[4] ? `, ${p[4]}` : ""}.`;
+          $("propOut").textContent = s[0].toUpperCase() + s.slice(1);
+          $("propN").textContent = `${p.filter(Boolean).length} de 5`;
+        }
+        $("prop").querySelectorAll("[data-p]").forEach((x) => (x.value = S.prop[x.dataset.p] || ""));
+        $("prop").oninput = (e) => { const i = e.target.dataset.p; if (i == null) return; S.prop[i] = e.target.value.trim(); save(); propOut(); };
+        renderChk(); propOut();
+
+        function render() { header(); renderInicio(); renderTrilha(); renderPerfil(); }
+
+        /* Abas */
+        function tab(name) {
+          document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === name));
+          document.querySelectorAll("[data-view]").forEach((v) => (v.hidden = v.id !== "v-" + name));
+          window.scrollTo(0, 0);
+        }
+        document.querySelectorAll("[data-tab]").forEach((b) => (b.onclick = () => { SND.tap(); tab(b.dataset.tab); }));
+        $("areas").onclick = (e) => { const b = e.target.closest("[data-unit]"); if (!b) return; SND.tap(); tab("trilha"); $("unit-" + b.dataset.unit).scrollIntoView({ block: "start" }); };
+        $("v-trilha").onclick = (e) => { const b = e.target.closest(".x-node"); if (!b || b.classList.contains("locked")) return; if (b.dataset.sim != null) return startSim(+b.dataset.sim); startLesson(+b.dataset.u, +b.dataset.l); };
+
+        /* Telas cheias: Premium, Termos, Privacidade */
+        let lastFocus;
+        function openSheet(id) {
+          SND.tap(); lastFocus = document.activeElement;
+          document.querySelectorAll(".x-sheet").forEach((s) => (s.hidden = s.id !== id));
+          const s = $(id); s.scrollTop = 0;
+          if (id === "premium") renderPremium();
+          s.querySelector("[data-close]").focus();
+        }
+        function closeSheet() { document.querySelectorAll(".x-sheet").forEach((s) => (s.hidden = true)); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+        document.addEventListener("click", (e) => {
+          const o = e.target.closest("[data-open]"); if (o) { e.preventDefault(); return openSheet(o.dataset.open); }
+          if (e.target.closest("[data-close]")) closeSheet();
+        });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape" && [...document.querySelectorAll(".x-sheet")].some((s) => !s.hidden)) closeSheet(); });
+        /* Premium: assinatura via Mercado Pago (Supabase Edge Function) */
+        const PLAN_NAME = { mensal: "Mensal", anual: "Anual" };
+        const fmtDate = (s) => {
+          const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+          if (m) return `${m[3]}/${m[2]}/${m[1]}`;
+          const d = new Date(s); return isNaN(d) ? String(s) : d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+        };
+        async function premCall(payload) {
+          const { data } = await sb.auth.getSession();
+          const tok = data && data.session && data.session.access_token;
+          if (!tok) throw new Error("sem sessão");
+          const r = await fetch(SUPABASE_URL + "/functions/v1/premium", { method: "POST", headers: { apikey: SUPABASE_KEY, Authorization: "Bearer " + tok, "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+          const j = await r.json().catch(() => ({}));
+          if (!r.ok && !j.error) j.error = "HTTP " + r.status;
+          return j;
+        }
+        let premBusy = false;
+        function applyPrem() { if (!$("app").hidden) render(); if (!$("premium").hidden) renderPremium(); }
+        async function checkPremium() {
+          if (!sb || !user || premBusy) return;
+          premBusy = true;
+          try {
+            const j = await premCall({ action: "status" });
+            if (!j.error && typeof j.premium === "boolean") { S.premium = { premium: j.premium, plan: j.plan || null, next: j.next || null }; save(); applyPrem(); }
+          } catch (e) {}
+          premBusy = false;
+        }
+        window.addEventListener("focus", checkPremium);
+        document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") checkPremium(); });
+        let pendingPlan = null;
+        const planBtns = () => [...$("plans").querySelectorAll("[data-plan]")];
+        const LABEL = { mensal: "Assinar mensal · R$ 9,90", anual: 'Assinar anual · R$ 79,90<span class="x-tag">Economize 33%</span>' };
+        const resetBtns = () => planBtns().forEach((b) => { b.disabled = false; b.innerHTML = LABEL[b.dataset.plan]; });
+        async function subscribe(plan) {
+          $("payErr").hidden = true;
+          if (!sb) { $("payErr").hidden = false; return; }
+          if (!user) {
+            if ($("premAuth").hidden) { const c = $("premAuthF").querySelector('[data-m="criar"]'); if (c) c.click(); }
+            pendingPlan = plan; $("premAuth").hidden = false; $("premAuth").querySelector('[name="email"]').focus(); return;
+          }
+          planBtns().forEach((b) => { b.disabled = true; if (b.dataset.plan === plan) b.textContent = "Abrindo pagamento…"; });
+          try {
+            const j = await premCall({ action: "subscribe", plan });
+            if (!j.url) throw new Error(j.error || "sem url");
+            try { window.top.location.href = j.url; } catch (e) { if (!window.open(j.url, "_blank")) location.href = j.url; }
+            setTimeout(resetBtns, 5000);
+          } catch (e) { SND.bad(); resetBtns(); $("payErr").hidden = false; }
+        }
+        $("plans").onclick = (e) => { const b = e.target.closest("[data-plan]"); if (!b || b.disabled) return; SND.tap(); subscribe(b.dataset.plan); };
+        authForm($("premAuthF"), null, async () => {
+          if (!user) { try { const { data } = await sb.auth.getSession(); user = (data.session && data.session.user) || null; } catch (e) {} }
+          $("premAuth").hidden = true;
+          checkPremium();
+          if (pendingPlan) { const p = pendingPlan; pendingPlan = null; subscribe(p); }
+        });
+        function renderPremium() {
+          const p = isPrem();
+          $("premOn").hidden = !p; $("premBuy").hidden = p;
+          if (p) {
+            const pr = S.premium, name = PLAN_NAME[pr.plan] || pr.plan;
+            $("premPlan").textContent = (name ? "Plano " + name : "Plano Premium") + (pr.next ? ` · próxima cobrança em ${fmtDate(pr.next)}` : "");
+          }
+          if (user) $("premAuth").hidden = true;
+          $("wlToggle").hidden = !!S.wl; $("wlOk").hidden = !S.wl; $("wlErr").hidden = true;
+          if (S.wl) { $("wlForm").hidden = true; $("wlOk").textContent = `Pronto! Avisaremos quando tiver novidades. (${S.wl.email})`; }
+        }
+        $("wlToggle").onclick = () => { SND.tap(); const open = $("wlForm").hidden; $("wlForm").hidden = !open; $("wlToggle").setAttribute("aria-expanded", open); if (open) $("wlEmail").focus(); };
+        $("wlGo").onclick = () => {
+          const v = $("wlEmail").value.trim();
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { $("wlErr").hidden = false; $("wlEmail").focus(); return; }
+          S.wl = { email: v, em: today() }; save(); SND.win(); renderPremium(); $("wlOk").focus();
+          if (sb) { try { sb.from("waitlist").insert({ email: v }).then(() => {}, () => {}); } catch (e) {} }
+        };
+        $("wlEmail").onkeydown = (e) => { if (e.key === "Enter") $("wlGo").click(); };
+        $("wlOk").tabIndex = -1;
+        $("cont").onclick = () => startLesson(...nextLesson());
+
+        /* Onboarding */
+        let meta = S.meta;
+        $("goals").innerHTML = [[10, "Leve"], [20, "Regular"], [30, "Intensa"]].map(([x, n]) => `<button class="x-opt" data-g="${x}" aria-pressed="${x === meta}"><b>${x} XP</b><small>${n}</small></button>`).join("");
+        const check = () => ($("start").disabled = !$("nome").value.trim());
+        $("nome").oninput = check;
+        $("goals").onclick = (e) => { const b = e.target.closest("[data-g]"); if (!b) return; SND.tap(); meta = +b.dataset.g; $("goals").querySelectorAll("[data-g]").forEach((x) => x.setAttribute("aria-pressed", x === b)); };
+        $("start").onclick = () => { S.nome = $("nome").value.trim(); S.meta = meta; save(); SND.win(); $("onb").hidden = true; $("app").hidden = false; render(); };
+        $("reset").onclick = async () => {
+          if (!confirm("Apagar todo o progresso?")) return;
+          clearTimeout(syncT);
+          try { localStorage.removeItem(KEY); } catch (e) {}
+          if (sb && user) { try { await sb.from("progress").upsert({ user_id: user.id, data: DEF(), updated_at: new Date().toISOString() }); } catch (e) {} }
+          location.reload();
+        };
+
+        /* Formulário de conta (onboarding e Perfil) */
+        const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        function authMsg(e) {
+          const m = String((e && e.message) || "").toLowerCase(), c = (e && e.code) || "";
+          if (!sb || !navigator.onLine || (e && e.name === "AuthRetryableFetchError") || /fetch|network|load failed/.test(m)) return "Sem internet. Verifique sua conexão e tente de novo.";
+          if (c === "invalid_credentials" || m.includes("invalid login")) return "E-mail ou senha incorretos. Confira e tente de novo.";
+          if (c === "user_already_exists" || c === "email_exists" || m.includes("already registered")) return "Este e-mail já está cadastrado. Toque em Entrar.";
+          if (c === "weak_password" || m.includes("password should")) return "A senha precisa ter pelo menos 6 caracteres.";
+          if (c === "email_address_invalid" || (m.includes("invalid") && m.includes("email"))) return "Digite um e-mail válido.";
+          if (c.startsWith("over_") || m.includes("rate limit")) return "Muitas tentativas. Espere um pouco e tente de novo.";
+          return "Não deu certo agora. Tente de novo em instantes.";
+        }
+        function authForm(box, before, done) {
+          let mode = "entrar";
+          box.innerHTML = `<div class="x-auth-mode" role="group" aria-label="Tipo de acesso"><button class="x-opt" data-m="entrar">Entrar</button><button class="x-opt" data-m="criar">Criar conta</button></div>
+            <label>E-mail<input class="x-in" type="email" name="email" autocomplete="email" inputmode="email" maxlength="120" placeholder="voce@email.com" /></label>
+            <label>Senha<input class="x-in" type="password" name="senha" minlength="6" placeholder="Mínimo de 6 caracteres" /></label>
+            <p class="x-err" role="alert" hidden></p>
+            <button class="x-big" data-go>Entrar</button>`;
+          const q = (s) => box.querySelector(s), em = q('[name="email"]'), pw = q('[name="senha"]'), err = q(".x-err"), go = q("[data-go]");
+          const label = () => (go.textContent = mode === "entrar" ? "Entrar" : "Criar conta");
+          const paint = () => { box.querySelectorAll("[data-m]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.m === mode)); pw.autocomplete = mode === "entrar" ? "current-password" : "new-password"; err.hidden = true; label(); };
+          const fail = (t) => { err.textContent = t; err.hidden = false; };
+          q(".x-auth-mode").onclick = (e) => { const b = e.target.closest("[data-m]"); if (!b) return; SND.tap(); mode = b.dataset.m; paint(); };
+          go.onclick = async () => {
+            const email = em.value.trim(), password = pw.value;
+            if (!EMAIL_RE.test(email)) { fail("Digite um e-mail válido."); em.focus(); return; }
+            if (password.length < 6) { fail("A senha precisa ter pelo menos 6 caracteres."); pw.focus(); return; }
+            if (!sb) return fail(authMsg());
+            err.hidden = true; go.disabled = true; go.textContent = "Aguarde…";
+            if (before) before();
+            try {
+              const { data, error } = mode === "entrar" ? await sb.auth.signInWithPassword({ email, password }) : await sb.auth.signUp({ email, password });
+              if (error) throw error;
+              if (data.user && Array.isArray(data.user.identities) && !data.user.identities.length) throw { code: "user_already_exists" };
+              pw.value = ""; SND.win();
+              if (done) done(email);
+            } catch (e) { SND.bad(); fail(authMsg(e)); }
+            go.disabled = false; label();
+          };
+          [em, pw].forEach((x) => (x.onkeydown = (e) => { if (e.key === "Enter") go.click(); }));
+          paint();
+        }
+        function renderAuth() {
+          $("pOut").hidden = !!user; $("pIn").hidden = !user;
+          $("pCloudT").textContent = user ? "Sua conta" : "Salve seu progresso na nuvem";
+          $("pEmail").textContent = user ? user.email || "" : "";
+          $("pSync").textContent = user ? cloud : "";
+        }
+        function refresh() {
+          $("prop").querySelectorAll("[data-p]").forEach((x) => (x.value = S.prop[x.dataset.p] || ""));
+          renderChk(); propOut();
+          if (S.nome && !$("onb").hidden) { $("onb").hidden = true; $("app").hidden = false; }
+          if (!$("app").hidden) render();
+        }
+        async function pull() {
+          if (!sb || !user) return;
+          setCloud("☁️ Sincronizando…");
+          try {
+            const { data, error } = await sb.from("progress").select("data").eq("user_id", user.id).maybeSingle();
+            if (error) throw error;
+            const remote = data && data.data;
+            if (remote && (+remote.xp || 0) > S.xp) {
+              const nome = S.nome, prem = S.premium;
+              S = norm(remote); if (!S.nome) S.nome = nome; S.premium = prem;
+              try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {}
+              refresh(); setCloud("☁️ Salvo");
+            } else await push();
+          } catch (e) { setCloud("⚠️ Sem internet"); }
+        }
+
+        if (!sb) { $("onbOr").hidden = true; $("onbAuthBtn").hidden = true; $("pCloud").hidden = true; }
+        $("onbAuthBtn").onclick = () => {
+          SND.tap(); const open = $("onbAuth").hidden;
+          $("onbAuth").hidden = !open; $("onbAuthBtn").setAttribute("aria-expanded", open);
+          if (open) $("onbAuth").querySelector('[name="email"]').focus();
+        };
+        authForm($("onbAuth"), () => { const n = $("nome").value.trim(); if (n) S.nome = n; S.meta = meta; }, (email) => {
+          if (!S.nome) S.nome = email.split("@")[0].slice(0, 24);
+          save(); $("onb").hidden = true; $("app").hidden = false; render();
+        });
+        authForm($("pAuth"), null, null);
+        $("pSair").onclick = async () => {
+          SND.tap();
+          if (syncT) await push();
+          try { await sb.auth.signOut(); } catch (e) {}
+          user = null; syncedFor = null; renderAuth();
+          if (S.premium) { S.premium = null; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} applyPrem(); }
+        };
+        renderAuth();
+        if (sb) sb.auth.onAuthStateChange((ev, session) => {
+          user = (session && session.user) || null;
+          if (!user) { syncedFor = null; clearTimeout(syncT); }
+          else if (user.id !== syncedFor) { syncedFor = user.id; setTimeout(pull, 0); }
+          renderAuth();
+          if (user && (ev === "SIGNED_IN" || ev === "INITIAL_SESSION")) setTimeout(checkPremium, 0);
+          if (!user && S.premium && (ev === "SIGNED_OUT" || ev === "INITIAL_SESSION")) { S.premium = null; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} applyPrem(); }
+        });
+
+        /* Lição */
+        let L;
+        const body = $("lsBody"), foot = $("lsFoot"), footIn = $("lsFootIn");
+        const letters = "ABCD";
+        function lhead(p) { return `<div class="x-lhead"><button class="x-x" id="lsClose" aria-label="Sair da lição">✕</button><div class="x-prog"><div style="width:${p}%"></div></div>${L && L.sim ? '<span class="x-stat">🏁 Simulado</span>' : `<span class="x-stat">❤️ ${isPrem() ? "∞" : S.vidas}</span>`}</div>`; }
+        function setFoot(cls, html) { foot.className = "x-foot " + cls; footIn.innerHTML = html; foot.hidden = false; }
+        function bindClose() { $("lsClose").onclick = closeLesson; }
+        function closeLesson() { $("lesson").hidden = true; foot.hidden = true; render(); }
+        function startLesson(ui, li) {
+          SND.tap();
+          if (S.vidas <= 0 && !isPrem()) return noLives();
+          const u = UNITS[ui], l = u.lessons[li];
+          L = { ui, li, u, l, i: 0, erros: 0, xp: 0, pick: null };
+          $("lesson").hidden = false; $("lesson").scrollTop = 0;
+          body.innerHTML = `${lhead(0)}<p class="chip">${u.e} ${u.t} · Teoria</p><h2 style="margin:0;font-size:24px">${l.t}</h2><ul class="x-teoria">${l.teoria.map((t) => `<li>${t}</li>`).join("")}</ul>`;
+          bindClose();
+          setFoot("", `<button class="x-big" id="go">Começar as 5 questões</button>`);
+          $("go").onclick = () => { SND.tap(); question(); };
+        }
+        function startSim(ui) {
+          SND.tap();
+          const u = UNITS[ui], src = [];
+          u.lessons.forEach((l, li) => l.q.forEach((_, i) => src.push([li, i])));
+          for (let i = src.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [src[i], src[j]] = [src[j], src[i]]; }
+          const pick = src.slice(0, 10);
+          L = { sim: true, ui, u, src: pick, l: { t: `Simulado · ${u.t}`, q: pick.map(([li, i]) => u.lessons[li].q[i]) }, i: 0, erros: 0, xp: 0, pick: null };
+          $("lesson").hidden = false; $("lesson").scrollTop = 0;
+          body.innerHTML = `${lhead(0)}<p class="chip">${u.e} ${u.t} · Simulado da área</p><h2 style="margin:0;font-size:24px">Simulado da área</h2>${isPrem() ? "" : '<p><span class="x-gold">⭐ Premium em breve</span></p>'}<ul class="x-teoria"><li>${L.l.q.length} questões sorteadas das lições de ${u.t}, em ordem aleatória.</li><li>Cada acerto vale <b>+5 XP</b>.</li><li>No fim, você vê sua nota em %.</li><li>${isPrem() ? "Incluído no seu Premium." : "Gratuito por enquanto; no lançamento fará parte do Premium."}</li></ul>`;
+          bindClose();
+          setFoot("", `<button class="x-big" id="go">Começar o simulado</button>`);
+          $("go").onclick = () => { SND.tap(); question(); };
+        }
+        function finishSim() {
+          foot.hidden = true;
+          const n = L.l.q.length, ac = n - L.erros, nota = Math.round((ac / n) * 100), prev = S.sim[L.ui];
+          S.sim[L.ui] = Math.max(prev || 0, nota);
+          if (S.ultimo !== today()) { S.seq = S.ultimo === yesterday() ? S.seq + 1 : 1; S.ultimo = today(); }
+          S.seqMax = Math.max(S.seqMax, S.seq);
+          save(); SND.win();
+          const msg = nota >= 80 ? "Excelente! Você domina esta área." : nota >= 50 ? "Bom caminho. Revise os erros no Perfil." : "Vale revisar a teoria das lições e tentar de novo.";
+          body.innerHTML = `<div class="x-end x-inner" style="padding:40px 0 0">
+            <div class="x-starsbig" aria-hidden="true">🏁</div>
+            <h2 style="font-size:28px;margin:0">Nota ${nota}%</h2>
+            <p style="margin:0;font-weight:700;color:var(--text-secondary)">${L.l.t} · ${msg}</p>
+            <section class="stats" style="margin:8px 0">
+              <div class="stat"><span class="stat__fig">${ac}/${n}</span><span class="stat__label">Acertos</span></div>
+              <div class="stat"><span class="stat__fig">+${L.xp}</span><span class="stat__label">XP ganho</span></div>
+              <div class="stat"><span class="stat__fig">${S.sim[L.ui]}%</span><span class="stat__label">Melhor nota</span></div>
+            </section>
+            <button class="x-big" id="again">Refazer simulado</button>
+            <button class="btn" id="back" style="justify-self:center">Voltar à trilha</button>
+          </div>`;
+          const ui = L.ui;
+          $("again").onclick = () => startSim(ui);
+          $("back").onclick = () => { closeLesson(); tab("trilha"); };
+        }
+        function question() {
+          const [q, opts] = L.l.q[L.i];
+          L.pick = null;
+          body.innerHTML = `${lhead((L.i / L.l.q.length) * 100)}<p class="fineprint" style="margin:0">Questão ${L.i + 1} de ${L.l.q.length}</p><p class="x-q">${q}</p><div style="display:grid;gap:10px" id="opts">${opts.map((o, k) => `<button class="x-opt" data-k="${k}" aria-pressed="false"><kbd>${letters[k]}</kbd>${o}</button>`).join("")}</div>`;
+          bindClose();
+          $("lesson").scrollTop = 0;
+          setFoot("", `<button class="x-big" id="verify" disabled>Verificar</button>`);
+          $("opts").onclick = (e) => { const b = e.target.closest("[data-k]"); if (!b || L.locked) return; SND.tap(); L.pick = +b.dataset.k; $("opts").querySelectorAll("[data-k]").forEach((x) => x.setAttribute("aria-pressed", x === b)); $("verify").disabled = false; };
+          L.locked = false;
+          $("verify").onclick = verify;
+        }
+        function verify() {
+          const [, opts, ans, exp] = L.l.q[L.i], ok = L.pick === ans;
+          L.locked = true;
+          const btns = $("opts").querySelectorAll("[data-k]");
+          btns[ans].classList.add("right"); if (!ok) btns[L.pick].classList.add("wrong");
+          btns.forEach((b) => b.setAttribute("aria-pressed", "false"));
+          const pts = L.sim ? 5 : 10;
+          if (ok) { SND.ok(); L.xp += pts; S.xp += pts; S.xpHoje += pts; }
+          else { SND.bad(); L.erros++; if (!L.sim && !isPrem()) S.vidas = Math.max(0, S.vidas - 1); }
+          const ar = S.area[L.ui] || (S.area[L.ui] = [0, 0]), ek = L.sim ? `${L.ui}-${L.src[L.i][0]}-${L.src[L.i][1]}` : `${L.ui}-${L.li}-${L.i}`;
+          ar[1]++; if (ok) ar[0]++;
+          S.err = S.err.filter((k) => k !== ek); if (!ok) S.err.unshift(ek);
+          save(); header();
+          const last = L.i === L.l.q.length - 1, dead = !L.sim && !ok && !isPrem() && S.vidas <= 0;
+          setFoot(ok ? "ok" : "bad", `<h3>${ok ? `Mandou bem! +${pts} XP` : "Resposta correta: " + letters[ans] + ") " + opts[ans]}</h3><p><b>Explicação:</b> ${exp}</p>${dead ? "<p>Suas vidas acabaram. ❤️</p>" : ""}<button class="x-big ${ok ? "ok" : "bad"}" id="next">${dead ? "Ver resultado" : last ? "Concluir" : "Continuar"}</button>`);
+          $("next").onclick = () => { if (dead) return finish(true); if (last) return L.sim ? finishSim() : finish(false); L.i++; question(); };
+        }
+        function finish(failed) {
+          foot.hidden = true;
+          const key = lessonKey(L.ui, L.li);
+          let stars = 0;
+          if (!failed) {
+            stars = L.erros === 0 ? 3 : L.erros === 1 ? 2 : 1;
+            S.done[key] = Math.max(S.done[key] || 0, stars);
+            if (S.ultimo !== today()) { S.seq = S.ultimo === yesterday() ? S.seq + 1 : 1; S.ultimo = today(); }
+            S.seqMax = Math.max(S.seqMax, S.seq);
+            save(); SND.win();
+          }
+          const metaOk = S.xpHoje >= S.meta;
+          body.innerHTML = `<div class="x-end x-inner" style="padding:40px 0 0">
+            <div class="x-starsbig" aria-label="${stars} de 3 estrelas">${failed ? "💔" : "⭐".repeat(stars) + "☆".repeat(3 - stars)}</div>
+            <h2 style="font-size:28px;margin:0">${failed ? "Sem vidas por hoje" : stars === 3 ? "Perfeito!" : "Lição concluída!"}</h2>
+            <p style="margin:0;font-weight:700;color:var(--text-secondary)">${failed ? "Suas 5 vidas voltam amanhã. Revise a teoria enquanto isso." : L.l.t}</p>
+            <section class="stats" style="margin:8px 0">
+              <div class="stat"><span class="stat__fig">+${L.xp}</span><span class="stat__label">XP ganho</span></div>
+              <div class="stat"><span class="stat__fig">${L.l.q.length - L.erros}/${L.l.q.length}</span><span class="stat__label">Acertos</span></div>
+              <div class="stat"><span class="stat__fig">🔥 ${S.seq}</span><span class="stat__label">Sequência</span></div>
+            </section>
+            ${metaOk ? '<p><span class="chip chip--solid">Meta diária batida</span></p>' : `<p class="fineprint">Faltam ${S.meta - S.xpHoje} XP para a meta de hoje.</p>`}
+            ${failed ? '<button class="x-prem" data-open="premium" style="min-height:52px;font-size:16px;border-radius:var(--r-m)">⭐ Vidas ilimitadas com o Premium</button>' : ""}
+            <button class="x-big" id="back">Voltar à trilha</button>
+          </div>`;
+          $("back").onclick = () => { closeLesson(); tab("trilha"); };
+        }
+        function noLives() {
+          $("lesson").hidden = false;
+          body.innerHTML = `<div class="x-end"><div class="x-starsbig">💔</div><h2 style="font-size:26px">Sem vidas por hoje</h2><p style="font-weight:700;color:var(--text-secondary)">Suas 5 vidas voltam amanhã.</p><div style="display:grid;gap:12px"><button class="x-prem" data-open="premium" style="min-height:52px;font-size:16px;border-radius:var(--r-m)">⭐ Vidas ilimitadas com o Premium</button><button class="x-big" id="back">Voltar</button></div></div>`;
+          $("back").onclick = closeLesson;
+        }
+
+        /* Início */
+        if (!S.nome) { $("onb").hidden = false; check(); } else { $("app").hidden = false; render(); }
+      })();
+    </script>
+  </body>
+</html>
