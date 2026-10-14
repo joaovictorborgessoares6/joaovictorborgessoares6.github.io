@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.joaovictorborgessoares6.trilhaenem",
+        "sha256_cert_fingerprints": ["4B:C9:95:71:54:ED:7D:AF:78:76:09:21:6E:00:CA:3D:14:51:D3:C4:45:F1:6C:4A:B8:C0:E4:95:3A:ED:08:39"]
+      }
+    }]
