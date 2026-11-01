@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bahr Recanto e Petiscaria · Jaraguá do Sul</title>
+    <meta name="description" content="Petiscaria de família no interior de Jaraguá do Sul (SC): tilápia, petiscos crocantes e chopp gelado no Alto Garibaldi." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --x-espresso: #1c1612;
+        --x-espresso-2: #261e18;
+        --x-cream: #f5efe6;
+        --x-cream-2: #ebe2d4;
+        --x-amber: #e0a33a;
+        --x-amber-hover: #ecb352;
+        --x-amber-deep: #8a5a10;
+        --x-wood: #6b4a2e;
+        --x-ink: #2a211b;
+        --x-ink-soft: #5e4f43;
+        --x-on-dark: #ffffff;
+        --x-on-dark-soft: rgb(255 255 255 / 0.74);
+        --x-line-dark: rgb(255 255 255 / 0.12);
+        --x-line-light: rgb(42 33 27 / 0.14);
+        --x-serif: "Playfair Display", Georgia, serif;
+        --x-body: "Manrope", system-ui, sans-serif;
+        --x-max: 1200px;
+        --x-pad: clamp(20px, 5vw, 48px);
+        --x-sec: clamp(72px, 10vw, 128px);
+      }
+      body { background: var(--x-cream); color: var(--x-ink); font: 400 16px/1.6 var(--x-body); }
+      .x-site a { color: inherit; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-pad); }
+      .x-site h1, .x-site h2, .x-site h3 { font-family: var(--x-serif); font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; }
+      .x-site :focus-visible { outline: 2px solid var(--x-amber); outline-offset: 3px; }
+      .x-eyebrow { font: 700 12px/1.3 var(--x-body); letter-spacing: 0.18em; text-transform: uppercase; color: var(--x-amber); margin-bottom: 14px; }
+      .x-light .x-eyebrow { color: var(--x-wood); }
+      .x-h2 { font-size: clamp(34px, 5vw, 56px); }
+      .x-lead { font-size: clamp(16px, 1.6vw, 18px); color: var(--x-ink-soft); max-width: 56ch; margin-top: 16px; }
+      .x-dark { background: var(--x-espresso); color: var(--x-on-dark); }
+      .x-dark .x-lead { color: var(--x-on-dark-soft); }
+      .x-light { background: var(--x-cream); color: var(--x-ink); }
+      .x-sec { padding-block: var(--x-sec); scroll-margin-top: 64px; }
+      .x-sec-head { margin-bottom: clamp(36px, 5vw, 56px); }
+      .x-center { text-align: center; }
+      .x-center .x-lead { margin-inline: auto; }
+
+      /* buttons */
+      .x-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: var(--tap); padding: 14px 26px; border-radius: var(--r-pill); font: 700 15px/1 var(--x-body); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: background var(--dur-quick) var(--ease-out), transform var(--dur-quick) var(--ease-out), color var(--dur-quick); }
+      .x-btn:hover { transform: translateY(-2px); }
+      .x-btn--amber { background: var(--x-amber); color: var(--x-espresso) !important; }
+      .x-btn--amber:hover { background: var(--x-amber-hover); }
+      .x-btn--ghost { border-color: rgb(255 255 255 / 0.7); color: var(--x-on-dark) !important; }
+      .x-btn--ghost:hover { background: var(--x-on-dark); color: var(--x-espresso) !important; }
+      .x-btn--line { border-color: var(--x-wood); color: var(--x-wood) !important; }
+      .x-btn--line:hover { background: var(--x-wood); color: var(--x-cream) !important; }
+      .x-btn svg { width: 18px; height: 18px; flex: none; }
+      .x-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+      /* header */
+      .x-header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background 240ms var(--ease-out), box-shadow 240ms; }
+      .x-header.is-solid { background: rgb(28 22 18 / 0.94); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--x-line-dark); }
+      .x-header__in { display: flex; align-items: center; gap: 24px; height: 76px; }
+      .x-logo { display: flex; flex-direction: column; text-decoration: none; color: var(--x-on-dark) !important; line-height: 1; }
+      .x-logo b { font: 700 28px/1 var(--x-serif); letter-spacing: 0.14em; }
+      .x-logo span { font: 600 12px/1 var(--x-body); letter-spacing: 0.12em; color: var(--x-amber); margin-top: 5px; }
+      .x-menu { display: flex; gap: 4px; margin-left: auto; list-style: none; padding: 0; margin-block: 0; }
+      .x-menu a { display: flex; align-items: center; min-height: var(--tap); padding: 0 14px; color: var(--x-on-dark) !important; text-decoration: none; font: 600 15px/1 var(--x-body); opacity: 0.86; }
+      .x-menu a:hover { opacity: 1; color: var(--x-amber) !important; }
+      .x-header .x-btn { padding: 12px 22px; }
+      .x-burger { display: none; margin-left: auto; width: var(--tap); height: var(--tap); border: 0; background: transparent; color: var(--x-on-dark); cursor: pointer; padding: 10px; }
+      .x-burger span { display: block; height: 2px; background: currentColor; margin: 5px 0; border-radius: 2px; transition: transform 200ms var(--ease-out), opacity 200ms; }
+      .x-header.is-open .x-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .x-header.is-open .x-burger span:nth-child(2) { opacity: 0; }
+      .x-header.is-open .x-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      @media (max-width: 899px) {
+        .x-burger { display: block; }
+        .x-header__in .x-btn--amber { display: none; }
+        .x-nav { position: absolute; top: 76px; left: 0; right: 0; height: calc(100vh - 76px); height: calc(100dvh - 76px); overflow-y: auto; overscroll-behavior: contain; background: var(--x-espresso); padding: 16px var(--x-pad) 40px; display: none; border-top: 1px solid var(--x-line-dark); }
+        .x-lock, .x-lock body { overflow: hidden; }
+        .x-header.is-open { background: var(--x-espresso); }
+        .x-header.is-open .x-nav { display: block; }
+        .x-menu { flex-direction: column; }
+        .x-menu a { font-size: 20px; padding: 14px 0; border-bottom: 1px solid var(--x-line-dark); }
+        .x-nav .x-btn { display: flex; margin-top: 20px; }
+      }
+      @media (min-width: 900px) { .x-nav { display: contents; } .x-nav .x-btn--mobile { display: none; } }
+
+      /* hero */
+      .x-hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; background: var(--x-espresso); color: var(--x-on-dark); }
+      .x-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); animation: x-slowzoom 18s ease-out forwards; }
+      .x-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(28 22 18 / 0.88) 0%, rgb(28 22 18 / 0.55) 45%, rgb(28 22 18 / 0.05) 80%), linear-gradient(0deg, rgb(28 22 18 / 0.92) 0%, rgb(28 22 18 / 0) 50%), linear-gradient(180deg, rgb(28 22 18 / 0.55) 0%, rgb(28 22 18 / 0) 22%); }
+      .x-hero__copy { position: relative; z-index: 1; padding-block: 140px clamp(64px, 10vh, 112px); width: 100%; }
+      .x-hero h1 { font-size: clamp(44px, 7.4vw, 92px); max-width: 11ch; line-height: 1.02; }
+      .x-hero h1 em { font-style: italic; color: var(--x-amber); font-weight: 500; }
+      .x-hero__sub { font-size: clamp(17px, 1.8vw, 20px); color: var(--x-on-dark-soft); max-width: 46ch; margin: 22px 0 34px; }
+      .x-badge { display: inline-flex; align-items: center; gap: 10px; margin-top: 34px; padding: 10px 18px; border-radius: var(--r-pill); background: var(--x-espresso); color: var(--x-on-dark); border: 1px solid rgb(255 255 255 / 0.22); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font: 600 14px/1.3 var(--x-body); }
+      .x-badge b { color: var(--x-amber); }
+      @keyframes x-slowzoom { to { transform: scale(1); } }
+
+      /* destaques */
+      .x-feats { position: relative; z-index: 2; margin-top: -56px; }
+      .x-feats__grid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--x-espresso-2); border-radius: var(--r-l); overflow: hidden; box-shadow: 0 30px 60px rgb(28 22 18 / 0.28); border: 1px solid var(--x-line-dark); }
+      .x-feat { padding: 30px 26px; color: var(--x-on-dark); display: flex; gap: 16px; align-items: flex-start; }
+      .x-feat + .x-feat { border-left: 1px solid var(--x-line-dark); }
+      .x-feat svg { width: 30px; height: 30px; flex: none; color: var(--x-amber); }
+      .x-feat p { font: 600 16px/1.35 var(--x-body); }
+      @media (max-width: 899px) { .x-feats__grid { grid-template-columns: 1fr 1fr; } .x-feat:nth-child(3) { border-left: 0; } .x-feat:nth-child(n+3) { border-top: 1px solid var(--x-line-dark); } }
+      @media (max-width: 479px) { .x-feat { padding: 22px 18px; flex-direction: column; gap: 12px; } .x-feat p { font-size: 15px; } }
+
+      /* favoritos */
+      .x-favs { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 28px); }
+      .x-fav { background: #fff; border-radius: var(--r-l); overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 1px 0 var(--x-line-light), 0 18px 40px rgb(28 22 18 / 0.07); transition: transform 300ms var(--ease-out), box-shadow 300ms; }
+      .x-fav:hover { transform: translateY(-4px); box-shadow: 0 1px 0 var(--x-line-light), 0 26px 50px rgb(28 22 18 / 0.14); }
+      .x-zoom { overflow: hidden; margin: 0; }
+      .x-zoom img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out); }
+      .x-zoom:hover img, .x-fav:hover .x-zoom img { transform: scale(1.07); }
+      .x-fav .x-zoom { aspect-ratio: 4 / 3; }
+      .x-fav__body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .x-fav h3 { font-size: 25px; }
+      .x-fav p { color: var(--x-ink-soft); font-size: 15px; }
+      .x-price { margin-top: auto; padding-top: 12px; font: 700 18px/1.2 var(--x-body); color: var(--x-wood); }
+      .x-price small { font-weight: 500; color: var(--x-ink-soft); font-size: 14px; }
+      .x-price--ask { font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; }
+      @media (max-width: 899px) { .x-favs { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 599px) { .x-favs { grid-template-columns: 1fr; } }
+
+      /* cardápio */
+      .x-tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; margin-bottom: 40px; }
+      .x-tabs::-webkit-scrollbar { display: none; }
+      .x-center .x-tabs { justify-content: center; flex-wrap: wrap; }
+      .x-tab { flex: none; min-height: var(--tap); padding: 0 22px; border-radius: var(--r-pill); border: 1.5px solid var(--x-line-dark); background: transparent; color: var(--x-on-dark-soft); font: 600 15px/1 var(--x-body); cursor: pointer; transition: all var(--dur-quick) var(--ease-out); }
+      .x-tab:hover { color: var(--x-on-dark); border-color: rgb(255 255 255 / 0.4); }
+      .x-tab[aria-selected="true"] { background: var(--x-amber); border-color: var(--x-amber); color: var(--x-espresso); }
+      .x-panel { max-width: 960px; margin: 0 auto; }
+      .x-panel[hidden] { display: none; }
+      .x-panel:not([hidden]) { animation: x-fade 400ms var(--ease-out); }
+      @keyframes x-fade { from { opacity: 0; transform: translateY(8px); } }
+      .x-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 64px; }
+      .x-list li { break-inside: avoid; padding: 14px 0; border-bottom: 1px solid var(--x-line-dark); }
+      .x-row { display: flex; align-items: baseline; gap: 10px; }
+      .x-row b { font: 600 17px/1.35 var(--x-body); }
+      .x-row i { flex: 1; min-width: 20px; border-bottom: 2px dotted rgb(255 255 255 / 0.28); transform: translateY(-4px); }
+      .x-row span { font: 700 16px/1.3 var(--x-body); color: var(--x-amber); white-space: nowrap; }
+      .x-row span.x-ask { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--x-on-dark-soft); font-weight: 600; }
+      .x-list small { display: block; color: var(--x-on-dark-soft); font-size: 14px; margin-top: 3px; }
+      @media (max-width: 767px) { .x-list { columns: 1; } }
+      .x-menu-note { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: center; text-align: center; }
+      .x-menu-note p { color: var(--x-on-dark-soft); font-size: 15px; max-width: 48ch; }
+
+      /* drinks */
+      .x-drinks { display: grid; grid-template-columns: 1fr 1fr; gap: 0; position: relative; background: var(--x-espresso); }
+      .x-drinks .x-zoom { aspect-ratio: 4 / 5; max-height: 720px; width: 100%; }
+      .x-drinks__line { position: absolute; left: 0; right: 0; margin-inline: auto; bottom: clamp(28px, 6vw, 72px); z-index: 1; width: fit-content; max-width: calc(100% - 40px); text-align: center; background: var(--x-espresso); color: var(--x-on-dark); padding: 22px 36px; border-radius: var(--r-pill); border: 1px solid var(--x-line-dark); box-shadow: 0 20px 40px rgb(0 0 0 / 0.35); }
+      .x-drinks__line h2 { font-size: clamp(22px, 3.2vw, 36px); }
+      .x-drinks__line h2 em { color: var(--x-amber); }
+      .x-drinks figcaption { position: absolute; top: 20px; left: 20px; padding: 6px 14px; border-radius: var(--r-pill); background: rgb(28 22 18 / 0.72); color: var(--x-on-dark); font: 600 13px/1.3 var(--x-body); }
+      .x-drinks figure { position: relative; }
+      @media (max-width: 599px) { .x-drinks__line { border-radius: var(--r-l); padding: 18px 22px; } }
+
+      /* recanto */
+      .x-split { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
+      .x-split p.x-lead { max-width: 46ch; }
+      .x-perks { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+      .x-perks li { padding: 9px 16px; border-radius: var(--r-pill); background: var(--x-cream-2); color: var(--x-wood); font: 600 14px/1.2 var(--x-body); }
+      .x-collage { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; align-items: start; }
+      .x-collage .x-zoom { border-radius: var(--r-l); aspect-ratio: 3 / 4; box-shadow: 0 24px 50px rgb(28 22 18 / 0.16); }
+      .x-collage .x-zoom:nth-child(2) { margin-top: 64px; }
+      @media (max-width: 899px) { .x-split { grid-template-columns: 1fr; } }
+
+      /* avaliações */
+      .x-score { display: flex; align-items: center; gap: 24px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; }
+      .x-score__fig { font: 600 clamp(64px, 9vw, 104px)/1 var(--x-serif); color: var(--x-ink); }
+      .x-score__fig span { color: var(--x-amber-deep); }
+      .x-score p { text-align: left; color: var(--x-ink-soft); font-weight: 600; }
+      .x-stars { color: var(--x-amber-deep); letter-spacing: 3px; font-size: 20px; }
+      .x-reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .x-review { background: #fff; border-radius: var(--r-l); padding: 32px 28px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 1px 0 var(--x-line-light), 0 18px 40px rgb(28 22 18 / 0.06); }
+      .x-review blockquote { margin: 0; font: italic 500 19px/1.5 var(--x-serif); color: var(--x-ink); }
+      .x-review cite { margin-top: auto; font: 700 15px/1.3 var(--x-body); font-style: normal; color: var(--x-wood); display: flex; align-items: center; gap: 12px; }
+      .x-review cite span.x-av { width: 40px; height: 40px; border-radius: 50%; background: var(--x-cream-2); display: grid; place-items: center; font-size: 15px; }
+      @media (max-width: 899px) { .x-reviews { grid-template-columns: 1fr; } }
+
+      /* contato */
+      .x-visit { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: stretch; }
+      .x-hours { list-style: none; padding: 0; margin: 0 0 32px; }
+      .x-hours li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--x-line-dark); font-size: 16px; }
+      .x-hours li span:last-child { font-weight: 700; }
+      .x-hours li.is-closed span:last-child { color: var(--x-on-dark-soft); font-weight: 500; }
+      .x-block-title { font: 700 12px/1.3 var(--x-body); letter-spacing: 0.18em; text-transform: uppercase; color: var(--x-amber); margin: 0 0 8px; }
+      .x-addr { font-size: 17px; margin-bottom: 24px; }
+      .x-contacts { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 4px; }
+      .x-contacts li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 10px 0; }
+      .x-contacts li span { color: var(--x-on-dark-soft); }
+      .x-contacts a { font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; min-height: var(--tap); }
+      .x-contacts a:hover { color: var(--x-amber); }
+      .x-map { border-radius: var(--r-l); overflow: hidden; min-height: 420px; border: 1px solid var(--x-line-dark); background: var(--x-espresso-2); }
+      .x-map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; filter: sepia(0.15) saturate(0.9); }
+      @media (max-width: 899px) { .x-visit { grid-template-columns: 1fr; } }
+
+      /* footer */
+      .x-foot { background: #140f0c; color: var(--x-on-dark-soft); padding-block: 64px 32px; }
+      .x-foot__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--x-line-dark); }
+      .x-foot__top p { margin-top: 16px; max-width: 32ch; }
+      .x-foot ul { list-style: none; padding: 0; margin: 0; }
+      .x-foot ul a { display: inline-flex; align-items: center; min-height: var(--tap); min-width: var(--tap); text-decoration: none; color: var(--x-on-dark); }
+      .x-foot ul a:hover { color: var(--x-amber); }
+      .x-foot__bottom { padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; font-size: 14px; }
+      @media (max-width: 767px) { .x-foot__top { grid-template-columns: 1fr 1fr; } .x-foot__top > div:first-child { grid-column: 1 / -1; } }
+
+      /* whatsapp float */
+      .x-wa { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 60px; height: 60px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 12px 30px rgb(0 0 0 / 0.3); transition: transform var(--dur-quick) var(--ease-out); }
+      .x-wa:hover { transform: scale(1.08); }
+      .x-wa svg { width: 32px; height: 32px; }
+
+      /* phone: same identity, narrow layout */
+      @media (max-width: 768px) {
+        html, body { overflow-x: hidden; }
+        .x-site { overflow-x: clip; }
+        .x-site img { max-width: 100%; }
+        .x-header { background: rgb(28 22 18 / 0.62); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+        .x-header.is-solid, .x-header.is-open { background: rgb(28 22 18 / 0.96); }
+        .x-header__in { height: 68px; }
+        .x-nav { top: 68px; height: calc(100vh - 68px); height: calc(100dvh - 68px); }
+        .x-menu a { font: 600 24px/1.2 var(--x-serif); padding: 18px 0; }
+
+        .x-hero { min-height: 100vh; min-height: 100svh; }
+        .x-hero__img { object-position: 70% center; }
+        .x-hero::after { background: linear-gradient(90deg, rgb(28 22 18 / 0.8) 0%, rgb(28 22 18 / 0.4) 60%, rgb(28 22 18 / 0.1) 100%), linear-gradient(0deg, rgb(28 22 18 / 0.95) 0%, rgb(28 22 18 / 0.55) 45%, rgb(28 22 18 / 0) 72%), linear-gradient(180deg, rgb(28 22 18 / 0.6) 0%, rgb(28 22 18 / 0) 22%); }
+        .x-hero__copy { padding-block: 120px 96px; }
+        .x-hero h1 { font-size: clamp(2.4rem, 11vw, 2.8rem); max-width: 12ch; }
+        .x-hero__sub { font-size: 17px; margin: 18px 0 28px; }
+        .x-btns { flex-direction: column; align-items: stretch; }
+        .x-btns .x-btn { width: 100%; }
+        .x-badge { margin-top: 24px; }
+
+        .x-feats { margin-top: -56px; }
+
+        .x-car { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--x-pad); margin-inline: calc(var(--x-pad) * -1); padding: 4px var(--x-pad) 28px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .x-car::-webkit-scrollbar { display: none; }
+        .x-car > * { scroll-snap-align: start; min-width: 0; }
+        .x-car .x-fav:hover { transform: none; }
+        .js .x-car > .x-reveal { opacity: 1; transform: none; }
+
+        .x-center .x-tabs { flex-wrap: nowrap; justify-content: flex-start; margin-inline: calc(var(--x-pad) * -1); padding-inline: var(--x-pad); scroll-padding-inline: var(--x-pad); margin-bottom: 28px; }
+        .x-row b { min-width: 0; font-size: 16px; }
+        .x-list li { text-align: left; }
+
+        .x-drinks { grid-template-columns: 1fr 1fr; overflow: hidden; }
+        .x-drinks .x-zoom { aspect-ratio: 3 / 4; }
+        .x-drinks figcaption { top: 12px; left: 12px; right: 12px; width: fit-content; max-width: calc(100% - 24px); font-size: 12px; padding: 5px 10px; }
+        .x-drinks__line { bottom: 24px; max-width: calc(100% - 32px); }
+
+        .x-collage { grid-template-columns: 1.15fr 1fr; gap: 12px; }
+        .x-collage .x-zoom:nth-child(2) { margin-top: 40px; }
+
+        .x-score { gap: 16px; margin-bottom: 32px; }
+        .x-review { padding: 28px 24px; }
+
+        .x-map, .x-map iframe { min-height: 300px; height: 300px; }
+        .x-hours li { font-size: 15px; }
+      }
+
+      /* reveal */
+      .js .x-reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out); }
+      .js .x-reveal.is-in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) {
+        .js .x-reveal { opacity: 1; transform: none; transition: none; }
+        .x-hero__img { animation: none; transform: none; }
+        .x-zoom img, .x-fav, .x-btn { transition: none; }
+      }
+    </style>
+    <script>document.documentElement.classList.add("js");</script>
+  </head>
+  <body>
+    <div class="x-site" id="top">
+      <header class="x-header" id="x-header">
+        <div class="x-wrap x-header__in">
+          <a class="x-logo" href="#top" aria-label="Bahr Recanto e Petiscaria, início"><b>BAHR</b><span>recanto &amp; petiscaria</span></a>
+          <button class="x-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="x-nav"><span></span><span></span><span></span></button>
+          <nav class="x-nav" id="x-nav" aria-label="Principal">
+            <ul class="x-menu">
+              <li><a href="#top">Início</a></li>
+              <li><a href="#cardapio">Cardápio</a></li>
+              <li><a href="#ambiente">Ambiente</a></li>
+              <li><a href="#avaliacoes">Avaliações</a></li>
+              <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a class="x-btn x-btn--amber x-btn--mobile" href="https://api.whatsapp.com/send?phone=5547999759711&amp;text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener">Pedir agora</a>
+          </nav>
+          <a class="x-btn x-btn--amber" href="https://api.whatsapp.com/send?phone=5547999759711&amp;text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener">Pedir agora</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="x-hero" aria-label="Início">
+          <img class="x-hero__img" src="hero-petiscaria.jpg" alt="Deck rústico com tilápia, batata frita e chopp, com morros verdes ao pôr do sol" />
+          <div class="x-wrap x-hero__copy">
+            <p class="x-eyebrow">Petiscaria no interior de Jaraguá do Sul</p>
+            <h1>Sabor de casa, <em>vista de serra.</em></h1>
+            <p class="x-hero__sub">Tilápia fresquinha, petiscos crocantes e chopp gelado num recanto cercado de natureza, no Alto Garibaldi.</p>
+            <div class="x-btns">
+              <a class="x-btn x-btn--amber" href="https://api.whatsapp.com/send?phone=5547999759711&amp;text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+                Pedir pelo WhatsApp</a>
+              <a class="x-btn x-btn--ghost" href="#cardapio">Ver cardápio</a>
+            </div>
+            <p class="x-badge"><b>★ 4,9</b> no Google · 258 avaliações</p>
+          </div>
+        </section>
+
+        <div class="x-feats x-light">
+          <div class="x-wrap">
+            <ul class="x-feats__grid x-reveal" style="list-style:none;margin:0;padding:0">
+              <li class="x-feat">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16c4-6 10-8 16-6 3 1 5 3 7 6-2 3-4 5-7 6-6 2-12 0-16-6Z"/><path d="M26 16l4-5v10l-4-5"/><circle cx="21" cy="14.5" r="1" fill="currentColor"/></svg>
+                <p>Tilápia é a estrela da casa</p>
+              </li>
+              <li class="x-feat">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9h14v18a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9Z"/><path d="M21 13h3a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3h-3"/><path d="M7 9c0-3 2-5 4-4 1-2 4-2 5 0 2-1 5 1 5 4"/><path d="M11 14v10M15 14v10"/></svg>
+                <p>Chopp e drinks gelados</p>
+              </li>
+              <li class="x-feat">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3l-8 11h4l-6 8h20l-6-8h4L16 3Z"/><path d="M16 22v7"/></svg>
+                <p>Ambiente ao ar livre e espaço kids</p>
+              </li>
+              <li class="x-feat">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="26" height="18" rx="3"/><path d="M3 13h26M8 20h6"/></svg>
+                <p>Acessível e aceita cartões</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <section class="x-sec x-light" id="favoritos" aria-labelledby="fav-title">
+          <div class="x-wrap">
+            <div class="x-sec-head x-center x-reveal">
+              <p class="x-eyebrow">Direto da cozinha</p>
+              <h2 class="x-h2" id="fav-title">Os favoritos da casa</h2>
+            </div>
+            <div class="x-favs x-car">
+              <article class="x-fav x-reveal">
+                <figure class="x-zoom"><img src="File_de_Tilapia.jpg" alt="Filé de tilápia empanado com limão" loading="lazy" /></figure>
+                <div class="x-fav__body"><h3>Filé de Tilápia</h3><p>Crocante, com limão.</p><p class="x-price x-price--ask">Consulte</p></div>
+              </article>
+              <article class="x-fav x-reveal">
+                <figure class="x-zoom"><img src="Mista.jpg" alt="Mista na chapa com batata frita" loading="lazy" /></figure>
+                <div class="x-fav__body"><h3>Mista na chapa</h3><p>Alcatra, coração, frango, calabresa e batata frita.</p><p class="x-price x-price--ask">Consulte</p></div>
+              </article>
+              <article class="x-fav x-reveal">
+                <figure class="x-zoom"><img src="Camarao.jpg" alt="Camarão empanado" loading="lazy" /></figure>
+                <div class="x-fav__body"><h3>Camarão empanado</h3><p>Dourado e sequinho, pra dividir com a mesa.</p><p class="x-price x-price--ask">Consulte</p></div>
+              </article>
+              <article class="x-fav x-reveal">
+                <figure class="x-zoom"><img src="Bolinho_de_Aipim_com_Linguica.jpg" alt="Bolinhos de aipim com linguiça" loading="lazy" /></figure>
+                <div class="x-fav__body"><h3>Bolinho de Aipim com Linguiça</h3><p>Aipim cremoso por dentro, crocante por fora.</p><p class="x-price x-price--ask">Consulte</p></div>
+              </article>
+              <article class="x-fav x-reveal">
+                <figure class="x-zoom"><img src="Batata_Frita.jpg" alt="Porção de batata frita sobre tábua de madeira" loading="lazy" /></figure>
+                <div class="x-fav__body"><h3>Batata Frita 500 g</h3><p>A porção clássica, servida na tábua.</p><p class="x-price">R$ 24 <small>· meia 250 g R$ 14</small></p></div>
+              </article>
+              <article class="x-fav x-reveal">
+                <figure class="x-zoom"><img src="X-Tudo.jpg" alt="Lanche X-Tudo" loading="lazy" /></figure>
+                <div class="x-fav__body"><h3>X-Tudo</h3><p>Pão, hambúrguer, ovo, bacon, calabresa, frango, alcatra, coração, alface e tomate.</p><p class="x-price">R$ 41</p></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-dark" id="cardapio" aria-labelledby="menu-title">
+          <div class="x-wrap x-center">
+            <div class="x-sec-head x-reveal">
+              <p class="x-eyebrow">Cardápio completo</p>
+              <h2 class="x-h2" id="menu-title">Do petisco à sobremesa</h2>
+            </div>
+            <div class="x-tabs" role="tablist" aria-label="Categorias do cardápio">
+              <button class="x-tab" role="tab" id="t-petiscos" aria-controls="p-petiscos" aria-selected="true">Petiscos</button>
+              <button class="x-tab" role="tab" id="t-chapeados" aria-controls="p-chapeados" aria-selected="false" tabindex="-1">Chapeados</button>
+              <button class="x-tab" role="tab" id="t-lanches" aria-controls="p-lanches" aria-selected="false" tabindex="-1">Lanches</button>
+              <button class="x-tab" role="tab" id="t-saladas" aria-controls="p-saladas" aria-selected="false" tabindex="-1">Saladas</button>
+              <button class="x-tab" role="tab" id="t-bebidas" aria-controls="p-bebidas" aria-selected="false" tabindex="-1">Bebidas e drinks</button>
+              <button class="x-tab" role="tab" id="t-sobremesas" aria-controls="p-sobremesas" aria-selected="false" tabindex="-1">Sobremesas</button>
+            </div>
+            <div style="text-align:left">
+              <div class="x-panel" role="tabpanel" id="p-petiscos" aria-labelledby="t-petiscos">
+                <ul class="x-list">
+                  <li><div class="x-row"><b>Filé de Tilápia</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Filé de Tilápia ao Alho e Óleo</b><i></i><span class="x-ask">Consulte</span></div><small>Acompanha arroz e salada</small></li>
+                  <li><div class="x-row"><b>Pirão de Tilápia</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Caldo de Tilápia</b><i></i><span class="x-ask">Consulte</span></div><small>Com torradas</small></li>
+                  <li><div class="x-row"><b>Ceviche</b><i></i><span>R$ 19</span></div></li>
+                  <li><div class="x-row"><b>Mini Pastel de Tilápia</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Mini Pastel de Queijo</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Bolinho de Queijo</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Bolinho de Aipim com Linguiça</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Camarão</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Batata Frita 500 g</b><i></i><span>R$ 24</span></div></li>
+                  <li><div class="x-row"><b>Batata Frita meia</b><i></i><span>R$ 14</span></div></li>
+                  <li><div class="x-row"><b>Batata Rústica</b><i></i><span>R$ 20</span></div></li>
+                  <li><div class="x-row"><b>Batata Rústica meia</b><i></i><span>R$ 12</span></div></li>
+                  <li><div class="x-row"><b>Polenta Frita</b><i></i><span>R$ 18</span></div></li>
+                  <li><div class="x-row"><b>Polenta Frita meia</b><i></i><span>R$ 11</span></div></li>
+                  <li><div class="x-row"><b>Anel de Cebola</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Aipim Palito</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Aipim Noisete</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Empanado de Queijo</b><i></i><span class="x-ask">Consulte</span></div></li>
+                </ul>
+              </div>
+              <div class="x-panel" role="tabpanel" id="p-chapeados" aria-labelledby="t-chapeados" hidden>
+                <ul class="x-list">
+                  <li><div class="x-row"><b>Coração Acebolado</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Alcatra Acebolada</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Peito de Frango</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Mista</b><i></i><span class="x-ask">Consulte</span></div><small>Alcatra, coração, frango, calabresa e batata frita</small></li>
+                </ul>
+              </div>
+              <div class="x-panel" role="tabpanel" id="p-lanches" aria-labelledby="t-lanches" hidden>
+                <ul class="x-list">
+                  <li><div class="x-row"><b>Misto Quente</b><i></i><span>R$ 9</span></div></li>
+                  <li><div class="x-row"><b>X-Burguer</b><i></i><span>R$ 15</span></div></li>
+                  <li><div class="x-row"><b>X-Salada</b><i></i><span>R$ 17</span></div></li>
+                  <li><div class="x-row"><b>X-Egg</b><i></i><span>R$ 19</span></div></li>
+                  <li><div class="x-row"><b>X-Calabresa</b><i></i><span>R$ 23</span></div></li>
+                  <li><div class="x-row"><b>X-Frango</b><i></i><span>R$ 23</span></div></li>
+                  <li><div class="x-row"><b>X-Bacon</b><i></i><span>R$ 25</span></div></li>
+                  <li><div class="x-row"><b>X-Coração</b><i></i><span>R$ 25</span></div></li>
+                  <li><div class="x-row"><b>X-Alcatra</b><i></i><span>R$ 25</span></div></li>
+                  <li><div class="x-row"><b>Da Casa</b><i></i><span>R$ 34</span></div><small>Hambúrguer artesanal, 2 fatias de queijo e batata frita</small></li>
+                  <li><div class="x-row"><b>X-Tudo</b><i></i><span>R$ 41</span></div></li>
+                </ul>
+              </div>
+              <div class="x-panel" role="tabpanel" id="p-saladas" aria-labelledby="t-saladas" hidden>
+                <ul class="x-list">
+                  <li><div class="x-row"><b>Palmeira Real</b><i></i><span>R$ 16</span></div></li>
+                  <li><div class="x-row"><b>Tomate, Cebola, Rúcula e Alface</b><i></i><span>R$ 15</span></div></li>
+                  <li><div class="x-row"><b>Salada Mista</b><i></i><span>R$ 12</span></div></li>
+                  <li><div class="x-row"><b>Tomate com Cebola</b><i></i><span>R$ 10</span></div></li>
+                  <li><div class="x-row"><b>Salada de Pepino</b><i></i><span>R$ 10</span></div></li>
+                </ul>
+              </div>
+              <div class="x-panel" role="tabpanel" id="p-bebidas" aria-labelledby="t-bebidas" hidden>
+                <ul class="x-list">
+                  <li><div class="x-row"><b>Chopp</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Torre de Chopp</b><i></i><span>R$ 55</span></div></li>
+                  <li><div class="x-row"><b>Cervejas</b><i></i><span class="x-ask">Consulte</span></div><small>600 ml, lata e long neck</small></li>
+                  <li><div class="x-row"><b>Malzebier</b><i></i><span>R$ 7</span></div></li>
+                  <li><div class="x-row"><b>Caipirinha</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Piña Colada</b><i></i><span>R$ 20</span></div></li>
+                  <li><div class="x-row"><b>Mojito</b><i></i><span>R$ 22</span></div></li>
+                  <li><div class="x-row"><b>Gin</b><i></i><span>R$ 25</span></div></li>
+                  <li><div class="x-row"><b>Limonada Suíça</b><i></i><span>R$ 12</span></div></li>
+                  <li><div class="x-row"><b>Refrigerante 600 ml</b><i></i><span>R$ 8</span></div></li>
+                  <li><div class="x-row"><b>Dose</b><i></i><span>R$ 10</span></div></li>
+                </ul>
+              </div>
+              <div class="x-panel" role="tabpanel" id="p-sobremesas" aria-labelledby="t-sobremesas" hidden>
+                <ul class="x-list">
+                  <li><div class="x-row"><b>Petit Gâteau</b><i></i><span>R$ 16</span></div></li>
+                  <li><div class="x-row"><b>Pastel de Chocolate</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Pastel de Chocolate com Queijo</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Pastel de Banana com Chocolate Branco</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Mini Churros</b><i></i><span class="x-ask">Consulte</span></div></li>
+                  <li><div class="x-row"><b>Paleta Mexicana</b><i></i><span>R$ 12,50</span></div></li>
+                  <li><div class="x-row"><b>Açaí</b><i></i><span>R$ 8</span></div></li>
+                </ul>
+              </div>
+            </div>
+            <div class="x-menu-note">
+              <p>Preços sujeitos a alteração. Peça pelo WhatsApp para retirada ou venha nos visitar.</p>
+              <a class="x-btn x-btn--amber" href="https://api.whatsapp.com/send?phone=5547999759711&amp;text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener">Fazer meu pedido</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-drinks" aria-labelledby="drinks-title">
+          <figure class="x-zoom"><img src="Caipirinha.jpg" alt="Caipirinha servida no pote com a marca BAHR" loading="lazy" /><figcaption>Caipirinha</figcaption></figure>
+          <figure class="x-zoom"><img src="Pina_Colada.jpg" alt="Piña colada" loading="lazy" /><figcaption>Piña Colada · R$ 20</figcaption></figure>
+          <div class="x-drinks__line x-reveal"><h2 id="drinks-title">Drinks e chopp <em>sempre gelados</em></h2></div>
+        </section>
+
+        <section class="x-sec x-light" id="ambiente" aria-labelledby="amb-title">
+          <div class="x-wrap x-split">
+            <div class="x-reveal">
+              <p class="x-eyebrow">O recanto</p>
+              <h2 class="x-h2" id="amb-title">Um recanto pra desacelerar</h2>
+              <p class="x-lead">Mesas ao ar livre, natureza em volta e aquele atendimento de família. Perfeito pro almoço de sábado, pro jantar no meio da semana ou pra comemorar com a turma. Temos espaço kids, sinuca e aceitamos reservas para eventos.</p>
+              <ul class="x-perks">
+                <li>Mesas ao ar livre</li>
+                <li>Espaço kids</li>
+                <li>Sinuca</li>
+                <li>Reservas para eventos</li>
+              </ul>
+              <div class="x-btns" style="margin-top:32px">
+                <a class="x-btn x-btn--line" href="https://api.whatsapp.com/send?phone=5547999686535" target="_blank" rel="noopener">Reservar para eventos</a>
+              </div>
+            </div>
+            <div class="x-collage x-reveal">
+              <figure class="x-zoom"><img src="Aipim_Palito.jpg" alt="Porção de aipim palito no ambiente da petiscaria" loading="lazy" /></figure>
+              <figure class="x-zoom"><img src="Da-Casa.jpg" alt="Lanche Da Casa com batata frita no ambiente da petiscaria" loading="lazy" /></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-light" id="avaliacoes" aria-labelledby="rev-title" style="background:var(--x-cream-2)">
+          <div class="x-wrap">
+            <div class="x-sec-head x-center x-reveal">
+              <p class="x-eyebrow">Avaliações</p>
+              <h2 class="x-h2" id="rev-title">Quem vem, volta</h2>
+            </div>
+            <div class="x-score x-reveal">
+              <p class="x-score__fig">4,9 <span>★</span></p>
+              <p><span class="x-stars" aria-hidden="true">★★★★★</span><br />258 avaliações no Google</p>
+            </div>
+            <div class="x-reviews x-car">
+              <figure class="x-review x-reveal" style="margin:0">
+                <span class="x-stars" aria-label="5 estrelas">★★★★★</span>
+                <blockquote>“Ambiente muito amigável, excelente atendimento, comida muito gostosa, sabor diferenciado e amplo cardápio. Bebida bem gelada. Recomendo!”</blockquote>
+                <figcaption><cite><span class="x-av" aria-hidden="true">J</span>Jonathan L.</cite></figcaption>
+              </figure>
+              <figure class="x-review x-reveal" style="margin:0">
+                <span class="x-stars" aria-label="5 estrelas">★★★★★</span>
+                <blockquote>“Ambiente muito gostoso, especial pra eventos e para um almoço ou lanches. Muito lindo o lugar.”</blockquote>
+                <figcaption><cite><span class="x-av" aria-hidden="true">A</span>Adilson S.</cite></figcaption>
+              </figure>
+              <figure class="x-review x-reveal" style="margin:0">
+                <span class="x-stars" aria-label="5 estrelas">★★★★★</span>
+                <blockquote>“Comida muito boa e bom atendimento, lugar bonito e bem arrumado.”</blockquote>
+                <figcaption><cite><span class="x-av" aria-hidden="true">S</span>Sandra S.</cite></figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-dark" id="contato" aria-labelledby="visit-title">
+          <div class="x-wrap">
+            <div class="x-sec-head x-reveal">
+              <p class="x-eyebrow">Horários e localização</p>
+              <h2 class="x-h2" id="visit-title">Venha nos visitar</h2>
+            </div>
+            <div class="x-visit">
+              <div class="x-reveal">
+                <p class="x-block-title">Horários</p>
+                <ul class="x-hours">
+                  <li class="is-closed"><span>Segunda e terça</span><span>Fechado</span></li>
+                  <li><span>Quarta a sexta</span><span>18h às 22h</span></li>
+                  <li><span>Sábado</span><span>11h às 22h</span></li>
+                  <li><span>Domingo</span><span>10h30 às 16h30</span></li>
+                </ul>
+                <p class="x-block-title">Endereço</p>
+                <p class="x-addr">Rodovia JGS 382, R. Werner Fischer, 1061<br />Alto Garibaldi, Jaraguá do Sul/SC, 89269-899</p>
+                <div class="x-btns">
+                  <a class="x-btn x-btn--amber" href="https://www.google.com/maps/dir/?api=1&amp;destination=-26.55376690,-49.23029210" target="_blank" rel="noopener">Como chegar</a>
+                  <a class="x-btn x-btn--ghost" href="https://api.whatsapp.com/send?phone=5547999759711&amp;text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+                </div>
+                <ul class="x-contacts">
+                  <li><span>Pedidos</span><a href="tel:+5547999759711">(47) 99975-9711</a></li>
+                  <li><span>Reservas e eventos</span><a href="tel:+5547999686535">(47) 99968-6535</a></li>
+                  <li><span>Instagram</span><a href="https://www.instagram.com/bahr_recanto_e_petiscaria/" target="_blank" rel="noopener">@bahr_recanto_e_petiscaria</a></li>
+                </ul>
+              </div>
+              <div class="x-map x-reveal">
+                <iframe src="https://maps.google.com/maps?q=-26.553767,-49.230292&amp;z=14&amp;output=embed" title="Mapa: Bahr Recanto e Petiscaria no Alto Garibaldi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="x-foot">
+        <div class="x-wrap">
+          <div class="x-foot__top">
+            <div>
+              <a class="x-logo" href="#top" aria-label="Voltar ao início"><b>BAHR</b><span>recanto &amp; petiscaria</span></a>
+              <p>Recanto e petiscaria no Alto Garibaldi, Jaraguá do Sul</p>
+            </div>
+            <div>
+              <p class="x-block-title">Navegue</p>
+              <ul>
+                <li><a href="#top">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#ambiente">Ambiente</a></li>
+                <li><a href="#avaliacoes">Avaliações</a></li>
+                <li><a href="#contato">Contato</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="x-block-title">Siga e peça</p>
+              <ul>
+                <li><a href="https://www.instagram.com/bahr_recanto_e_petiscaria/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=5547999759711&amp;text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener">WhatsApp</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="x-foot__bottom">
+            <p>© 2026 Bahr Recanto e Petiscaria</p>
+            
+          </div>
+        </div>
+      </footer>
+
+      <a class="x-wa" href="https://api.whatsapp.com/send?phone=5547999759711&amp;text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener" aria-label="Pedir pelo WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+      </a>
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        var header = document.getElementById("x-header");
+        var burger = header.querySelector(".x-burger");
+        function solid() { header.classList.toggle("is-solid", window.scrollY > 40); }
+        window.addEventListener("scroll", solid, { passive: true });
+        solid();
+        function close() { header.classList.remove("is-open"); document.documentElement.classList.remove("x-lock"); burger.setAttribute("aria-expanded", "false"); burger.setAttribute("aria-label", "Abrir menu"); }
+        burger.addEventListener("click", function () {
+          var open = !header.classList.contains("is-open");
+          header.classList.toggle("is-open", open);
+          document.documentElement.classList.toggle("x-lock", open);
+          burger.setAttribute("aria-expanded", String(open));
+          burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+        });
+        header.querySelectorAll(".x-nav a").forEach(function (a) { a.addEventListener("click", close); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+
+        var tabs = [].slice.call(document.querySelectorAll(".x-tab"));
+        function select(tab, focus) {
+          tabs.forEach(function (t) {
+            var on = t === tab;
+            t.setAttribute("aria-selected", String(on));
+            t.tabIndex = on ? 0 : -1;
+            document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+          });
+          if (focus) tab.focus();
+          tab.scrollIntoView({ block: "nearest", inline: "nearest" });
+        }
+        tabs.forEach(function (t, i) {
+          t.addEventListener("click", function () { select(t, false); });
+          t.addEventListener("keydown", function (e) {
+            var n = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+            if (n) { e.preventDefault(); select(tabs[(i + n + tabs.length) % tabs.length], true); }
+          });
+        });
+
+        var items = [].slice.call(document.querySelectorAll(".x-reveal"));
+        if (!("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("is-in"); }); return; }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+        items.forEach(function (el) { io.observe(el); });
+      })();
+    </script>
+  </body>
+</html>
