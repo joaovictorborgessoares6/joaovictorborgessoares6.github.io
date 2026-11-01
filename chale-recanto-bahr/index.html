@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chalé Recanto Bahr · Chalé romântico em Jaraguá do Sul</title>
+    <meta name="description" content="Chalé Recanto Bahr · Chalé romântico em Jaraguá do Sul. Hidromassagem sob o lustre, vista para as montanhas e privacidade total para casais." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <script>document.documentElement.classList.add("x-js");</script>
+    <style>
+      :root {
+        --x-wood: #24180f; --x-wood-2: #2f2117; --x-cream: #f7f1e8; --x-cream-2: #efe6d8;
+        --x-gold: #c9a46a; --x-gold-ink: #765829; --x-green: #3d4a39; --x-ink: #2a211b; --x-ink-2: #6b5d50;
+        --x-serif: "Cormorant Garamond", Georgia, serif; --x-sans: "Inter", system-ui, sans-serif;
+        --x-r: 16px; --x-shadow: 0 18px 40px -18px rgba(36, 24, 15, 0.35);
+        --x-pad: clamp(20px, 5vw, 64px); --x-max: 1240px;
+        color-scheme: light;
+      }
+      body { background: var(--x-cream); color: var(--x-ink); font-family: var(--x-sans); font-size: 16px; line-height: 1.65; }
+      .x-main { margin: -12px calc(50% - 50vw) -40px; font-family: var(--x-sans); color: var(--x-ink); }
+      .x-main a { text-decoration: none; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: var(--x-pad); }
+      .x-sec { padding-block: clamp(72px, 10vw, 128px); }
+      .x-dark { background: var(--x-wood); color: var(--x-cream); }
+      .x-green { background: var(--x-green); color: var(--x-cream); }
+      .x-eyebrow { font: 500 12px/1.4 var(--x-sans); letter-spacing: 0.22em; text-transform: uppercase; color: var(--x-gold-ink); display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+      .x-eyebrow::before { content: ""; width: 36px; height: 1px; background: var(--x-gold); }
+      .x-dark .x-eyebrow, .x-green .x-eyebrow, .x-hero .x-eyebrow, .x-night .x-eyebrow { color: var(--x-gold); }
+      .x-green .x-eyebrow, .x-green .x-score-sub { color: #e2c695; }
+      .x-h2 { font: 500 clamp(36px, 5.2vw, 60px)/1.05 var(--x-serif); letter-spacing: -0.01em; margin: 0 0 22px; }
+      .x-h2 em, .x-h1 em { font-style: italic; color: var(--x-gold-ink); font-weight: 400; }
+      .x-dark .x-h2 em, .x-green .x-h2 em, .x-hero em, .x-night em { color: var(--x-gold); }
+      .x-lead { font-size: 17px; color: var(--x-ink-2); max-width: 54ch; }
+      .x-dark .x-lead, .x-green .x-lead { color: rgba(247, 241, 232, 0.78); }
+      .x-head { max-width: 720px; margin-bottom: clamp(36px, 5vw, 60px); }
+      .x-center { text-align: center; margin-inline: auto; }
+      .x-center .x-eyebrow { justify-content: center; }
+      .x-center .x-eyebrow::after { content: ""; width: 36px; height: 1px; background: var(--x-gold); }
+      .x-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 26px; border-radius: 999px; font: 500 14px/1 var(--x-sans); letter-spacing: 0.04em; border: 1px solid var(--x-gold); background: var(--x-gold); color: var(--x-wood); cursor: pointer; transition: background 0.25s, color 0.25s, transform 0.25s; }
+      .x-btn:hover { background: #d8b67f; transform: translateY(-1px); }
+      .x-btn--ghost { background: transparent; color: var(--x-cream); border-color: rgba(247, 241, 232, 0.55); }
+      .x-btn--ghost:hover { background: rgba(247, 241, 232, 0.12); }
+      .x-btn--line { background: transparent; color: var(--x-ink); border-color: var(--x-gold); }
+      .x-btn--line:hover { background: var(--x-gold); }
+      .x-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+      .x-ico { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+      /* nav */
+      .x-nav { position: fixed; inset: 0 0 auto; z-index: 50; transition: background 0.3s, box-shadow 0.3s; background: var(--x-wood); border-bottom: 1px solid rgba(201, 164, 106, 0.22); }
+      .x-nav.is-solid { box-shadow: 0 6px 24px -12px rgba(0, 0, 0, 0.5); }
+      .x-nav__in { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
+      .x-logo { font: 500 25px/1 var(--x-serif); color: var(--x-cream); letter-spacing: 0.01em; white-space: nowrap; display: inline-flex; align-items: center; min-height: 44px; }
+      .x-logo i { color: var(--x-gold); }
+      .x-nav__links { display: flex; align-items: center; gap: 30px; }
+      .x-nav__links a:not(.x-btn) { color: rgba(247, 241, 232, 0.86); font-size: 14px; letter-spacing: 0.03em; padding: 12px 0; position: relative; }
+      .x-nav__links a:not(.x-btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 1px; background: var(--x-gold); transform: scaleX(0); transition: transform 0.3s; }
+      .x-nav__links a:not(.x-btn):hover::after { transform: scaleX(1); }
+      .x-nav .x-btn { min-height: 44px; padding: 0 22px; }
+      .x-burger { display: none; width: 48px; height: 48px; border: 0; background: transparent; color: var(--x-cream); cursor: pointer; align-items: center; justify-content: center; }
+      .x-burger span, .x-burger span::before, .x-burger span::after { display: block; width: 24px; height: 1.5px; background: currentColor; position: relative; transition: transform 0.3s, background 0.3s; }
+      .x-burger span::before, .x-burger span::after { content: ""; position: absolute; left: 0; }
+      .x-burger span::before { top: -8px; } .x-burger span::after { top: 8px; }
+      .x-menu-open .x-burger span { background: transparent; }
+      .x-menu-open .x-burger span::before { transform: translateY(8px) rotate(45deg); }
+      .x-menu-open .x-burger span::after { transform: translateY(-8px) rotate(-45deg); }
+      .x-mmenu { position: fixed; inset: 0; z-index: 45; background: var(--x-wood); display: flex; flex-direction: column; justify-content: center; padding: 96px var(--x-pad) 40px; opacity: 0; visibility: hidden; transition: opacity 0.35s, visibility 0.35s; }
+      .x-menu-open .x-mmenu { opacity: 1; visibility: visible; }
+      .x-mmenu a:not(.x-btn) { font: 400 40px/1.15 var(--x-serif); color: var(--x-cream); padding: 10px 0; border-bottom: 1px solid rgba(201, 164, 106, 0.25); display: block; }
+      .x-mmenu .x-btn { margin-top: 32px; align-self: flex-start; }
+      .x-menu-open { overflow: hidden; }
+
+      /* hero */
+      .x-hero { background-color: var(--x-wood); position: relative; min-height: 100svh; display: flex; align-items: flex-end; color: var(--x-cream); overflow: hidden; }
+      .x-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: x-zoom 18s ease-out both; }
+      @keyframes x-zoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+      .x-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(20deg, rgba(20, 13, 8, 0.92) 0%, rgba(20, 13, 8, 0.55) 40%, rgba(20, 13, 8, 0.05) 75%), linear-gradient(180deg, rgba(20, 13, 8, 0.45), transparent 22%); }
+      .x-hero__copy { position: relative; z-index: 1; width: 100%; padding-block: 140px clamp(48px, 9vh, 96px); }
+      .x-h1 { font: 500 clamp(44px, 7.4vw, 92px)/1.0 var(--x-serif); letter-spacing: -0.015em; max-width: 13ch; margin: 0 0 22px; }
+      .x-hero__sub { font-size: clamp(16px, 1.6vw, 19px); max-width: 46ch; color: rgba(247, 241, 232, 0.85); margin-bottom: 32px; }
+      .x-badge { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 9px 16px; border: 1px solid rgba(201, 164, 106, 0.5); border-radius: 999px; font-size: 13px; letter-spacing: 0.04em; background: rgba(36, 24, 15, 0.45); backdrop-filter: blur(6px); }
+      .x-badge b { color: var(--x-gold); font-weight: 600; }
+
+      /* trust */
+      .x-trust { background: var(--x-wood); color: var(--x-cream); border-top: 1px solid rgba(201, 164, 106, 0.3); }
+      .x-trust__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+      .x-trust__list li { display: flex; align-items: center; gap: 14px; padding: 28px 22px; border-left: 1px solid rgba(201, 164, 106, 0.22); font-size: 14px; line-height: 1.35; }
+      .x-trust__list li:first-child { border-left: 0; }
+      .x-trust__list .x-ico { color: var(--x-gold); width: 28px; height: 28px; }
+      .x-trust__list small { display: block; color: rgba(247, 241, 232, 0.6); font-size: 12px; margin-top: 3px; }
+
+      /* split */
+      .x-split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 110px); align-items: center; }
+      .x-stack { position: relative; padding: 0 0 18% 0; }
+      .x-stack img { border-radius: var(--x-r); object-fit: cover; aspect-ratio: 3 / 4; box-shadow: var(--x-shadow); }
+      .x-stack img:first-child { width: 72%; }
+      .x-stack img:last-child { position: absolute; width: 50%; right: 0; bottom: 0; border: 6px solid var(--x-cream); }
+      .x-stack::before { content: ""; position: absolute; top: -18px; left: -18px; width: 40%; height: 40%; border-top: 1px solid var(--x-gold); border-left: 1px solid var(--x-gold); border-top-left-radius: 22px; }
+      .x-facts { list-style: none; padding: 28px 0 0; margin: 32px 0 0; border-top: 1px solid rgba(201, 164, 106, 0.5); display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+      .x-facts li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.4; }
+      .x-facts .x-ico { color: var(--x-gold-ink); margin-top: 1px; }
+      .x-facts small { display: block; color: var(--x-ink-2); font-size: 13px; }
+
+      /* feature */
+      .x-feature { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(28px, 5vw, 72px); align-items: end; }
+      .x-feature__big { border-radius: var(--x-r); width: 100%; aspect-ratio: 3 / 4; max-height: 86vh; object-fit: cover; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7); }
+      .x-feature__side { display: grid; gap: 40px; }
+      .x-feature__small { border-radius: var(--x-r); width: 72%; aspect-ratio: 3 / 4; object-fit: cover; justify-self: end; }
+      .x-quote-line { border-left: 1px solid var(--x-gold); padding-left: 20px; }
+
+      /* amenities */
+      .x-amen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201, 164, 106, 0.4); border: 1px solid rgba(201, 164, 106, 0.4); border-radius: 18px; overflow: hidden; }
+      .x-amen > div { background: var(--x-cream); padding: 32px 28px; display: flex; gap: 18px; align-items: flex-start; transition: background 0.3s; }
+      .x-amen > div:hover { background: #fbf7f0; }
+      .x-amen .x-ico { width: 30px; height: 30px; color: var(--x-gold-ink); }
+      .x-amen h3 { font: 500 23px/1.15 var(--x-serif); margin: 2px 0 4px; }
+      .x-amen p { font-size: 14px; color: var(--x-ink-2); line-height: 1.5; }
+
+      /* gallery */
+      .x-gal { columns: 4; column-gap: 16px; }
+      .x-gal figure { margin: 0 0 16px; break-inside: avoid; }
+      .x-gal button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--x-r); overflow: hidden; position: relative; }
+      .x-gal img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; transition: transform 0.7s var(--ease-out, ease); }
+      .x-gal figure:nth-child(3n + 2) img { aspect-ratio: 2 / 3; }
+      .x-gal button:hover img { transform: scale(1.04); }
+      .x-gal figcaption { font-size: 13px; color: var(--x-ink-2); padding: 10px 2px 0; letter-spacing: 0.02em; }
+      .x-gal-hint { display: none; }
+
+      /* lightbox */
+      .x-lb { position: fixed; inset: 0; z-index: 80; background: rgba(18, 12, 7, 0.96); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+      .x-lb.is-open { opacity: 1; visibility: visible; }
+      .x-lb figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 92vw; }
+      .x-lb img { max-width: 92vw; max-height: 82vh; width: auto; height: auto; object-fit: contain; border-radius: 12px; }
+      .x-lb figcaption { color: var(--x-cream); font: italic 400 22px/1.2 var(--x-serif); text-align: center; }
+      .x-lb figcaption span { display: block; font: 400 12px/1.4 var(--x-sans); letter-spacing: 0.18em; color: var(--x-gold); font-style: normal; margin-top: 6px; }
+      .x-lb__btn { position: absolute; width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(201, 164, 106, 0.5); background: rgba(36, 24, 15, 0.6); color: var(--x-cream); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+      .x-lb__btn:hover { background: var(--x-gold); color: var(--x-wood); }
+      .x-lb__btn .x-ico { width: 22px; height: 22px; }
+      .x-lb__prev { left: 20px; top: 50%; transform: translateY(-50%); }
+      .x-lb__next { right: 20px; top: 50%; transform: translateY(-50%); }
+      .x-lb__close { top: 18px; right: 18px; }
+
+      /* experiences */
+      .x-exp { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 36px); }
+      .x-exp article { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 14px 34px -22px rgba(36, 24, 15, 0.4); display: flex; flex-direction: column; }
+      .x-exp img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+      .x-exp div { padding: 26px 26px 30px; border-top: 2px solid var(--x-gold); }
+      .x-exp h3 { font: 500 28px/1.1 var(--x-serif); margin: 0 0 10px; }
+      .x-exp p { font-size: 15px; color: var(--x-ink-2); line-height: 1.55; }
+
+      /* reviews */
+      .x-rev { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+      .x-score { font: 400 clamp(96px, 14vw, 168px)/0.9 var(--x-serif); color: var(--x-cream); }
+      .x-score span { color: var(--x-gold); font-size: 0.5em; vertical-align: 0.6em; margin-left: 6px; }
+      .x-score-sub { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--x-gold); margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(201, 164, 106, 0.4); display: inline-block; }
+      .x-rev__cards { display: grid; gap: 16px; }
+      .x-rev__cards div { padding: 24px 28px; border: 1px solid rgba(201, 164, 106, 0.35); border-radius: 16px; background: #44523f; }
+      .x-rev__cards h3 { font: 500 26px/1.15 var(--x-serif); margin: 0 0 6px; display: flex; align-items: center; gap: 12px; }
+      .x-rev__cards h3::before { content: "★★★★★"; font: 12px/1 var(--x-sans); letter-spacing: 0.2em; color: var(--x-gold); order: 2; margin-left: auto; }
+      .x-rev__cards p { color: rgba(247, 241, 232, 0.78); font-size: 15px; }
+
+      /* night band */
+      .x-night { background-color: var(--x-wood); position: relative; min-height: min(78vh, 720px); display: flex; align-items: center; color: var(--x-cream); overflow: hidden; }
+      .x-night img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .x-night::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20, 13, 8, 0.85), rgba(20, 13, 8, 0.35) 60%, rgba(20, 13, 8, 0.15)); }
+      .x-night .x-wrap { position: relative; z-index: 1; width: 100%; }
+      .x-night .x-h2 { max-width: 13ch; font-size: clamp(40px, 6vw, 76px); margin-bottom: 30px; }
+
+      /* tours */
+      .x-tours { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; list-style: none; margin: 0; padding: 0; }
+      .x-tours li { padding: 30px 28px; border-radius: 16px; background: var(--x-cream-2); display: flex; flex-direction: column; gap: 6px; }
+      .x-tours .x-ico { color: var(--x-green); width: 30px; height: 30px; margin-bottom: 14px; }
+      .x-tours b { font: 500 26px/1.15 var(--x-serif); }
+      .x-tours span { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--x-ink-2); }
+
+      /* location */
+      .x-loc { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+      .x-addr { font-style: normal; font-size: 16px; line-height: 1.7; padding: 22px 0; margin: 22px 0 28px; border-block: 1px solid rgba(201, 164, 106, 0.5); }
+      .x-map { border-radius: 18px; overflow: hidden; box-shadow: var(--x-shadow); aspect-ratio: 4 / 3; background: var(--x-cream-2); }
+      .x-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+      /* booking */
+      .x-book { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+      .x-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+      .x-form .x-full { grid-column: 1 / -1; }
+      .x-field { display: flex; flex-direction: column; gap: 8px; }
+      .x-field > span, .x-form legend { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--x-gold); }
+      .x-field input, .x-field textarea { font: 400 16px/1.4 var(--x-sans); color: var(--x-cream); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(201, 164, 106, 0.35); border-radius: 12px; padding: 13px 16px; min-height: 50px; width: 100%; color-scheme: dark; transition: border-color 0.2s; }
+      .x-field textarea { min-height: 120px; resize: vertical; }
+      .x-field input:focus, .x-field textarea:focus { outline: none; border-color: var(--x-gold); }
+      .x-form fieldset { border: 0; padding: 0; margin: 0; }
+      .x-form legend { margin-bottom: 8px; }
+      .x-radios { display: flex; gap: 10px; }
+      .x-radios label { flex: 1; position: relative; }
+      .x-radios input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+      .x-radios span { display: flex; align-items: center; justify-content: center; min-height: 50px; border: 1px solid rgba(201, 164, 106, 0.35); border-radius: 12px; font-size: 15px; transition: background 0.2s, color 0.2s; }
+      .x-radios input:checked + span { background: var(--x-gold); color: var(--x-wood); border-color: var(--x-gold); }
+      .x-radios input:focus-visible + span { outline: 2px solid var(--x-gold); outline-offset: 2px; }
+      .x-send-status { font-size: 14px; color: rgba(247, 241, 232, 0.85); }
+      .x-send-status a { color: var(--x-gold); text-decoration: underline; display: inline-flex; min-height: 44px; align-items: center; }
+      .x-info { border: 1px solid rgba(201, 164, 106, 0.35); border-radius: 18px; padding: 30px; }
+      .x-info dl { margin: 0 0 26px; }
+      .x-info div { padding: 14px 0; border-bottom: 1px solid rgba(201, 164, 106, 0.2); }
+      .x-info dt { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--x-gold); }
+      .x-info dd { margin: 4px 0 0; font: 400 24px/1.2 var(--x-serif); }
+      .x-info dd a { color: var(--x-cream); display: inline-flex; align-items: center; min-height: 44px; }
+      .x-info .x-btn { width: 100%; }
+
+      /* footer */
+      .x-foot { background: #1b120b; color: rgba(247, 241, 232, 0.75); padding-block: 64px 32px; font-size: 14px; }
+      .x-foot__top { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(201, 164, 106, 0.25); }
+      .x-foot .x-logo { font-size: 30px; display: inline-flex; margin-bottom: 12px; }
+      .x-foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+      .x-foot ul a { color: var(--x-cream); display: inline-flex; min-height: 44px; align-items: center; }
+      .x-foot ul a:hover { color: var(--x-gold); }
+      .x-foot__bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 24px; font-size: 13px; }
+
+      /* whatsapp */
+      .x-wa { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 60px; height: 60px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.45); transition: transform 0.25s; }
+      .x-wa:hover { transform: scale(1.07); }
+      .x-wa svg { width: 32px; height: 32px; fill: currentColor; }
+
+      /* reveal */
+      .x-js .x-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out, ease), transform 0.9s var(--ease-out, ease); }
+      .x-js .x-reveal.is-in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) {
+        .x-js .x-reveal { opacity: 1; transform: none; transition: none; }
+        .x-hero__img { animation: none; }
+      }
+
+      /* responsive */
+      @media (max-width: 1080px) {
+        .x-nav__links { gap: 20px; }
+        .x-gal { columns: 3; }
+        .x-amen { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 920px) {
+        .x-nav__links { display: none; }
+        .x-burger { display: inline-flex; }
+        .x-trust__list { grid-template-columns: 1fr 1fr; }
+        .x-trust__list li:nth-child(3) { border-left: 0; }
+        .x-trust__list li:nth-child(n + 3) { border-top: 1px solid rgba(201, 164, 106, 0.22); }
+        .x-split, .x-feature, .x-rev, .x-loc, .x-book, .x-foot__top { grid-template-columns: 1fr; }
+        .x-stack { max-width: 560px; }
+        .x-feature__big { max-height: none; }
+        .x-feature__side { grid-template-columns: 1fr 1fr; align-items: center; gap: 24px; }
+        .x-feature__small { width: 100%; }
+        .x-exp { grid-template-columns: 1fr 1fr; }
+        .x-exp article:last-child { grid-column: 1 / -1; }
+        .x-exp article:last-child img { aspect-ratio: 16 / 10; }
+        .x-tours { grid-template-columns: 1fr; }
+        /* galleries become swipe carousels */
+        .x-gal { columns: auto; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--x-pad) * -1); padding: 0 var(--x-pad) 8px; scroll-padding-inline: var(--x-pad); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .x-gal::-webkit-scrollbar { display: none; }
+        .x-gal figure { flex: 0 0 min(44vw, 340px); scroll-snap-align: start; margin: 0; }
+        .x-gal figure:nth-child(3n + 2) img { aspect-ratio: 3 / 4; }
+        .x-gal-hint { display: block; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--x-ink-2); margin-top: 14px; }
+      }
+      @media (max-width: 600px) {
+        .x-nav__in { height: 64px; }
+        .x-logo { font-size: 22px; }
+        .x-hero__copy { padding-bottom: 40px; }
+        .x-hero .x-btns .x-btn { flex: 1 1 100%; }
+        .x-trust__list li { padding: 20px 12px; font-size: 13px; gap: 10px; }
+        .x-trust__list .x-ico { width: 24px; height: 24px; }
+        .x-facts { grid-template-columns: 1fr; }
+        .x-amen { grid-template-columns: 1fr; }
+        .x-amen > div { padding: 24px 22px; }
+        .x-gal figure { flex-basis: 76vw; }
+        .x-exp { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin-inline: calc(var(--x-pad) * -1); padding: 0 var(--x-pad) 12px; scroll-padding-inline: var(--x-pad); scrollbar-width: none; }
+        .x-exp::-webkit-scrollbar { display: none; }
+        .x-exp article { flex: 0 0 82vw; scroll-snap-align: start; }
+        .x-exp article:last-child img { aspect-ratio: 4 / 5; }
+        .x-feature__side { grid-template-columns: 1fr; }
+        .x-feature__small { width: 70%; }
+        .x-form { grid-template-columns: 1fr; }
+        .x-info { padding: 24px; }
+        .x-map { aspect-ratio: 1 / 1; }
+        .x-lb__prev, .x-lb__next { top: auto; bottom: 18px; transform: none; }
+        .x-lb__prev { left: calc(50% - 64px); } .x-lb__next { right: calc(50% - 64px); }
+        .x-lb img { max-height: 70vh; }
+        .x-wa { width: 56px; height: 56px; right: 16px; bottom: 16px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header class="x-nav" id="x-nav">
+        <div class="x-wrap x-nav__in">
+          <a class="x-logo" href="#top">Chalé <i>Recanto</i> Bahr</a>
+          <nav class="x-nav__links" aria-label="Principal">
+            <a href="#chale">O Chalé</a>
+            <a href="#comodidades">Comodidades</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#experiencias">Experiências</a>
+            <a href="#localizacao">Localização</a>
+            <a class="x-btn" href="#reservar">Reservar</a>
+          </nav>
+          <button class="x-burger" id="x-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="x-mmenu"><span></span></button>
+        </div>
+      </header>
+      <div class="x-mmenu" id="x-mmenu" aria-hidden="true">
+        <a href="#chale">O Chalé</a>
+        <a href="#comodidades">Comodidades</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#experiencias">Experiências</a>
+        <a href="#localizacao">Localização</a>
+        <a class="x-btn" href="#reservar">Reservar</a>
+      </div>
+
+      <main class="x-main">
+        <section class="x-hero">
+          <img class="x-hero__img" src="hero-chale.jpg" alt="Interior do chalé com banheira, lustre e janela para as montanhas" fetchpriority="high" />
+          <div class="x-wrap x-hero__copy">
+            <p class="x-eyebrow">Jaraguá do Sul · SC</p>
+            <h1 class="x-h1">Um refúgio a dois, <em>no meio da natureza.</em></h1>
+            <p class="x-hero__sub">Chalé romântico com hidromassagem sob o lustre, vista para as montanhas e privacidade total.</p>
+            <div class="x-btns">
+              <a class="x-btn" href="https://api.whatsapp.com/send?phone=5547999686535&text=Ol%C3%A1%2C%20gostaria%20de%20reservar%20o%20Chal%C3%A9%20Recanto%20Bahr" target="_blank" rel="noopener">Reservar pelo WhatsApp</a>
+              <a class="x-btn x-btn--ghost" href="#chale">Ver o chalé</a>
+            </div>
+            <p class="x-badge"><b>★ 5,0</b> · Superhost no Airbnb</p>
+          </div>
+        </section>
+
+        <section class="x-trust" aria-label="Destaques">
+          <ul class="x-wrap x-trust__list">
+            <li><svg class="x-ico" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span>Nota 5,0 no Airbnb</span></li>
+            <li><svg class="x-ico" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Preferido dos hóspedes<small>Top 5% das acomodações</small></span></li>
+            <li><svg class="x-ico" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13l-1.5 8 5-3 5 3-1.5-8"/></svg><span>Superhost</span></li>
+            <li><svg class="x-ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Privacidade total</span></li>
+          </ul>
+        </section>
+
+        <section class="x-sec" id="chale">
+          <div class="x-wrap x-split">
+            <div class="x-reveal">
+              <p class="x-eyebrow">O chalé</p>
+              <h2 class="x-h2">Romance, conforto e <em>natureza</em></h2>
+              <p class="x-lead">Um chalé acolhedor, decorado com bom gosto, que combina conforto e simplicidade. Ideal para casais que buscam um fim de semana romântico ou simplesmente fugir da rotina. Iluminação suave, ambiente intimista e privacidade total.</p>
+              <ul class="x-facts">
+                <li><svg class="x-ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M14 14.5a4.5 4.5 0 0 1 6.5 4.5"/></svg><span>2 hóspedes</span></li>
+                <li><svg class="x-ico" viewBox="0 0 24 24"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18M6 9V6h12v3M3 18v2M21 18v2"/></svg><span>1 quarto<small>Cama queen + sofá-cama</small></span></li>
+                <li><svg class="x-ico" viewBox="0 0 24 24"><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM6 12V5a2 2 0 0 1 4 0M7 19l-1 2M17 19l1 2"/></svg><span>1 banheiro</span></li>
+                <li><svg class="x-ico" viewBox="0 0 24 24"><path d="M3 20l6-10 4 6 3-4 5 8zM15 6a2 2 0 1 0 0-.01"/></svg><span>Área rural<small>Com fácil acesso</small></span></li>
+              </ul>
+            </div>
+            <div class="x-stack x-reveal">
+              <img src="banheira-sofa.jpg" alt="Banheira de hidromassagem ao lado do sofá" loading="lazy" />
+              <img src="sala-cafe-vista.jpg" alt="Sala com bolo de boas-vindas e vista" loading="lazy" />
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-dark">
+          <div class="x-wrap x-feature">
+            <img class="x-feature__big x-reveal" src="banheira-lustre.jpg" alt="Hidromassagem sob o lustre de cristal" loading="lazy" />
+            <div class="x-feature__side">
+              <div class="x-reveal">
+                <p class="x-eyebrow">Destaque</p>
+                <h2 class="x-h2">Hidromassagem <em>sob o lustre</em></h2>
+                <p class="x-lead x-quote-line">Um banho demorado, uma taça de vinho e música suave, com a vista das montanhas pela janela.</p>
+              </div>
+              <img class="x-feature__small x-reveal" src="hidro-iluminada.jpg" alt="Banheira de hidromassagem iluminada à noite" loading="lazy" />
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec" id="comodidades">
+          <div class="x-wrap">
+            <div class="x-head x-center x-reveal">
+              <p class="x-eyebrow">Comodidades</p>
+              <h2 class="x-h2">Tudo pronto para <em>vocês dois</em></h2>
+            </div>
+            <div class="x-amen x-reveal">
+              <div><svg class="x-ico" viewBox="0 0 24 24"><path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zM6 12V6a2 2 0 0 1 4 0M14 4c0 1 1 1 1 2s-1 1-1 2M17 4c0 1 1 1 1 2s-1 1-1 2"/></svg><div><h3>Hidromassagem privativa</h3><p>Banheira de hidromassagem só de vocês.</p></div></div>
+              <div><svg class="x-ico" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M8 6h.01M11 6h.01M9 15a3 3 0 1 0 6 0 3 3 0 0 0-6 0"/></svg><div><h3>Cozinha completa</h3><p>Equipada para preparar o que quiserem.</p></div></div>
+              <div><svg class="x-ico" viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg><div><h3>Wi-Fi</h3><p>Conexão para quando precisarem.</p></div></div>
+              <div><svg class="x-ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><div><h3>TV smart</h3><p>Filmes e séries para a noite.</p></div></div>
+              <div><svg class="x-ico" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg><div><h3>Estacionamento gratuito</h3><p>No local, ao lado do chalé.</p></div></div>
+              <div><svg class="x-ico" viewBox="0 0 24 24"><path d="M8 3l4 3 4-3 4 4-3 3v11H7V10L4 7z"/></svg><div><h3>Enxoval completo</h3><p>Roupa de cama, toalhas, roupão e chinelos.</p></div></div>
+              <div><svg class="x-ico" viewBox="0 0 24 24"><path d="M2 15c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 19c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M12 3v7M9 7l3 3 3-3"/></svg><div><h3>Acesso ao lago</h3><p>A poucos passos da porta.</p></div></div>
+              <div><svg class="x-ico" viewBox="0 0 24 24"><path d="M2 19l6-9 4 5 3-3 7 7zM17 7a2.5 2.5 0 1 0 0-.01"/></svg><div><h3>Vista para as montanhas</h3><p>E para o pôr do sol.</p></div></div>
+              <div><svg class="x-ico" viewBox="0 0 24 24"><path d="M13 4a1.5 1.5 0 1 0 0-.01M9 21l2.5-6.5L14 17v4M7 12l3-4 3 1 2 3 3 1M11.5 14.5L12 9"/></svg><div><h3>Caminhadas e trilhas</h3><p>Espaço amplo para explorar.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec" id="galeria" style="padding-top: 0">
+          <div class="x-wrap">
+            <div class="x-head x-reveal">
+              <p class="x-eyebrow">Galeria</p>
+              <h2 class="x-h2">Cada canto <em>pensado para dois</em></h2>
+            </div>
+            <div class="x-gal" id="x-gal">
+              <figure><button type="button" aria-label="Ampliar: Janela para as montanhas"><img src="janela-vista.jpg" alt="Janela com vista para as montanhas" loading="lazy" /></button><figcaption>Janela para as montanhas</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Hidromassagem"><img src="banheira-lustre.jpg" alt="Hidromassagem sob o lustre" loading="lazy" /></button><figcaption>Hidromassagem</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Sala e cozinha"><img src="sala-cozinha.jpg" alt="Sala integrada à cozinha" loading="lazy" /></button><figcaption>Sala e cozinha</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Mezanino"><img src="mezanino.jpg" alt="Mezanino do chalé" loading="lazy" /></button><figcaption>Mezanino</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Quarto"><img src="quarto-cama.jpg" alt="Quarto com cama queen" loading="lazy" /></button><figcaption>Quarto</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Decoração romântica"><img src="cama-coracao.jpg" alt="Cama com coração de pétalas" loading="lazy" /></button><figcaption>Decoração romântica</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Cozinha equipada"><img src="cozinha.jpg" alt="Cozinha equipada" loading="lazy" /></button><figcaption>Cozinha equipada</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Bancada"><img src="cozinha-bancada.jpg" alt="Bancada da cozinha" loading="lazy" /></button><figcaption>Bancada</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Banheiro"><img src="banheiro-tijolo.jpg" alt="Pia do banheiro com parede de tijolos" loading="lazy" /></button><figcaption>Banheiro</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Chuveiro"><img src="chuveiro.jpg" alt="Chuveiro" loading="lazy" /></button><figcaption>Chuveiro</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Roupões e chinelos"><img src="banheira-roupao.jpg" alt="Banheira com roupões" loading="lazy" /></button><figcaption>Roupões e chinelos</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Enxoval completo"><img src="roupoes.jpg" alt="Roupões sobre o sofá" loading="lazy" /></button><figcaption>Enxoval completo</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Varanda"><img src="varanda.jpg" alt="Varanda com cadeiras" loading="lazy" /></button><figcaption>Varanda</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Área externa e lago"><img src="jardim-lago.jpg" alt="Jardim e lago com palmeiras" loading="lazy" /></button><figcaption>Área externa e lago</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: Detalhes"><img src="flores.jpg" alt="Detalhe de flores" loading="lazy" /></button><figcaption>Detalhes</figcaption></figure>
+              <figure><button type="button" aria-label="Ampliar: O chalé à noite"><img src="fachada-noite.jpg" alt="Fachada do chalé iluminada à noite" loading="lazy" /></button><figcaption>O chalé à noite</figcaption></figure>
+            </div>
+            <p class="x-gal-hint">Deslize para ver mais →</p>
+          </div>
+        </section>
+
+        <section class="x-sec" id="experiencias" style="background: var(--x-cream-2)">
+          <div class="x-wrap">
+            <div class="x-head x-reveal">
+              <p class="x-eyebrow">Experiências</p>
+              <h2 class="x-h2">Pequenos gestos, <em>grandes memórias</em></h2>
+            </div>
+            <div class="x-exp x-reveal">
+              <article><img src="sala-cafe-vista.jpg" alt="Bolo e biscoitos de boas-vindas na sala" loading="lazy" /><div><h3>Mimo de boas-vindas</h3><p>Bolo e biscoitos esperando por vocês na chegada.</p></div></article>
+              <article><img src="cama-rosas.jpg" alt="Cama decorada com buquê de rosas" loading="lazy" /><div><h3>Decoração romântica</h3><p>Pétalas, rosas e coração na cama, sob consulta. Perfeita para pedidos, aniversários e bodas.</p></div></article>
+              <article><img src="flores.jpg" alt="Flores do jardim" loading="lazy" /><div><h3>Restaurante próximo</h3><p>O Bahr Recanto e Petiscaria (nota 4,9 no Google) entrega os pedidos no chalé.</p></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-green" id="avaliacoes">
+          <div class="x-wrap x-rev">
+            <div class="x-reveal">
+              <p class="x-eyebrow">Avaliações</p>
+              <p class="x-score">5,0<span>★</span></p>
+              <p class="x-score-sub">Preferido dos hóspedes · Top 5% no Airbnb</p>
+            </div>
+            <div class="x-rev__cards x-reveal">
+              <div><h3>Hospitalidade</h3><p>Recepção atenciosa do início ao fim da estadia.</p></div>
+              <div><h3>Limpeza impecável</h3><p>Chalé sempre cuidado e pronto para receber.</p></div>
+              <div><h3>Conforto e sono</h3><p>Cama queen, enxoval completo e o silêncio do campo.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-night">
+          <img src="chale-noite-wide.jpg" alt="O chalé iluminado à noite" loading="lazy" />
+          <div class="x-wrap x-reveal">
+            <p class="x-eyebrow">À noite</p>
+            <h2 class="x-h2">Quando o sol se põe, o chalé <em>acende</em>.</h2>
+            <a class="x-btn" href="#reservar">Reservar</a>
+          </div>
+        </section>
+
+        <section class="x-sec">
+          <div class="x-wrap">
+            <div class="x-head x-reveal">
+              <p class="x-eyebrow">Passeios próximos</p>
+              <h2 class="x-h2">Para quando quiserem <em>sair do chalé</em></h2>
+            </div>
+            <ul class="x-tours x-reveal">
+              <li><svg class="x-ico" viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5c0 3 3 4 3 7h4c0-3 3-4 3-7a5 5 0 0 0-5-5zM12 15v6M7 21h10"/></svg><b>Parque Malwee</b><span>Jaraguá do Sul</span></li>
+              <li><svg class="x-ico" viewBox="0 0 24 24"><path d="M2 20l7-12 4 6 2-3 7 9zM9 8l1.5 2.5"/></svg><b>Pico Malwee</b><span>Jaraguá do Sul</span></li>
+              <li><svg class="x-ico" viewBox="0 0 24 24"><path d="M12 21V10M12 10C10 6 6 5 3 6c3 0 6 2 9 4zM12 10c2-4 6-5 9-4-3 0-6 2-9 4zM12 10c-1-3-4-6-7-6 2 1 5 3 7 6zM12 10c1-3 4-6 7-6-2 1-5 3-7 6z"/></svg><b>Palmeiras</b><span>Rio dos Cedros</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="x-sec" id="localizacao" style="padding-top: 0">
+          <div class="x-wrap x-loc">
+            <div class="x-reveal">
+              <p class="x-eyebrow">Localização</p>
+              <h2 class="x-h2">Área rural, <em>cercada de natureza</em></h2>
+              <address class="x-addr">Rodovia JGS 382, R. Werner Fischer, 1061<br />Alto Garibaldi, Jaraguá do Sul – SC<br />89269-899</address>
+              <a class="x-btn x-btn--line" href="https://www.google.com/maps/dir/?api=1&destination=-26.55376690,-49.23029210" target="_blank" rel="noopener">Como chegar</a>
+            </div>
+            <div class="x-map x-reveal">
+              <iframe src="https://maps.google.com/maps?q=-26.553767,-49.230292&z=14&output=embed" title="Mapa do Chalé Recanto Bahr" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-sec x-dark" id="reservar">
+          <div class="x-wrap">
+            <div class="x-head x-reveal">
+              <p class="x-eyebrow">Reservar</p>
+              <h2 class="x-h2">Garanta a sua <em>data</em></h2>
+              <p class="x-lead">Preencha e enviamos tudo pronto pelo WhatsApp.</p>
+            </div>
+            <div class="x-book">
+              <form class="x-form x-reveal" id="x-form" novalidate>
+                <label class="x-field x-full"><span>Nome</span><input name="nome" type="text" autocomplete="name" required /></label>
+                <label class="x-field"><span>Data de entrada</span><input name="entrada" type="date" /></label>
+                <label class="x-field"><span>Data de saída</span><input name="saida" type="date" /></label>
+                <fieldset class="x-full">
+                  <legend>Decoração romântica?</legend>
+                  <div class="x-radios">
+                    <label><input type="radio" name="deco" value="Sim" /><span>Sim</span></label>
+                    <label><input type="radio" name="deco" value="Não" checked /><span>Não</span></label>
+                  </div>
+                </fieldset>
+                <label class="x-field x-full"><span>Mensagem</span><textarea name="msg" rows="4"></textarea></label>
+                <div class="x-full"><button class="x-btn" type="submit">Enviar pelo WhatsApp</button></div>
+                <p class="x-full x-send-status" id="x-send-status" role="status" hidden>Mensagem pronta! Se o WhatsApp não abriu, <a id="x-send-link" href="https://api.whatsapp.com/send?phone=5547999686535" target="_blank" rel="noopener">toque aqui para enviar</a>.</p>
+              </form>
+              <aside class="x-info x-reveal">
+                <dl>
+                  <div><dt>Check-in e check-out</dt><dd>Consulte</dd></div>
+                  <div><dt>Hóspedes</dt><dd>Até 2</dd></div>
+                  <div><dt>WhatsApp</dt><dd><a href="https://api.whatsapp.com/send?phone=5547999686535" target="_blank" rel="noopener">(47) 99968-6535</a></dd></div>
+                </dl>
+                <a class="x-btn x-btn--ghost" href="https://www.airbnb.com.br/rooms/1252998462253194364" target="_blank" rel="noopener">Reservar pelo Airbnb</a>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <footer class="x-foot">
+          <div class="x-wrap">
+            <div class="x-foot__top">
+              <div>
+                <a class="x-logo" href="#top">Chalé <i>Recanto</i> Bahr</a>
+                <p>Chalé romântico para casais no interior de Jaraguá do Sul, SC.</p>
+              </div>
+              <ul>
+                <li><a href="https://api.whatsapp.com/send?phone=5547999686535" target="_blank" rel="noopener">WhatsApp (47) 99968-6535</a></li>
+                <li><a href="https://www.instagram.com/chalerecantobahr/" target="_blank" rel="noopener">Instagram @chalerecantobahr</a></li>
+                <li>Rodovia JGS 382, R. Werner Fischer, 1061 – Alto Garibaldi, Jaraguá do Sul – SC, 89269-899</li>
+              </ul>
+            </div>
+            <div class="x-foot__bot">
+              <p>© 2026 Chalé Recanto Bahr</p>
+              <p>Site por Impulso Digital</p>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <div class="x-lb" id="x-lb" role="dialog" aria-modal="true" aria-label="Galeria de fotos" aria-hidden="true">
+      <figure><img id="x-lb-img" alt="" /><figcaption id="x-lb-cap"></figcaption></figure>
+      <button class="x-lb__btn x-lb__close" type="button" aria-label="Fechar"><svg class="x-ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button class="x-lb__btn x-lb__prev" type="button" aria-label="Foto anterior"><svg class="x-ico" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="x-lb__btn x-lb__next" type="button" aria-label="Próxima foto"><svg class="x-ico" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+
+    <a class="x-wa" href="https://api.whatsapp.com/send?phone=5547999686535&text=Ol%C3%A1%2C%20gostaria%20de%20reservar%20o%20Chal%C3%A9%20Recanto%20Bahr" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2A11.8 11.8 0 0 0 12 0C5.5 0 .2 5.3.2 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7 1 3.7 1.4 5.7 1.4 6.5 0 11.8-5.3 11.8-11.9 0-3.2-1.2-6.2-3.4-8.4z"/></svg>
+    </a>
+
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        var doc = document, html = doc.documentElement;
+        // nav background on scroll
+        var nav = doc.getElementById("x-nav");
+        function onScroll() { nav.classList.toggle("is-solid", window.scrollY > 40); }
+        onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+
+        // mobile menu
+        var burger = doc.getElementById("x-burger"), mmenu = doc.getElementById("x-mmenu");
+        function setMenu(open) {
+          html.classList.toggle("x-menu-open", open);
+          burger.setAttribute("aria-expanded", open); burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+          mmenu.setAttribute("aria-hidden", !open);
+          if (open) nav.classList.add("is-solid"); else onScroll();
+        }
+        burger.addEventListener("click", function () { setMenu(!html.classList.contains("x-menu-open")); });
+        [].forEach.call(mmenu.querySelectorAll("a"), function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+
+        // reveal on scroll
+        var items = doc.querySelectorAll(".x-reveal");
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+          }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+          [].forEach.call(items, function (el) { io.observe(el); });
+        } else { [].forEach.call(items, function (el) { el.classList.add("is-in"); }); }
+
+        // lightbox
+        var figs = [].slice.call(doc.querySelectorAll("#x-gal figure"));
+        var lb = doc.getElementById("x-lb"), lbImg = doc.getElementById("x-lb-img"), lbCap = doc.getElementById("x-lb-cap");
+        var idx = 0, lastFocus = null;
+        function show(i) {
+          idx = (i + figs.length) % figs.length;
+          var im = figs[idx].querySelector("img");
+          lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt;
+          lbCap.innerHTML = "";
+          lbCap.appendChild(doc.createTextNode(figs[idx].querySelector("figcaption").textContent));
+          var s = doc.createElement("span"); s.textContent = (idx + 1) + " / " + figs.length; lbCap.appendChild(s);
+        }
+        function open(i) { lastFocus = doc.activeElement; show(i); lb.classList.add("is-open"); lb.setAttribute("aria-hidden", "false"); html.style.overflow = "hidden"; lb.querySelector(".x-lb__close").focus(); }
+        function close() { lb.classList.remove("is-open"); lb.setAttribute("aria-hidden", "true"); html.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+        figs.forEach(function (f, i) { f.querySelector("button").addEventListener("click", function () { open(i); }); });
+        lb.querySelector(".x-lb__close").addEventListener("click", close);
+        lb.querySelector(".x-lb__prev").addEventListener("click", function () { show(idx - 1); });
+        lb.querySelector(".x-lb__next").addEventListener("click", function () { show(idx + 1); });
+        lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+        doc.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && html.classList.contains("x-menu-open")) setMenu(false);
+          if (!lb.classList.contains("is-open")) return;
+          if (e.key === "Escape") close();
+          if (e.key === "ArrowLeft") show(idx - 1);
+          if (e.key === "ArrowRight") show(idx + 1);
+        });
+        var x0 = null, y0 = null;
+        lb.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+        lb.addEventListener("touchend", function (e) {
+          if (x0 === null) return;
+          var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(idx + (dx < 0 ? 1 : -1));
+          x0 = null;
+        });
+
+        // booking form → WhatsApp
+        function fmt(d) { if (!d) return "a definir"; var p = d.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+        doc.getElementById("x-form").addEventListener("submit", function (e) {
+          e.preventDefault();
+          var f = e.target, deco = f.querySelector("input[name=deco]:checked");
+          var lines = [
+            "Olá! Gostaria de reservar o Chalé Recanto Bahr.",
+            "Nome: " + (f.nome.value.trim() || "-"),
+            "Entrada: " + fmt(f.entrada.value),
+            "Saída: " + fmt(f.saida.value),
+            "Decoração romântica: " + (deco ? deco.value : "Não")
+          ];
+          if (f.msg.value.trim()) lines.push("Mensagem: " + f.msg.value.trim());
+          var url = "https://api.whatsapp.com/send?phone=5547999686535&text=" + encodeURIComponent(lines.join("\n"));
+          var link = doc.getElementById("x-send-link"), status = doc.getElementById("x-send-status");
+          link.href = url;
+          status.hidden = false;
+          link.click();
+        });
+      })();
+    </script>
+  </body>
+</html>
