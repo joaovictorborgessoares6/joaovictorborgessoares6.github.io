@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lagos de Gramado Lages | Chocolates artesanais e café no Centro</title>
+    <meta name="description" content="Chocolates artesanais de Gramado, cafés, bolachas Fluss Haus, vinhos, cestas e fondue no Centro de Lages/SC." />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <style>
+      :root {
+        --x-cream: #f4ece3;
+        --x-card: #fbf7f2;
+        --x-sand: #e9dccd;
+        --x-brown: #5a3423;
+        --x-brown-dark: #422517;
+        --x-cocoa: #2a1a12;
+        --x-line: #e3d5c5;
+        --x-muted: #6b5446;
+        --x-teal: #5fa8a0;
+        --x-olive: #a9b54a;
+        --x-coral: #e0735b;
+        --x-serif: "Cormorant Garamond", Georgia, serif;
+        --x-sans: "Montserrat", system-ui, sans-serif;
+        --x-script: "Allura", cursive;
+        --x-max: 1200px;
+        color-scheme: light;
+      }
+      body.x-body {
+        background: var(--x-cream);
+        color: var(--x-cocoa);
+        font: 400 15px/1.7 var(--x-sans);
+      }
+      .x-body h1, .x-body h2, .x-body h3 { font-family: var(--x-serif); font-weight: 700; color: var(--x-cocoa); line-height: 1.1; }
+      .x-body section[id], .x-collage { scroll-margin-top: 88px; }
+      .x-wrap { max-width: var(--x-max); margin: 0 auto; padding-inline: 32px; }
+      .x-body a { text-decoration: none; }
+      .x-ico { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+      /* top bar */
+      .x-topbar { background: var(--x-sand); font-size: 12px; color: var(--x-muted); }
+      .x-topbar .x-wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 40px; }
+      .x-topbar__right { display: flex; align-items: center; gap: 24px; }
+      .x-topbar__hours { display: flex; align-items: center; gap: 8px; }
+      .x-social { display: flex; gap: 8px; }
+      .x-social a { display: grid; place-items: center; width: 32px; height: 32px; color: var(--x-brown); border-radius: 50%; transition: background .2s; }
+      .x-social a:hover { background: rgba(90, 52, 35, .08); }
+
+      /* header */
+      .x-header { position: sticky; top: 0; z-index: 50; background: var(--x-cream); border-bottom: 1px solid var(--x-line); }
+      .x-header .x-wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 80px; }
+      .x-logo img { height: 52px; width: auto; }
+      .x-nav ul { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
+      .x-nav a, .x-btn {
+        font: 500 12px/1 var(--x-sans); text-transform: uppercase; letter-spacing: .08em;
+      }
+      .x-nav a { color: var(--x-cocoa); padding: 8px 0; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+      .x-nav a:hover { color: var(--x-brown); border-bottom-color: var(--x-brown); }
+      .x-menu { display: none; width: 44px; height: 44px; border: 1px solid var(--x-line); border-radius: 6px; background: transparent; color: var(--x-cocoa); cursor: pointer; place-items: center; }
+      .x-menu .x-ico { width: 20px; height: 20px; }
+
+      /* buttons */
+      .x-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        min-height: 44px; padding: 0 24px; border-radius: 6px; font-weight: 600;
+        background: var(--x-brown); color: var(--x-cream); border: 1px solid var(--x-brown);
+        transition: background .2s, color .2s, border-color .2s; cursor: pointer; white-space: nowrap;
+      }
+      .x-btn:hover { background: var(--x-brown-dark); border-color: var(--x-brown-dark); }
+      .x-btn--outline { background: transparent; color: var(--x-brown); }
+      .x-btn--outline:hover { background: var(--x-brown); color: var(--x-cream); border-color: var(--x-brown); }
+      .x-btn--sm { min-height: 44px; padding: 0 20px; font-size: 12px; }
+      .x-btns { display: flex; flex-wrap: wrap; gap: 16px; }
+
+      /* hero */
+      .x-hero { position: relative; overflow: hidden; isolation: isolate; background: url("hero.jpg") center / cover no-repeat; min-height: 640px; display: grid; place-items: center; text-align: center; padding: 96px 24px; }
+      .x-hero__copy { position: relative; max-width: 600px; padding: 40px 24px; }
+      .x-hero__copy::before { content: ""; position: absolute; inset: -40px; z-index: -1; background: radial-gradient(closest-side, rgba(244, 236, 227, .85), rgba(244, 236, 227, 0)); }
+      .x-script { font-family: var(--x-script); font-size: 40px; line-height: 1; color: var(--x-brown); margin-bottom: 8px; }
+      .x-hero h1 { font-size: clamp(40px, 6vw, 64px); margin-bottom: 24px; }
+      .x-hero p.x-hero__sub { color: var(--x-cocoa); font-size: 16px; max-width: 480px; margin: 0 auto 32px; }
+      .x-hero .x-btns { justify-content: center; }
+
+      /* sections */
+      .x-section { padding: 96px 0; }
+      .x-section--sand { background: var(--x-sand); }
+      .x-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+      .x-head h2 { font-size: clamp(32px, 4vw, 44px); }
+      .x-head p { color: var(--x-muted); margin-top: 16px; }
+      .x-mark { display: block; margin: 0 auto 16px; width: 40px; height: auto; }
+      .x-rule { display: flex; width: 72px; height: 1px; margin: 16px auto 0; }
+      .x-rule span { flex: 1; }
+      .x-rule span:nth-child(1) { background: var(--x-teal); }
+      .x-rule span:nth-child(2) { background: var(--x-olive); }
+      .x-rule span:nth-child(3) { background: var(--x-coral); }
+      .x-rule--left { margin-left: 0; }
+
+      /* cards */
+      .x-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .x-card { background: var(--x-card); border: 1px solid var(--x-line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; text-align: center; }
+      .x-card__img { overflow: hidden; aspect-ratio: 4 / 3; }
+      .x-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+      .x-card:hover .x-card__img img { transform: scale(1.03); }
+      .x-card__body { padding: 32px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; flex: 1; }
+      .x-card__body h3 { font-size: 26px; }
+      .x-card__body p { color: var(--x-muted); font-size: 14px; flex: 1; }
+
+      /* products */
+      .x-products { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+      .x-product { background: #fff; border: 1px solid var(--x-line); border-radius: 6px; overflow: hidden; text-align: center; display: flex; flex-direction: column; }
+      .x-product__img { aspect-ratio: 1; padding: 24px; overflow: hidden; background: #fff; }
+      .x-product__img img { width: 100%; height: 100%; object-fit: contain; transition: transform .5s ease; }
+      .x-product:hover .x-product__img img { transform: scale(1.03); }
+      .x-product__body { padding: 16px 16px 24px; border-top: 1px solid var(--x-line); display: flex; flex-direction: column; gap: 8px; flex: 1; justify-content: space-between; }
+      .x-product__body h3 { font-size: 20px; }
+      .x-textlink { font: 500 12px/1.3 var(--x-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--x-brown); display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; text-decoration: underline !important; text-underline-offset: 4px; text-decoration-color: var(--x-line) !important; }
+      .x-textlink:hover { text-decoration-color: var(--x-brown) !important; }
+      .x-center { text-align: center; margin-top: 48px; }
+
+      /* strip */
+      .x-strip { padding: 56px 0; }
+      .x-strip h2 { font-size: 32px; text-align: center; margin-bottom: 40px; }
+      .x-strip ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); }
+      .x-strip li { padding: 8px 24px; text-align: center; border-left: 1px solid rgba(90, 52, 35, .2); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+      .x-strip li:first-child { border-left: 0; }
+      .x-strip .x-ico { width: 32px; height: 32px; color: var(--x-brown); stroke-width: 1.2; margin-bottom: 8px; }
+      .x-strip b { font: 700 20px/1.2 var(--x-serif); color: var(--x-cocoa); }
+      .x-strip span { font-size: 13px; color: var(--x-muted); line-height: 1.5; }
+
+      /* about */
+      .x-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+      .x-split h2 { font-size: clamp(32px, 4vw, 44px); }
+      .x-about p.x-lead { color: var(--x-muted); margin-top: 24px; max-width: 520px; }
+      .x-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 40px; border-top: 1px solid var(--x-line); }
+      .x-stats div { padding: 24px 16px 0 0; }
+      .x-stats div + div { padding-left: 16px; border-left: 1px solid var(--x-line); }
+      .x-stats strong { display: block; font: 700 32px/1.1 var(--x-serif); color: var(--x-brown); }
+      .x-stats span { font-size: 12px; color: var(--x-muted); text-transform: uppercase; letter-spacing: .08em; }
+      .x-collage { position: relative; padding: 0 0 64px 64px; }
+      .x-collage::before { content: ""; position: absolute; top: 24px; right: -24px; bottom: 88px; left: 88px; border: 1px solid var(--x-brown); border-radius: 6px; opacity: .35; }
+      .x-collage__main { position: relative; border-radius: 6px; overflow: hidden; aspect-ratio: 4 / 5; }
+      .x-collage__main img, .x-collage__small img { width: 100%; height: 100%; object-fit: cover; }
+      .x-collage__small { position: absolute; left: 0; bottom: 0; width: 46%; aspect-ratio: 1; background: #fff; border: 8px solid var(--x-cream); border-radius: 6px; overflow: hidden; }
+      .x-collage__small img { object-fit: contain; padding: 8px; }
+
+      /* visit */
+      .x-visit h2 { font-size: clamp(32px, 4vw, 44px); }
+      .x-visit .x-lead { color: var(--x-muted); margin: 24px 0 32px; max-width: 480px; }
+      .x-details { margin: 0 0 40px; border-top: 1px solid rgba(90, 52, 35, .2); }
+      .x-details div { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(90, 52, 35, .2); }
+      .x-details dt { font: 600 12px/1.7 var(--x-sans); text-transform: uppercase; letter-spacing: .08em; color: var(--x-brown); }
+      .x-details dd { margin: 0; font-size: 14px; }
+      .x-details dd a:hover { color: var(--x-brown); text-decoration: underline; }
+      .x-visit__media { display: grid; gap: 16px; }
+      .x-map { width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--x-line); border-radius: 8px; display: block; background: var(--x-card); }
+      .x-thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .x-thumbs figure { margin: 0; border-radius: 6px; overflow: hidden; aspect-ratio: 16 / 10; }
+      .x-thumbs img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+      .x-thumbs figure:hover img { transform: scale(1.03); }
+
+      /* footer */
+      .x-footer { background: var(--x-cocoa); color: var(--x-sand); }
+      .x-news { display: grid; grid-template-columns: 1.4fr auto 1fr; align-items: center; gap: 40px; padding: 48px 0; border-bottom: 1px solid rgba(233, 220, 205, .15); }
+      .x-news__text { display: flex; align-items: center; gap: 24px; }
+      .x-news__text svg { width: 48px; flex: none; }
+      .x-news h2 { color: var(--x-cream) !important; font-size: 28px; }
+      .x-news p { font-size: 14px; color: rgba(233, 220, 205, .75); margin-top: 4px; }
+      .x-news .x-btn { background: var(--x-cream); color: var(--x-cocoa); border-color: var(--x-cream); }
+      .x-news .x-btn:hover { background: var(--x-sand); border-color: var(--x-sand); }
+      .x-news__follow { display: flex; align-items: center; justify-content: flex-end; gap: 16px; font: 500 12px/1 var(--x-sans); text-transform: uppercase; letter-spacing: .08em; }
+      .x-footer .x-social a { color: var(--x-sand); border: 1px solid rgba(233, 220, 205, .3); width: 44px; height: 44px; }
+      .x-footer .x-social a:hover { background: rgba(233, 220, 205, .1); }
+      .x-legal { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding: 24px 0; font-size: 12px; color: rgba(233, 220, 205, .65); }
+      .x-footlogo { display: inline-block; background: var(--x-cream); padding: 8px 16px; border-radius: 6px; margin-bottom: 0; }
+      .x-footlogo img { height: 40px; width: auto; }
+
+      /* floating */
+      .x-float { position: fixed; right: 24px; bottom: 24px; z-index: 60; width: 56px; height: 56px; border-radius: 50%; background: var(--x-brown); color: var(--x-cream); display: grid; place-items: center; box-shadow: 0 8px 24px rgba(42, 26, 18, .25); transition: background .2s, transform .2s; }
+      .x-float:hover { background: var(--x-brown-dark); transform: translateY(-2px); }
+      .x-float .x-ico { width: 26px; height: 26px; }
+
+      .x-body :focus-visible { outline: 2px solid var(--x-brown); outline-offset: 3px; }
+
+      @media (max-width: 1080px) {
+        .x-products { grid-template-columns: repeat(3, 1fr); }
+        .x-nav ul { gap: 20px; }
+      }
+      @media (max-width: 960px) {
+        .x-menu { display: grid; }
+        .x-header .x-btn { display: none; }
+        .x-nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--x-cream); border-bottom: 1px solid var(--x-line); display: none; }
+        .x-nav.is-open { display: block; }
+        .x-nav ul { flex-direction: column; gap: 0; padding: 8px 32px 24px; }
+        .x-nav li { border-bottom: 1px solid var(--x-line); }
+        .x-nav a { display: block; padding: 16px 0; border: 0; }
+        .x-nav .x-btn { display: flex; margin-top: 16px; }
+        .x-split { grid-template-columns: 1fr; gap: 56px; }
+        .x-strip ul { grid-template-columns: repeat(3, 1fr); row-gap: 32px; }
+        .x-strip li:nth-child(4) { border-left: 0; }
+        .x-news { grid-template-columns: 1fr; gap: 24px; text-align: left; }
+        .x-news__follow { justify-content: flex-start; }
+      }
+      @media (max-width: 720px) {
+        .x-wrap { padding-inline: 20px; }
+        .x-topbar__text { display: none; }
+        .x-topbar .x-wrap { justify-content: center; }
+        .x-cards { grid-template-columns: 1fr; gap: 24px; }
+        .x-products { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .x-product__img { padding: 16px; }
+        .x-product__body h3 { font-size: 18px; }
+        .x-section { padding: 72px 0; }
+        .x-hero { min-height: 560px; padding: 64px 16px; }
+        .x-strip ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .x-strip li { border-left: 0; padding: 8px 12px; overflow-wrap: anywhere; }
+        .x-strip b { font-size: 18px; }
+        .x-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .x-product__body h3 { overflow-wrap: break-word; }
+        .x-collage::before { right: 0; }
+        .x-body { overflow-x: hidden; }
+        .x-topbar .x-social a { width: 44px; height: 44px; }
+        .x-details dd a { display: inline-flex; align-items: center; min-height: 44px; }
+        .x-strip li:nth-child(odd) { border-right: 1px solid rgba(90, 52, 35, .2); }
+        .x-strip li:last-child { grid-column: 1 / -1; border-right: 0; }
+        .x-collage { padding: 0 0 48px 32px; }
+        .x-collage::before { right: -8px; left: 56px; }
+        .x-stats { grid-template-columns: 1fr; }
+        .x-stats div, .x-stats div + div { padding: 16px 0; border-left: 0; border-bottom: 1px solid var(--x-line); }
+        .x-details div { grid-template-columns: 1fr; gap: 4px; }
+        .x-legal { flex-direction: column; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .x-card__img img, .x-product__img img, .x-thumbs img { transition: none; }
+      }
+    </style>
+  </head>
+  <body class="x-body">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6Z"/><path d="M9 8.2c.3-.4.7-.4 1-.1l.9 1.6c.1.3 0 .6-.2.8l-.5.5c.5 1.1 1.4 2 2.6 2.6l.5-.5c.2-.2.5-.3.8-.2l1.6.9c.3.3.3.7-.1 1-.6.6-1.5.9-2.3.6-2.3-.8-4.1-2.6-4.9-4.9-.3-.8 0-1.7.6-2.3Z"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-mountains" viewBox="0 0 48 24"><path d="M2 22 14 6l12 16Z" fill="#5FA8A0" stroke="none"/><path d="M16 22 27 4l11 18Z" fill="#A9B54A" stroke="none"/><path d="M28 22 37 10l9 12Z" fill="#E0735B" stroke="none"/></symbol>
+    </svg>
+
+    <div id="top">
+      <div class="x-topbar">
+        <div class="x-wrap">
+          <p class="x-topbar__text">Chocolate artesanal da Serra Gaúcha, no Centro de Lages</p>
+          <div class="x-topbar__right">
+            <span class="x-topbar__hours"><svg class="x-ico" aria-hidden="true"><use href="#i-clock"/></svg>Seg a sex 09h–13h e 14h–18h30</span>
+            <span class="x-social">
+              <a href="https://www.instagram.com/lagosdegramadolages/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="x-ico"><use href="#i-ig"/></svg></a>
+              <a href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="x-ico"><use href="#i-wa"/></svg></a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <header class="x-header">
+        <div class="x-wrap">
+          <a class="x-logo" href="#inicio"><img src="logo.png" alt="Lagos de Gramado Chocolates Artesanais" /></a>
+          <nav class="x-nav" id="x-nav" aria-label="Principal">
+            <ul>
+              <li><a href="#inicio">Início</a></li>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#produtos">Produtos</a></li>
+              <li><a href="#presentes">Presentes</a></li>
+              <li><a href="#galeria">Galeria</a></li>
+              <li><a href="#contato">Contato</a></li>
+            </ul>
+          </nav>
+          <a class="x-btn" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
+          <button class="x-menu" id="x-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="x-nav"><svg class="x-ico"><use href="#i-menu"/></svg></button>
+        </div>
+      </header>
+
+      <main>
+        <section class="x-hero" id="inicio" aria-label="Início">
+          <div class="x-hero__copy">
+            <p class="x-script">Bem-vindo à Lagos de Gramado</p>
+            <h1>Chocolate artesanal,<br />café quentinho</h1>
+            <p class="x-hero__sub">Bombons, barras, cafés, bolachas Fluss Haus, vinhos, cestas e um fondue delicioso, no coração de Lages.</p>
+            <div class="x-btns">
+              <a class="x-btn" href="#produtos">Ver produtos</a>
+              <a class="x-btn x-btn--outline" href="https://www.google.com/maps/search/?api=1&amp;query=Lagos%20de%20Gramado%2C%20Rua%20Presidente%20Nereu%20Ramos%2C%20231%2C%20Lages%20SC" target="_blank" rel="noopener">Como chegar</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-section" id="presentes">
+          <div class="x-wrap">
+            <div class="x-head">
+              <svg class="x-mark" viewBox="0 0 40 24" aria-hidden="true" fill="none" stroke="#5A3423" stroke-width="1.2" stroke-linecap="round"><ellipse cx="13" cy="12" rx="6" ry="9" transform="rotate(-20 13 12)"/><path d="M10 5c3 4 3 10 0 14" transform="rotate(-20 13 12)"/><path d="M22 18c2-8 8-12 15-12-1 7-6 12-15 12Z"/><path d="M22 18c4-3 8-6 12-9"/></svg>
+              <h2>Por que a Lagos de Gramado?</h2>
+              <div class="x-rule" aria-hidden="true"><span></span><span></span><span></span></div>
+              <p>Tradição de Gramado com o atendimento de perto de uma loja de bairro.</p>
+            </div>
+            <div class="x-cards">
+              <article class="x-card">
+                <div class="x-card__img"><img src="bombons-licor.jpg" alt="Bombons recheados com licor, cortados ao meio" /></div>
+                <div class="x-card__body">
+                  <h3>Chocolate artesanal</h3>
+                  <p>Bombons com recheio cremoso e licores selecionados, barras e drágeas feitos com o puro chocolate de Gramado.</p>
+                  <a class="x-btn x-btn--outline x-btn--sm" href="#produtos">Ver chocolates</a>
+                </div>
+              </article>
+              <article class="x-card">
+                <div class="x-card__img"><img src="chocolate-quente.jpg" alt="Chocolate quente cremoso com bombons junto à janela" /></div>
+                <div class="x-card__body">
+                  <h3>Cafés e chocolate quente</h3>
+                  <p>Uma pausa quentinha no meio do dia, do jeito que o frio da serra pede.</p>
+                  <a class="x-btn x-btn--outline x-btn--sm" href="#contato">Visitar a loja</a>
+                </div>
+              </article>
+              <article class="x-card">
+                <div class="x-card__img"><img src="presente.jpg" alt="Mãos colocando bombons em uma caixa dourada com fita vermelha" /></div>
+                <div class="x-card__body">
+                  <h3>Presentes e cestas</h3>
+                  <p>Caixas de bombons, cestas com vinhos e canecas personalizadas para datas especiais.</p>
+                  <a class="x-btn x-btn--outline x-btn--sm" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Montar presente</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-section x-section--sand" id="produtos">
+          <div class="x-wrap">
+            <div class="x-head">
+              <p class="x-script">Feitos à mão</p>
+              <h2>Destaques da loja</h2>
+              <div class="x-rule" aria-hidden="true"><span></span><span></span><span></span></div>
+              <p>Feitos com carinho, prontos para presentear.</p>
+            </div>
+            <div class="x-products">
+              <article class="x-product">
+                <div class="x-product__img"><img src="dourada16.jpg" alt="Caixa dourada com 16 bombons sortidos" /></div>
+                <div class="x-product__body"><h3>Caixa dourada 16 bombons</h3><a class="x-textlink" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Consultar no WhatsApp</a></div>
+              </article>
+              <article class="x-product">
+                <div class="x-product__img"><img src="cx36.jpg" alt="Caixa com 36 barrinhas sortidas e fita vermelha" /></div>
+                <div class="x-product__body"><h3>Caixa com 36 barrinhas sortidas</h3><a class="x-textlink" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Consultar no WhatsApp</a></div>
+              </article>
+              <article class="x-product">
+                <div class="x-product__img"><img src="redonda.jpg" alt="Embalagem redonda com 11 bombons ao leite e branco" /></div>
+                <div class="x-product__body"><h3>Redonda com 11 bombons</h3><a class="x-textlink" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Consultar no WhatsApp</a></div>
+              </article>
+              <article class="x-product">
+                <div class="x-product__img"><img src="drageas.jpg" alt="Saco de drágeas meio amargo 400g com laço" /></div>
+                <div class="x-product__body"><h3>Drágeas meio amargo 400g</h3><a class="x-textlink" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Consultar no WhatsApp</a></div>
+              </article>
+              <article class="x-product">
+                <div class="x-product__img"><img src="cx10.jpg" alt="Caixa branca com 10 barrinhas" /></div>
+                <div class="x-product__body"><h3>Caixa com 10 barrinhas</h3><a class="x-textlink" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Consultar no WhatsApp</a></div>
+              </article>
+            </div>
+            <div class="x-center">
+              <a class="x-btn" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Ver tudo pelo WhatsApp</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-strip" aria-labelledby="tambem">
+          <div class="x-wrap">
+            <h2 id="tambem">Também na loja</h2>
+            <ul>
+              <li>
+                <svg class="x-ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="7" stroke-dasharray="2 2.4"/><circle cx="13" cy="14" r=".8"/><circle cx="19" cy="15" r=".8"/><circle cx="16" cy="19" r=".8"/></svg>
+                <b>Bolachas Fluss Haus</b><span>As tradicionais bolachas amanteigadas</span>
+              </li>
+              <li>
+                <svg class="x-ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M10 4h12c0 7-1 12-6 12S10 11 10 4Z"/><path d="M10.5 9h11"/><path d="M16 16v10M11 28h10"/></svg>
+                <b>Vinhos</b><span>Para acompanhar o chocolate</span>
+              </li>
+              <li>
+                <svg class="x-ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 14h24l-3 13H7Z"/><path d="M9 14c0-5 3-9 7-9s7 4 7 9"/><path d="M12 18v5M16 18v5M20 18v5"/></svg>
+                <b>Cestas</b><span>Montadas para presentear</span>
+              </li>
+              <li>
+                <svg class="x-ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 14h20c0 6-4 10-10 10S6 20 6 14Z"/><path d="M10 28h12M16 24v4"/><path d="M20 4 13 16"/><circle cx="21" cy="4" r="1.5"/></svg>
+                <b>Fondue</b><span>De chocolate, com frutas</span>
+              </li>
+              <li>
+                <svg class="x-ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 9h16v13a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4Z"/><path d="M22 12h2a3 3 0 0 1 0 6h-2"/><path d="M12 16c0-1.5 2-1.5 2 0 0-1.5 2-1.5 2 0 0 1.5-2 3-2 3s-2-1.5-2-3Z"/></svg>
+                <b>Canecas personalizadas</b><span>Um mimo para quem você gosta</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="x-section" id="sobre">
+          <div class="x-wrap x-split">
+            <div class="x-about">
+              <p class="x-script">Nossa história</p>
+              <h2>Um pedacinho de Gramado em Lages</h2>
+              <div class="x-rule x-rule--left" aria-hidden="true"><span></span><span></span><span></span></div>
+              <p class="x-lead">A Lagos de Gramado nasceu em Gramado, na Serra Gaúcha, com chocolates artesanais de receita própria. Aqui em Lages, na Galeria Dr. Acácio, você encontra a mesma qualidade: bombons, barras, drágeas e presentes, além de cafés e chocolate quente para aproveitar na hora.</p>
+              <div class="x-stats">
+                <div><strong>+7 mil</strong><span>Seguidores no Instagram</span></div>
+                <div><strong>Serra</strong><span>Chocolate da Serra Gaúcha</span></div>
+                <div><strong>Centro</strong><span>Centro de Lages</span></div>
+              </div>
+            </div>
+            <div class="x-collage" id="galeria">
+              <div class="x-collage__main"><img src="bombons-licor.jpg" alt="Bombons artesanais recheados com licor" /></div>
+              <div class="x-collage__small"><img src="barra70.jpg" alt="Barra de chocolate 70% cacau, 500g" /></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="x-section x-section--sand x-visit" id="contato">
+          <div class="x-wrap x-split">
+            <div>
+              <h2>Visite a loja</h2>
+              <div class="x-rule x-rule--left" aria-hidden="true"><span></span><span></span><span></span></div>
+              <p class="x-lead">Passe para provar um bombom, tomar um chocolate quente ou montar o seu presente. Atendemos também pelo WhatsApp.</p>
+              <dl class="x-details">
+                <div><dt>Endereço</dt><dd>Rua Presidente Nereu Ramos, 231 – Sala 15, Galeria Dr. Acácio, Centro, Lages/SC</dd></div>
+                <div><dt>Horário</dt><dd>Segunda a sexta, 09h às 13h e 14h às 18h30</dd></div>
+                <div><dt>WhatsApp</dt><dd><a href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">(49) 9 9935-3592</a></dd></div>
+                <div><dt>Telefone</dt><dd><a href="tel:+554930181488">(49) 3018-1488</a></dd></div>
+              </dl>
+              <div class="x-btns">
+                <a class="x-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Lagos%20de%20Gramado%2C%20Rua%20Presidente%20Nereu%20Ramos%2C%20231%2C%20Lages%20SC" target="_blank" rel="noopener">Como chegar</a>
+                <a class="x-btn x-btn--outline" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+              </div>
+            </div>
+            <div class="x-visit__media">
+              <iframe class="x-map" src="https://www.google.com/maps?q=Rua+Presidente+Nereu+Ramos+231+Lages+SC&amp;output=embed" title="Mapa: Rua Presidente Nereu Ramos, 231, Lages/SC" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="x-thumbs">
+                <figure><img src="chocolate-quente.jpg" alt="Chocolate quente servido na loja" loading="lazy" /></figure>
+                <figure><img src="presente.jpg" alt="Caixa de presente com bombons" loading="lazy" /></figure>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="x-footer">
+        <div class="x-wrap">
+          <div class="x-news">
+            <div class="x-news__text">
+              <svg viewBox="0 0 48 24" aria-hidden="true"><use href="#i-mountains"/></svg>
+              <div>
+                <h2>Promoções e novidades</h2>
+                <p>Siga @lagosdegramadolages e acompanhe as datas especiais.</p>
+              </div>
+            </div>
+            <a class="x-btn" href="https://www.instagram.com/lagosdegramadolages/" target="_blank" rel="noopener">Seguir no Instagram</a>
+            <div class="x-news__follow">
+              <span>Siga</span>
+              <span class="x-social">
+                <a href="https://www.instagram.com/lagosdegramadolages/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="x-ico"><use href="#i-ig"/></svg></a>
+                <a href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="x-ico"><use href="#i-wa"/></svg></a>
+              </span>
+            </div>
+          </div>
+          <div class="x-legal">
+            <p>© 2026 Lagos de Gramado – Lages. Todos os direitos reservados.</p>
+            <p>Rua Presidente Nereu Ramos, 231 – Sala 15, Centro, Lages/SC</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <a class="x-float" href="https://wa.me/554999353592?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" aria-label="Pedir pelo WhatsApp"><svg class="x-ico"><use href="#i-wa"/></svg></a>
+
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        var btn = document.getElementById("x-menu"), nav = document.getElementById("x-nav");
+        btn.addEventListener("click", function () {
+          var open = nav.classList.toggle("is-open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+        });
+        nav.addEventListener("click", function (e) {
+          if (e.target.closest("a")) { nav.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-label", "Abrir menu"); }
+        });
+      })();
+    </script>
+  </body>
+</html>
