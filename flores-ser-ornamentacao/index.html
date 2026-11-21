@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flores Ser — Ornamentação · Plantas e peças artesanais</title>
+    <meta name="description" content="Plantas ornamentais, vasos, cachepôs, mini jardins, arranjos florais e macramê feitos à mão em Campo Grande, Rio de Janeiro. Enviamos para todo o Brasil." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Caveat:wght@500&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --x-cream: #f7f3ec;
+        --x-cream-2: #efe8dc;
+        --x-green: #1f3a2b;
+        --x-green-2: #2c4d3a;
+        --x-sage: #a9b89a;
+        --x-sage-soft: #dfe5d6;
+        --x-pink: #d9a5a0;
+        --x-ink: #1f2a22;
+        --x-muted: #59625a;
+        --x-line: rgb(31 58 43 / 0.14);
+        --x-serif: "Playfair Display", "DM Serif Display", Georgia, serif;
+        --x-sans: "Inter", "Manrope", var(--sans);
+        --x-script: "Caveat", "Segoe Script", cursive;
+        --x-shadow: 0 18px 40px rgb(31 58 43 / 0.14);
+      }
+      body { background: var(--x-cream); color: var(--x-ink); font-family: var(--x-sans); font-size: var(--size-prose); line-height: 1.6; }
+      .x-bleed { margin-inline: calc(50% - 50vw); padding-inline: calc(50vw - 50%); }
+      .x-ribbon { margin-top: -12px; background: var(--x-green); color: var(--x-cream); text-align: center; font: var(--weight-medium) var(--size-meta)/1.4 var(--x-sans); padding-block: 9px; }
+
+      /* header */
+      .x-header { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; background: rgb(247 243 236 / 0.9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--x-line); }
+      .x-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--x-green); min-height: var(--tap); }
+      .x-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--x-pink); }
+      .x-brand b { display: block; font: 600 24px/1 var(--x-serif); }
+      .x-brand small { display: block; margin-top: 4px; font: 500 var(--size-caption)/1 var(--x-sans); letter-spacing: 0.22em; text-transform: uppercase; color: var(--x-muted); }
+      .x-menu { display: flex; gap: 4px; }
+      .x-menu a { padding: 10px 14px; border-radius: var(--r-pill); text-decoration: none; font: 500 var(--size-small)/1.2 var(--x-sans); color: var(--x-ink); transition: background var(--dur-quick); }
+      .x-menu a:hover { background: var(--x-sage-soft); }
+
+      /* buttons */
+      .x-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: var(--tap); padding: 12px 24px; border-radius: var(--r-pill); font: 600 var(--size-body)/1.2 var(--x-sans); text-decoration: none; border: 1.5px solid var(--x-green); transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), background 0.2s; }
+      .x-btn:hover { transform: translateY(-2px); box-shadow: var(--x-shadow); }
+      .x-btn--fill { background: var(--x-green); color: var(--x-cream); }
+      .x-btn--fill:hover { background: var(--x-green-2); }
+      .x-btn--line { background: transparent; color: var(--x-green); }
+      .x-btn--line:hover { background: var(--x-green); color: var(--x-cream); }
+      .x-btn--white { background: var(--x-cream); color: var(--x-green); border-color: var(--x-cream); }
+      .x-btn--sm { padding: 10px 18px; font-size: var(--size-small); }
+      .x-btn .x-arrow { transition: transform 0.3s var(--ease-out); }
+      .x-btn:hover .x-arrow { transform: translateX(3px); }
+      .x-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+      /* eyebrow */
+      .x-eyebrow { display: inline-flex; align-items: center; gap: 10px; font: 600 var(--size-caption)/1.3 var(--x-sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--x-green); }
+      .x-eyebrow::before, .x-eyebrow::after { content: ""; width: 28px; height: 1px; background: var(--x-sage); }
+      .x-eyebrow svg { width: 14px; height: 14px; color: var(--x-sage); flex: none; }
+      .x-eyebrow--left::after { display: none; }
+      .x-h1, .x-h2 { font-family: var(--x-serif); font-weight: 500; color: var(--x-green); letter-spacing: -0.01em; }
+      .x-h1 { font-size: clamp(40px, 5.6vw, 66px); line-height: 1.04; margin: 18px 0 20px; }
+      .x-h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin: 14px 0 12px; }
+      .x-h1 em, .x-h2 em { font-style: italic; color: var(--x-green-2); }
+      .x-lede { color: var(--x-muted); max-width: 52ch; }
+      .x-center { text-align: center; display: grid; justify-items: center; }
+      .x-section { padding-block: clamp(48px, 8vw, 96px); position: relative; }
+
+      /* hero */
+      .x-hero { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 24px; padding-block: 32px 48px; }
+      .x-hero__copy { position: relative; z-index: 2; }
+      .x-hero__art { position: relative; align-self: stretch; min-height: 520px; }
+      .x-hero__art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 48% 0 0 48% / 60% 0 0 40%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%); mask-image: linear-gradient(to right, transparent 0, #000 22%); }
+      .x-note { position: absolute; left: 4%; bottom: 8%; z-index: 3; display: flex; align-items: flex-end; gap: 4px; font: 500 28px/1.05 var(--x-script); color: var(--x-green); transform: rotate(-4deg); max-width: 190px; }
+      .x-note svg { width: 56px; height: 48px; flex: none; color: var(--x-green); }
+      .x-feats { list-style: none; margin: 40px 0 0; padding: 24px 0 0; border-top: 1px solid var(--x-line); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+      .x-feats li { display: grid; gap: 6px; font: 600 var(--size-small)/1.3 var(--x-sans); color: var(--x-green); }
+      .x-feats li small { font-weight: 400; color: var(--x-muted); font-size: var(--size-caption); }
+      .x-ico { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--x-sage-soft); color: var(--x-green); }
+      .x-ico svg { width: 20px; height: 20px; }
+      .x-leaf-deco { position: absolute; pointer-events: none; color: var(--x-sage); opacity: 0.45; filter: blur(3px); z-index: 0; }
+
+      /* collection */
+      .x-cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; margin-top: 40px; }
+      .x-card { position: relative; display: block; aspect-ratio: 3 / 4.6; border-radius: 28px; overflow: hidden; color: #fff; background: var(--x-green); text-shadow: 0 1px 8px rgb(0 0 0 / 0.35); text-decoration: none; box-shadow: 0 6px 18px rgb(31 58 43 / 0.08); transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out); }
+      .x-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease-out); }
+      .x-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(14 28 20 / 0.86) 0, rgb(14 28 20 / 0.35) 38%, transparent 62%); }
+      .x-card:hover { transform: translateY(-6px); box-shadow: var(--x-shadow); }
+      .x-card:hover img { transform: scale(1.05); }
+      .x-card__txt { position: absolute; z-index: 2; left: 18px; right: 66px; bottom: 18px; }
+      .x-card__txt h3 { font: 500 21px/1.15 var(--x-serif); }
+      .x-card__txt p { margin-top: 6px; font: 400 var(--size-meta)/1.35 var(--x-sans); color: rgb(255 255 255 / 0.88); }
+      .x-card__go { position: absolute; z-index: 2; right: 14px; bottom: 16px; width: var(--tap); height: var(--tap); border-radius: 50%; background: #fff; color: var(--x-green); display: grid; place-items: center; transition: transform 0.3s var(--ease-out); }
+      .x-card:hover .x-card__go { transform: rotate(-45deg); }
+      .x-card__go svg { width: 18px; height: 18px; }
+
+      /* featured */
+      .x-feature { margin-top: 28px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; padding: 24px 28px; border-radius: 28px; background: var(--x-sage); color: var(--x-green); }
+      .x-feature__tag { font: 600 var(--size-caption)/1 var(--x-sans); letter-spacing: 0.18em; text-transform: uppercase; background: var(--x-cream); padding: 10px 14px; border-radius: var(--r-pill); }
+      .x-feature h3 { font: 500 clamp(20px, 2.2vw, 26px)/1.25 var(--x-serif); }
+      .x-feature h3 b { font-family: var(--x-sans); font-weight: 600; white-space: nowrap; }
+
+      /* about */
+      .x-about { background: var(--x-cream-2); display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(28px, 5vw, 64px); margin-inline: calc(50% - 50vw); padding: 0 calc(50vw - 50%) 0 0; }
+      .x-about__img { align-self: stretch; min-height: 520px; position: relative; }
+      .x-about__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0 50% 50% 0 / 0 46% 54% 0; }
+      .x-about__body { padding-block: clamp(48px, 7vw, 88px); display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+      .x-about__body p.x-lede { margin-bottom: 26px; }
+      .x-stats { list-style: none; margin: 0; padding: 0 0 0 28px; border-left: 1px solid var(--x-line); display: grid; gap: 22px; }
+      .x-stats li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: center; color: var(--x-muted); font-size: var(--size-meta); line-height: 1.3; }
+      .x-stats b { display: block; font: 500 24px/1.1 var(--x-serif); color: var(--x-green); }
+      .x-stats svg { width: 32px; height: 32px; color: var(--x-green); }
+
+      /* why */
+      .x-why { list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .x-why li { padding: 8px 28px; text-align: center; display: grid; justify-items: center; gap: 10px; }
+      .x-why li + li { border-left: 1px solid var(--x-line); }
+      .x-why svg { width: 44px; height: 44px; color: var(--x-green); margin-bottom: 6px; }
+      .x-why h3 { font: 500 22px/1.2 var(--x-serif); color: var(--x-green); }
+      .x-why p { color: var(--x-muted); font-size: var(--size-small); }
+
+      /* steps */
+      .x-steps { list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; counter-reset: s; }
+      .x-steps li { position: relative; padding: 28px; border-radius: 28px; background: #fff; border: 1px solid var(--x-line); transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out); }
+      .x-steps li:hover { transform: translateY(-4px); box-shadow: var(--x-shadow); }
+      .x-steps li::before { counter-increment: s; content: "0" counter(s); display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--x-green); color: var(--x-cream); font: 500 20px/1 var(--x-serif); margin-bottom: 20px; }
+      .x-steps h3 { font: 500 24px/1.2 var(--x-serif); color: var(--x-green); margin-bottom: 6px; }
+      .x-steps p { color: var(--x-muted); font-size: var(--size-small); }
+
+      /* final cta */
+      .x-cta { position: relative; overflow: hidden; border-radius: 36px; background: var(--x-green); color: var(--x-cream); text-align: center; padding: clamp(48px, 8vw, 88px) 24px; display: grid; justify-items: center; gap: 14px; }
+      .x-cta .x-h2 { color: var(--x-cream); margin: 0; max-width: 18ch; }
+      .x-cta p { color: rgb(247 243 236 / 0.82); max-width: 44ch; margin-bottom: 12px; }
+      .x-cta .x-leaf-deco { color: var(--x-sage); opacity: 0.35; filter: none; }
+
+      /* footer */
+      .x-foot { display: grid; grid-template-columns: 1.4fr 1fr 1.3fr; gap: 32px; padding-top: 48px; border-top: 1px solid var(--x-line); font-size: var(--size-small); color: var(--x-muted); }
+      .x-foot h4 { margin: 0 0 12px; font: 600 var(--size-caption)/1.3 var(--x-sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--x-green); }
+      .x-foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+      .x-foot ul a { display: inline-flex; align-items: center; min-height: var(--tap); min-width: var(--tap); text-decoration: none; color: var(--x-ink); }
+      .x-foot ul a:hover { color: var(--x-green); text-decoration: underline; }
+      .x-foot__brand p { margin-top: 14px; max-width: 34ch; }
+      .x-copy { grid-column: 1 / -1; padding-top: 20px; border-top: 1px solid var(--x-line); font-size: var(--size-caption); }
+
+      /* whatsapp float */
+      .x-wa { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 60px; height: 60px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 28px rgb(0 0 0 / 0.22); transition: transform 0.3s var(--ease-out); }
+      .x-wa:hover { transform: scale(1.08); }
+      .x-wa svg { width: 30px; height: 30px; }
+
+      /* reveal */
+      .x-js .x-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+      .x-js .x-reveal.is-in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) {
+        .x-js .x-reveal { opacity: 1; transform: none; transition: none; }
+        .x-card, .x-card img, .x-btn, .x-steps li { transition: none; }
+      }
+
+      @media (max-width: 1240px) {
+        .x-hero > .x-leaf-deco, .x-section > .x-leaf-deco { display: none; }
+      }
+      @media (max-width: 1000px) {
+        .x-menu { display: none; }
+        .x-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .x-about__body { grid-template-columns: 1fr; }
+        .x-stats { padding: 24px 0 0; border-left: 0; border-top: 1px solid var(--x-line); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .x-stats li { grid-template-columns: 1fr; }
+        .x-why { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+        .x-why li:nth-child(3) { border-left: 0; }
+      }
+      @media (max-width: 760px) {
+        .x-header .x-btn { padding-inline: 14px; }
+        .x-brand b { font-size: 20px; }
+        .x-hero { grid-template-columns: 1fr; padding-top: 16px; }
+        .x-hero__art { order: -1; min-height: 340px; margin-right: calc(-1 * (50vw - 50%)); }
+        .x-hero__art img { border-radius: 40% 0 0 40% / 50% 0 0 50%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16%); mask-image: linear-gradient(to right, transparent 0, #000 16%); }
+        .x-note { font-size: 24px; left: 2%; bottom: 4%; }
+        .x-feats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .x-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin-inline: calc(-1 * var(--gutter)); padding: 4px var(--gutter) 16px; scrollbar-width: none; }
+        .x-cards::-webkit-scrollbar { display: none; }
+        .x-card { flex: 0 0 72%; scroll-snap-align: center; }
+        .x-feature { grid-template-columns: 1fr; justify-items: start; gap: 14px; }
+        .x-about { grid-template-columns: 1fr; padding-inline: calc(50vw - 50%); }
+        .x-about__img { min-height: 320px; margin-inline: calc(50% - 50vw); }
+        .x-about__img img { border-radius: 0 0 50% 50% / 0 0 18% 18%; }
+        .x-about__body { padding-top: 8px; }
+        .x-stats { grid-template-columns: 1fr; }
+        .x-stats li { grid-template-columns: 40px 1fr; }
+        .x-why { grid-template-columns: 1fr; }
+        .x-why li + li { border-left: 0; border-top: 1px solid var(--x-line); padding-top: 28px; }
+        .x-steps { grid-template-columns: 1fr; }
+        .x-foot { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 420px) {
+        .x-brand small { letter-spacing: 0.14em; }
+        .x-brand img { width: 40px; height: 40px; }
+        .x-header .x-btn span.x-long { display: none; }
+      }
+    </style>
+    <script>document.documentElement.classList.add("x-js");</script>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 19C5 10 10 5 20 4c0 10-5 15-14 15zM5 19l8-8"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="i-hand" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></symbol>
+        <symbol id="i-truck" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 6h11v10H3zM14 10h4l3 3v3h-7M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol>
+        <symbol id="i-box" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8"/></symbol>
+        <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9-7 9 7M5 10v10h14V10M12 20v-5c0-2 1.5-3.5 3-4-0 2-1 3.5-3 4"/></symbol>
+        <symbol id="i-pen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 20h4L19 9l-4-4L4 16v4zM13 7l4 4"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3zM8.5 12l2.5 2.5 4.5-5"/></symbol>
+        <symbol id="i-drop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11zM9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+        <symbol id="i-insta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM17 7h.01"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21zM12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></symbol>
+        <symbol id="i-bigleaf" viewBox="0 0 120 160"><path fill="currentColor" d="M60 4C20 40 6 86 22 128c8 20 22 28 38 28s30-8 38-28C114 86 100 40 60 4z"/><path fill="none" stroke="rgb(255 255 255 / 0.35)" stroke-width="2" d="M60 20v136M60 60l-22-16M60 84l26-20M60 108l-28-18M60 128l24-16"/></symbol>
+        <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+      </defs>
+    </svg>
+    <div class="page" id="top">
+      <p class="x-ribbon x-bleed">🎄 Natal chegando: 20% de desconto em todas as peças pronta entrega, até durarem os estoques.</p>
+
+      <header class="x-header x-bleed">
+        <a class="x-brand" href="#top" aria-label="Flores Ser Ornamentação, início">
+          <img src="logo.jpg" alt="Logo Flores Ser" />
+          <span><b>Flores Ser</b><small>Ornamentação</small></span>
+        </a>
+        <nav class="x-menu" aria-label="Principal">
+          <a href="#top">Início</a>
+          <a href="#colecao">Coleção</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#encomendar">Como encomendar</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <a class="x-btn x-btn--fill x-btn--sm" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">Pedir <span class="x-long">orçamento</span></a>
+      </header>
+
+      <main class="main">
+        <section class="x-hero" id="inicio" aria-label="Início">
+          <svg class="x-leaf-deco" style="left:-60px;top:10px;width:120px;height:160px;transform:rotate(-30deg)" aria-hidden="true"><use href="#i-bigleaf" /></svg>
+          <div class="x-hero__copy x-reveal">
+            <p class="x-eyebrow x-eyebrow--left"><svg aria-hidden="true"><use href="#i-leaf" /></svg>Traga a natureza pra casa</p>
+            <h1 class="x-h1">Plantas e peças artesanais para uma casa <em>mais viva.</em></h1>
+            <p class="x-lede">Plantas ornamentais, vasos, cachepôs, mini jardins, arranjos florais e macramê. Peças únicas e artesanais, feitas com carinho no Rio de Janeiro e enviadas para todo o Brasil.</p>
+            <div class="x-btns" style="margin-top:28px">
+              <a class="x-btn x-btn--fill" href="#colecao">Ver coleção <svg class="x-arrow" width="18" height="18" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+              <a class="x-btn x-btn--line" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
+            </div>
+            <ul class="x-feats">
+              <li><span class="x-ico"><svg aria-hidden="true"><use href="#i-hand" /></svg></span>Peças únicas<small>Feitas à mão</small></li>
+              <li><span class="x-ico"><svg aria-hidden="true"><use href="#i-truck" /></svg></span>Envio para todo o Brasil<small>Seguro e cuidadoso</small></li>
+              <li><span class="x-ico"><svg aria-hidden="true"><use href="#i-box" /></svg></span>Pronta entrega<small>E sob encomenda</small></li>
+              <li><span class="x-ico"><svg aria-hidden="true"><use href="#i-leaf" /></svg></span>Natureza em casa<small>Decoração afetiva</small></li>
+            </ul>
+          </div>
+          <div class="x-hero__art">
+            <img src="hero.png" alt="Plantas ornamentais e peças artesanais da Flores Ser" />
+            <p class="x-note">Plantas deixam a vida mais leve ♡<svg viewBox="0 0 60 50" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 44c14 2 26-6 22-16-3-7-12-3-8 4 5 8 20 4 34-22M44 8l8 2-2 8"/></svg></p>
+          </div>
+        </section>
+
+        <section class="x-section" id="colecao" data-nav="Coleção">
+          <svg class="x-leaf-deco" style="right:-50px;top:30px;width:110px;height:150px;transform:rotate(35deg)" aria-hidden="true"><use href="#i-bigleaf" /></svg>
+          <div class="x-center x-reveal">
+            <p class="x-eyebrow"><svg aria-hidden="true"><use href="#i-leaf" /></svg>Explore nossa coleção</p>
+            <h2 class="x-h2">Encontre a peça perfeita</h2>
+            <p class="x-lede">Cada categoria é feita à mão. Toque numa peça e fale com a gente pelo WhatsApp.</p>
+          </div>
+          <div class="x-cards x-reveal">
+            <a class="x-card" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">
+              <img src="espada-sao-jorge.jpg" alt="Espada-de-são-jorge em vaso branco" />
+              <div class="x-card__txt"><h3>Plantas Ornamentais</h3><p>Verde que transforma qualquer canto</p></div>
+              <span class="x-card__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+            </a>
+            <a class="x-card" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">
+              <img src="mini-jardim.png" alt="Mini jardim de cactos e suculentas" loading="lazy" />
+              <div class="x-card__txt"><h3>Mini Jardins</h3><p>Cactos e suculentas de baixa manutenção</p></div>
+              <span class="x-card__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+            </a>
+            <a class="x-card" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">
+              <img src="macrame-suporte.jpg" alt="Suporte de macramê com jiboia" loading="lazy" />
+              <div class="x-card__txt"><h3>Suportes de Macramê</h3><p>Vasos suspensos cheios de charme</p></div>
+              <span class="x-card__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+            </a>
+            <a class="x-card" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">
+              <img src="macrame-folhas.jpg" alt="Folhas decorativas de macramê" loading="lazy" />
+              <div class="x-card__txt"><h3>Folhas de Macramê</h3><p>Painéis decorativos feitos à mão</p></div>
+              <span class="x-card__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+            </a>
+            <a class="x-card" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">
+              <img src="arranjo-floral.png" alt="Arranjo de flores permanentes" loading="lazy" />
+              <div class="x-card__txt"><h3>Arranjos Florais</h3><p>Flores permanentes, beleza que dura</p></div>
+              <span class="x-card__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+            </a>
+          </div>
+          <div class="x-feature x-reveal">
+            <span class="x-feature__tag">Destaque</span>
+            <h3>Kit Suporte em Macramê + cachepô facetado + vaso com jiboia pendente — <b>R$ 60</b></h3>
+            <a class="x-btn x-btn--fill" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">Quero o meu <svg class="x-arrow" width="18" height="18" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          </div>
+        </section>
+
+        <section class="x-about" id="sobre" data-nav="Sobre">
+          <div class="x-about__img"><img src="atelie.png" alt="Ateliê da Flores Ser com plantas e peças artesanais" loading="lazy" /></div>
+          <div class="x-about__body x-reveal">
+            <div>
+              <p class="x-eyebrow x-eyebrow--left"><svg aria-hidden="true"><use href="#i-leaf" /></svg>Sobre nós</p>
+              <h2 class="x-h2">Cultivando beleza, uma peça de cada vez</h2>
+              <p class="x-lede">Na Flores Ser, acreditamos que plantas e peças artesanais fazem mais do que decorar: elas trazem calma, afeto e conexão com a natureza pra dentro de casa. Cada vaso, cachepô e macramê é feito à mão, peça por peça, com cuidado nos detalhes.</p>
+              <a class="x-btn x-btn--fill" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">Fale com a gente <svg class="x-arrow" width="18" height="18" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+            </div>
+            <ul class="x-stats">
+              <li><svg aria-hidden="true"><use href="#i-insta" /></svg><span><b>8 mil+</b>seguidores no Instagram</span></li>
+              <li><svg aria-hidden="true"><use href="#i-hand" /></svg><span><b>100%</b>artesanal</span></li>
+              <li><svg aria-hidden="true"><use href="#i-truck" /></svg><span><b>Todo o Brasil</b>enviamos com segurança</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="x-section" id="por-que" data-nav="Por que nós">
+          <div class="x-center x-reveal">
+            <p class="x-eyebrow"><svg aria-hidden="true"><use href="#i-leaf" /></svg>Por que escolher a Flores Ser</p>
+            <h2 class="x-h2">Mais do que decoração</h2>
+          </div>
+          <ul class="x-why x-reveal">
+            <li><svg aria-hidden="true"><use href="#i-hand" /></svg><h3>Peças únicas</h3><p>Cada peça é feita à mão, não tem duas iguais.</p></li>
+            <li><svg aria-hidden="true"><use href="#i-pen" /></svg><h3>Sob encomenda</h3><p>Crie a peça do seu jeito, com orçamento pelo WhatsApp.</p></li>
+            <li><svg aria-hidden="true"><use href="#i-shield" /></svg><h3>Envio seguro</h3><p>Embalagem caprichada para todo o Brasil.</p></li>
+            <li><svg aria-hidden="true"><use href="#i-drop" /></svg><h3>Dicas de cuidado</h3><p>Orientação para sua planta durar muito mais.</p></li>
+          </ul>
+        </section>
+
+        <section class="x-section" id="encomendar" data-nav="Como encomendar" style="padding-top:0">
+          <div class="x-center x-reveal">
+            <p class="x-eyebrow"><svg aria-hidden="true"><use href="#i-leaf" /></svg>Como encomendar</p>
+            <h2 class="x-h2">Três passos até a sua casa</h2>
+          </div>
+          <ol class="x-steps x-reveal">
+            <li><h3>Escolha a peça</h3><p>Pela coleção, ou peça nosso catálogo.</p></li>
+            <li><h3>Chame no WhatsApp</h3><p>Pronta entrega ou orçamento sob encomenda.</p></li>
+            <li><h3>Receba em casa</h3><p>Enviamos para todo o Brasil.</p></li>
+          </ol>
+        </section>
+
+        <section class="x-cta x-reveal" aria-label="Pedir catálogo">
+          <svg class="x-leaf-deco" style="left:-30px;top:-40px;width:130px;height:170px;transform:rotate(140deg)" aria-hidden="true"><use href="#i-bigleaf" /></svg>
+          <svg class="x-leaf-deco" style="right:-30px;bottom:-50px;width:140px;height:180px;transform:rotate(-30deg)" aria-hidden="true"><use href="#i-bigleaf" /></svg>
+          <h2 class="x-h2">Vamos deixar sua casa mais verde?</h2>
+          <p>Peça o catálogo completo e encontre a peça que combina com você.</p>
+          <a class="x-btn x-btn--white" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">Pedir catálogo no WhatsApp <svg class="x-arrow" width="18" height="18" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+        </section>
+      </main>
+
+      <footer class="x-foot" id="contato">
+        <div class="x-foot__brand">
+          <a class="x-brand" href="#top" aria-label="Flores Ser Ornamentação, voltar ao início">
+            <img src="logo.jpg" alt="Logo Flores Ser" />
+            <span><b>Flores Ser</b><small>Ornamentação</small></span>
+          </a>
+          <p>Plantas, vasos, cachepôs e macramê feitos à mão no Rio de Janeiro, enviados para todo o Brasil.</p>
+        </div>
+        <div>
+          <h4>Navegue</h4>
+          <ul>
+            <li><a href="#top">Início</a></li>
+            <li><a href="#colecao">Coleção</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#encomendar">Como encomendar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener">WhatsApp (21) 98926-7832</a></li>
+            <li><a href="https://www.instagram.com/flores_ser_ornamentacao/" target="_blank" rel="noopener">Instagram @flores_ser_ornamentacao</a></li>
+            <li>Campo Grande · Rio de Janeiro · RJ</li>
+          </ul>
+        </div>
+        <p class="x-copy">© 2026 Flores Ser Ornamentação</p>
+      </footer>
+    </div>
+    <a class="x-wa" href="https://wa.me/5521989267832?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank" rel="noopener" aria-label="Pedir pelo WhatsApp"><svg aria-hidden="true"><use href="#i-wa" /></svg></a>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".x-reveal");
+        if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("is-in"); }); return; }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+        els.forEach(function (e) { io.observe(e); });
+      })();
+    </script>
+  </body>
+</html>
