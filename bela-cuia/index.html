@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Bela Cuia · Artigos de Chimarrão</title>
     <meta name="description" content="Cuias decoradas, bombas, mateiras, garrafas térmicas, erva-mate e kits completos de chimarrão. De Zortéa, SC, para todo o Brasil." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -252,6 +252,140 @@
         .x-brand span { font-size: 20px; }
         .x-float { right: 14px; bottom: 14px; width: 56px; height: 56px; }
       }
+
+      /* Mobile app shell: burger, drawer, dots and bottom bar (hidden on desktop) */
+      .x-burger, .x-drawer, .x-dots, .x-bar { display: none; }
+      @media (max-width: 899px) {
+        .x-header .x-wa-btn { margin-left: auto; }
+        .x-burger { display: grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 50%; border: 1px solid var(--x-line); background: var(--x-paper); color: var(--x-brown); cursor: pointer; padding: 0; transition: transform .15s var(--ease-out); }
+        .x-burger svg, .x-drawer__x svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+        .x-drawer { display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 60; background: var(--x-cream); padding: 12px 20px calc(24px + env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain; visibility: hidden; transform: translateX(100%); transition: transform .38s var(--ease-out), visibility 0s linear .38s; }
+        .x-drawer.is-open { visibility: visible; transform: none; transition: transform .38s var(--ease-out); }
+        .x-drawer__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; }
+        .x-drawer__x { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--x-line); background: var(--x-paper); color: var(--x-brown); cursor: pointer; padding: 0; }
+        .x-drawer nav { display: flex; flex-direction: column; margin: 20px 0 24px; }
+        .x-drawer nav a { display: flex; align-items: center; justify-content: space-between; min-height: 60px; font: 600 30px/1.1 var(--x-serif); color: var(--x-brown); text-decoration: none; border-bottom: 1px solid var(--x-line); }
+        .x-drawer nav a svg { width: 20px; height: 20px; color: var(--x-gold); }
+        .x-drawer .x-pala { margin: 4px 0 28px; }
+        .x-drawer .x-btn { width: 100%; min-height: 56px; font-size: 17px; }
+        .x-drawer__fine { margin-top: 16px; text-align: center; font-size: 14px; color: var(--x-muted); }
+        .x-lock, .x-lock body { overflow: hidden; }
+      }
+
+      @media (max-width: 599px) {
+        .x-site { overflow-x: clip; }
+        .x-sec__head > p, .x-story__body > p:not(.x-eyebrow), .x-foot__brand p { font-size: 16px; }
+        .x-ribbon { font-size: 12px; padding-block: 7px; }
+
+        /* Header */
+        .x-header { padding: 8px var(--gutter); gap: 8px; }
+        .x-brand { min-height: 44px; gap: 8px; }
+        .x-brand img { width: 38px; height: 38px; }
+        .x-header .x-brand small { display: none; }
+        .x-brand span { font-size: 20px; }
+        .x-search { display: none; }
+
+        /* Hero */
+        .x-hero { padding-top: 14px; gap: 24px; }
+        .x-hero__art { order: -1; margin-inline: calc(8px - var(--gutter)); }
+        .x-hero__art img { aspect-ratio: 4 / 5; border-radius: 28px; }
+        .x-hero__note { left: 14px; top: auto; bottom: 16px; font-size: 28px; transform: rotate(-4deg); }
+        .x-hero__badge { left: auto; right: 12px; top: 12px; bottom: auto; padding: 8px 12px; border-radius: 14px; }
+        .x-hero__badge .x-ico { width: 22px; height: 22px; }
+        .x-hero h1 { font-size: 2.3rem; line-height: 1.06; margin: 14px 0 14px; }
+        .x-hero__cta { flex-direction: column; gap: 10px; margin-top: 24px; }
+        .x-hero__cta .x-btn { width: 100%; min-height: 52px; flex: none; }
+        .x-feats { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; margin: 24px calc(var(--gutter) * -1) 0; padding: 18px var(--gutter) 4px; scroll-padding-inline: var(--gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .x-feats::-webkit-scrollbar { display: none; }
+        .x-feat { flex: none; scroll-snap-align: start; align-items: center; gap: 8px; padding: 6px 16px 6px 6px; min-height: 48px; border-radius: 999px; background: var(--x-paper); border: 1px solid var(--x-line); }
+        .x-feat__ic { width: 36px; height: 36px; }
+        .x-feat__ic .x-ico { width: 18px; height: 18px; }
+        .x-feat b { font-size: 14px; white-space: nowrap; }
+        .x-feat span { font-size: 12px; white-space: nowrap; }
+
+        /* Section heads */
+        .x-sec { padding-top: 48px; }
+        .x-sec__head { margin-bottom: 20px; gap: 10px; }
+
+        /* Categories carousel */
+        .x-cats { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding: 4px var(--gutter) 10px; scroll-padding-inline: var(--gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+        .x-cats::-webkit-scrollbar { display: none; }
+        .x-cat { flex: 0 0 72%; scroll-snap-align: start; }
+        .x-cat:hover { transform: none; box-shadow: none; }
+        .x-cat__art { aspect-ratio: 5 / 4; }
+        .x-site .x-cat p { font-size: 14px; padding-right: 48px; margin-bottom: 0; }
+        .x-cat__go { left: auto; right: 14px; bottom: 14px; width: 40px; height: 40px; }
+        .x-js .x-cats .x-fade, .x-js .x-prods .x-fade { opacity: 1; transform: none; }
+        .x-dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
+        .x-dots span { width: 6px; height: 6px; border-radius: 999px; background: var(--x-line); transition: width .25s var(--ease-out), background .25s; }
+        .x-dots span.is-on { width: 18px; background: var(--x-brown); }
+
+        /* Story */
+        .x-story { border-radius: 24px; }
+        .x-story__img { min-height: 0; aspect-ratio: 4 / 3.4; }
+        .x-story__quote { left: 20px; right: 20px; bottom: 18px; font-size: 30px; }
+        .x-story__body { padding: 28px 18px 22px; }
+        .x-story__body h2 { font-size: 30px; margin: 12px 0 12px; }
+        .x-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 22px; }
+        .x-list li, .x-list li:last-child { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 12px; border: 1px solid var(--x-line); border-radius: 16px; background: var(--x-cream); }
+        .x-list li p { margin: 0; line-height: 1.35; }
+        .x-list b { display: block; font-size: 15px; }
+        .x-list span { display: block; font-size: 13px; margin-top: 2px; }
+        .x-list b + span::before { content: none; }
+        .x-story__body .x-btn { align-self: stretch; margin-top: 20px; }
+
+        /* Products: 2-column grid */
+        .x-prods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; overflow: visible; margin-inline: 0; padding: 0; }
+        .x-prod { flex: none; padding: 6px; border-radius: 18px; }
+        .x-prod__img { aspect-ratio: 1 / 1; border-radius: 14px; }
+        .x-prod:hover .x-prod__img img { transform: none; }
+        .x-heart { top: 8px; right: 8px; }
+        .x-tag { top: 14px; left: 14px; padding: 6px 8px; }
+        .x-prod__body { padding: 10px 4px 4px; }
+        .x-prod h3 { font-size: 16px; line-height: 1.2; }
+        .x-site .x-prod__desc { font-size: 14px; line-height: 1.35; margin: 4px 0 10px; }
+        .x-prod__price { font-size: 13px; padding-top: 10px; margin-bottom: 10px; }
+        .x-prod .x-btn { min-height: 44px; font-size: 14px; padding: 0 10px; gap: 6px; }
+        .x-prod .x-btn svg { width: 16px; height: 16px; }
+        .x-long { display: none; }
+
+        /* Como pedir: vertical timeline */
+        .x-steps { gap: 0; }
+        .x-steps li { position: relative; grid-template-columns: 44px 1fr; align-items: start; gap: 16px; background: none; border: 0; border-radius: 0; padding: 0 0 26px; }
+        .x-steps li:hover { transform: none; }
+        .x-steps li::before { width: 44px; height: 44px; background: var(--x-gold); color: var(--x-ink); font-size: 20px; box-shadow: 0 0 0 5px var(--x-cream); position: relative; z-index: 1; }
+        .x-steps li:not(:last-child)::after { content: ""; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: linear-gradient(var(--x-gold), var(--x-line)); }
+        .x-steps li:last-child { padding-bottom: 0; }
+        .x-steps li p { padding-top: 6px; margin: 0; }
+        .x-steps span { display: block; font-size: 16px; margin-top: 2px; }
+        .x-how__cta { flex-direction: column; align-items: stretch; gap: 6px; }
+        .x-how__cta .x-btn { width: 100%; min-height: 52px; }
+        .x-how__cta a.x-phone { justify-content: center; }
+
+        /* Banner */
+        .x-banner { border-radius: 24px; }
+        .x-banner__copy .x-btn { width: 100%; }
+
+        /* Bottom action bar */
+        .x-float { display: none; }
+        .x-foot { padding-bottom: calc(92px + env(safe-area-inset-bottom)); }
+        .x-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)) 16px; background: rgba(251, 248, 242, .94); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid var(--x-line); box-shadow: 0 -8px 24px -16px rgba(74, 44, 29, .4); }
+        .x-site .x-bar__txt, .x-bar__txt { margin: 0; font: 400 12px/1.35 var(--x-body); color: var(--x-muted); min-width: 0; }
+        .x-bar__txt b { display: block; font: 600 14px/1.2 var(--x-serif); color: var(--x-brown); }
+        .x-bar__btn { display: inline-flex; align-items: center; gap: 8px; flex: none; min-height: 48px; padding: 0 18px; border-radius: 999px; background: var(--x-brown); color: var(--x-cream); font: 600 15px/1 var(--x-body); text-decoration: none; transition: transform .15s var(--ease-out); }
+        .x-bar__btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* Press feedback */
+        .x-btn:active, .x-cat:active, .x-prod:active, .x-bar__btn:active, .x-burger:active, .x-wa-btn:active, .x-feat:active { transform: scale(.98); }
+      }
+      @media (max-width: 359px) {
+        .x-bar__txt span { display: none; }
+        .x-bar__btn { padding: 0 14px; font-size: 14px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .x-drawer, .x-drawer.is-open, .x-bar__btn, .x-burger, .x-dots span { transition: none !important; }
+        .x-btn:active, .x-cat:active, .x-prod:active, .x-bar__btn:active, .x-burger:active, .x-wa-btn:active, .x-feat:active { transform: none; }
+      }
     </style>
   </head>
   <body>
@@ -293,6 +427,7 @@
           </nav>
           <div class="x-search" aria-hidden="true"><svg class="x-ico"><use href="#i-search" /></svg>Procure sua cuia...</div>
           <a class="x-wa-btn" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#i-wa" /></svg></a>
+          <button class="x-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="x-drawer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" /></svg></button>
         </header>
 
         <main>
@@ -312,7 +447,7 @@
               </div>
             </div>
             <div class="x-hero__art x-fade">
-              <img src="hero-chimarrao.png" alt="Chimarrão servido sobre mesa rústica, com a janela aberta para o pampa" />
+              <img src="hero-chimarrao.png" alt="Chimarrão servido sobre mesa rústica, com a janela aberta para o pampa" fetchpriority="high" />
               <div class="x-hero__note x-script">
                 <span>Mais que uma cuia</span>
                 <svg viewBox="0 0 80 64" aria-hidden="true"><path d="M6 6c10 22 34 6 30 -2s-16 4-6 20 26 22 42 30" /><path d="M64 46l9 9-12 1" /></svg>
@@ -353,6 +488,7 @@
                 <span class="x-cat__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
               </a>
             </div>
+            <div class="x-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span><span></span><span></span></div>
           </section>
 
           <section class="x-sec" id="historia">
@@ -391,7 +527,7 @@
                   <h3>Kit Chimarrão Florença</h3>
                   <p class="x-prod__desc">Mateira, garrafa térmica e pote</p>
                   <p class="x-prod__price">Consulte o valor</p>
-                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg><span>Pedir<span class="x-long"> no WhatsApp</span></span></a>
                 </div>
               </article>
               <article class="x-prod x-fade">
@@ -401,7 +537,7 @@
                   <h3>Kit Margaridas</h3>
                   <p class="x-prod__desc">Garrafa + cuia com margaridas</p>
                   <p class="x-prod__price">Consulte o valor</p>
-                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg><span>Pedir<span class="x-long"> no WhatsApp</span></span></a>
                 </div>
               </article>
               <article class="x-prod x-fade" id="personalizados">
@@ -411,7 +547,7 @@
                   <h3>Cuia Cerejas</h3>
                   <p class="x-prod__desc">Delicada e cheia de charme</p>
                   <p class="x-prod__price">Consulte o valor</p>
-                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg><span>Pedir<span class="x-long"> no WhatsApp</span></span></a>
                 </div>
               </article>
               <article class="x-prod x-fade">
@@ -421,7 +557,7 @@
                   <h3>Kit Mateira de Crochê</h3>
                   <p class="x-prod__desc">Aconchego pra levar o mate</p>
                   <p class="x-prod__price">Consulte o valor</p>
-                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg><span>Pedir<span class="x-long"> no WhatsApp</span></span></a>
                 </div>
               </article>
             </div>
@@ -466,7 +602,7 @@
           <hr class="x-pala" />
           <div class="x-foot__grid">
             <div class="x-foot__brand">
-              <a class="x-brand" href="#top" aria-label="Bela Cuia, voltar ao topo"><img src="logo.jpg" alt="" /><span>Bela Cuia<small>Artigos de chimarrão</small></span></a>
+              <a class="x-brand" href="#top" aria-label="Bela Cuia, voltar ao topo"><img src="logo.jpg" alt="" loading="lazy" /><span>Bela Cuia<small>Artigos de chimarrão</small></span></a>
               <p>Artigos de chimarrão · Zortéa, SC</p>
             </div>
             <div>
@@ -495,7 +631,75 @@
 
     <a class="x-float" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener" aria-label="Pedir pelo WhatsApp"><svg><use href="#i-wa" /></svg></a>
 
+    <div class="x-drawer" id="x-drawer" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="x-drawer__top">
+        <a class="x-brand" href="#top" data-close><img src="logo.jpg" alt="" loading="lazy" /><span>Bela Cuia</span></a>
+        <button class="x-drawer__x" type="button" aria-label="Fechar menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+      </div>
+      <nav aria-label="Menu principal">
+        <a href="#loja" data-close>Loja <svg><use href="#i-arrow" /></svg></a>
+        <a href="#kits" data-close>Kits <svg><use href="#i-arrow" /></svg></a>
+        <a href="#personalizados" data-close>Personalizados <svg><use href="#i-arrow" /></svg></a>
+        <a href="#historia" data-close>Nossa história <svg><use href="#i-arrow" /></svg></a>
+        <a href="#como-pedir" data-close>Como pedir <svg><use href="#i-arrow" /></svg></a>
+        <a href="#contato" data-close>Contato <svg><use href="#i-arrow" /></svg></a>
+      </nav>
+      <hr class="x-pala" />
+      <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener" data-close><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+      <p class="x-drawer__fine">(49) 99953-1855 · Zortéa, SC</p>
+    </div>
+
+    <div class="x-bar">
+      <p class="x-bar__txt"><b>🧉 Bela Cuia</b> <span>· Enviamos p/ todo o Brasil</span></p>
+      <a class="x-bar__btn" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" /></svg>Pedir no WhatsApp</a>
+    </div>
+
     <script src="hark.js"></script>
+    <script>
+      (function () {
+        var burger = document.querySelector(".x-burger");
+        var drawer = document.getElementById("x-drawer");
+        var closeBtn = drawer.querySelector(".x-drawer__x");
+        var root = document.documentElement;
+        function open() {
+          drawer.classList.add("is-open");
+          root.classList.add("x-lock");
+          burger.setAttribute("aria-expanded", "true");
+          setTimeout(function () { closeBtn.focus(); }, 50);
+        }
+        function close(restore) {
+          if (!drawer.classList.contains("is-open")) return;
+          drawer.classList.remove("is-open");
+          root.classList.remove("x-lock");
+          burger.setAttribute("aria-expanded", "false");
+          if (restore) burger.focus();
+        }
+        burger.addEventListener("click", open);
+        closeBtn.addEventListener("click", function () { close(true); });
+        drawer.querySelectorAll("[data-close]").forEach(function (a) {
+          a.addEventListener("click", function () { close(false); });
+        });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(true); });
+        window.matchMedia("(min-width: 900px)").addEventListener("change", function (m) { if (m.matches) close(false); });
+
+        var cats = document.querySelector(".x-cats");
+        var dots = document.querySelectorAll(".x-dots span");
+        var ticking = false;
+        function setDot() {
+          ticking = false;
+          var cards = cats.children;
+          if (!cards.length) return;
+          var step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : 1;
+          var i = Math.round(cats.scrollLeft / (step || 1));
+          if (cats.scrollLeft + cats.clientWidth >= cats.scrollWidth - 4) i = cards.length - 1;
+          i = Math.max(0, Math.min(dots.length - 1, i));
+          dots.forEach(function (d, n) { d.classList.toggle("is-on", n === i); });
+        }
+        cats.addEventListener("scroll", function () {
+          if (!ticking) { ticking = true; requestAnimationFrame(setDot); }
+        }, { passive: true });
+      })();
+    </script>
     <script>
       (function () {
         document.querySelectorAll(".x-heart").forEach(function (b) {
