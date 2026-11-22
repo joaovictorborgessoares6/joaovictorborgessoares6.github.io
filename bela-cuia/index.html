@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bela Cuia · Artigos de Chimarrão</title>
+    <meta name="description" content="Cuias decoradas, bombas, mateiras, garrafas térmicas, erva-mate e kits completos de chimarrão. De Zortéa, SC, para todo o Brasil." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Caveat:wght@500;700&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --x-cream: #F6F0E6;
+        --x-cream-2: #EFE5D4;
+        --x-paper: #FBF8F2;
+        --x-brown: #4A2C1D;
+        --x-brown-2: #6B4A36;
+        --x-green: #5E7A3A;
+        --x-gold: #B8893E;
+        --x-red: #9E2B25;
+        --x-ink: #2E1C12;
+        --x-muted: #6E5A4B;
+        --x-line: #E2D5C1;
+        --x-serif: "Playfair Display", Georgia, serif;
+        --x-body: "Inter", var(--sans), system-ui, sans-serif;
+        --x-script: "Caveat", cursive;
+        --x-shadow: 0 10px 30px -12px rgba(74, 44, 29, .28);
+      }
+      body { background: var(--x-cream); color: var(--x-ink); font-family: var(--x-body); }
+      .x-site { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; min-width: 0; }
+      .x-site main, .x-sec { min-width: 0; }
+      .x-site .x-eyebrow { color: #46602A !important; }
+      .x-site .x-brand small { font-size: 12px; color: #7A5520; }
+      .x-site .x-foot h3 { color: #7A5520 !important; }
+      .x-site .x-tag { font-size: 12px; }
+      .x-site .x-foot ul a { min-height: 44px; min-width: 44px; }
+      .x-site .x-how__cta a.x-phone { display: inline-flex; align-items: center; min-height: 44px; }
+      .x-site h1, .x-site h2, .x-site h3 { font-family: var(--x-serif); color: var(--x-brown); font-weight: 600; letter-spacing: -0.01em; }
+      .x-site p { color: var(--x-muted); line-height: 1.6; }
+      .x-script { font-family: var(--x-script); font-weight: 700; }
+      .x-eyebrow { font: 600 12px/1.2 var(--x-body); letter-spacing: .18em; text-transform: uppercase; color: var(--x-green) !important; display: inline-flex; align-items: center; gap: 10px; }
+      .x-eyebrow::before { content: ""; width: 26px; height: 1.5px; background: var(--x-gold); }
+      .x-ico { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+      /* Ribbon and pala stripes */
+      .x-site .x-ribbon, .x-site .x-collage__note { color: var(--x-cream); }
+      .x-site .x-collage__note { color: var(--x-brown); line-height: 1.1; }
+      .x-ribbon { margin: 0 calc(var(--gutter) * -1); background: var(--x-brown); color: var(--x-cream); text-align: center; font: 500 13px/1.4 var(--x-body); padding: 9px var(--gutter); letter-spacing: .02em; }
+      .x-ribbon b { color: #E9C98A; font-weight: 600; }
+      .x-pala { height: 10px; margin: 0; border: 0; background: linear-gradient(to bottom, var(--x-brown) 0 2px, transparent 2px 4px, var(--x-red) 4px 5px, transparent 5px 6px, var(--x-gold) 6px 7px, transparent 7px 8px, var(--x-brown) 8px 10px); opacity: .85; }
+      .x-pala--short { width: 120px; margin-inline: auto; }
+
+      /* Header */
+      .x-header { position: sticky; top: 0; z-index: 30; margin: 0 calc(var(--gutter) * -1); padding: 12px var(--gutter); background: rgba(246, 240, 230, .92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--x-line); display: flex; align-items: center; gap: 18px; }
+      .x-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; }
+      .x-brand img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--x-gold); }
+      .x-brand span { font: 700 22px/1 var(--x-serif); color: var(--x-brown); }
+      .x-brand small { display: block; font: 500 11px/1.3 var(--x-body); letter-spacing: .12em; text-transform: uppercase; color: var(--x-gold); margin-top: 3px; }
+      .x-menu { display: flex; gap: 4px; margin-inline: auto; }
+      .x-menu a { font: 500 14px/1 var(--x-body); color: var(--x-brown); text-decoration: none; padding: 14px 10px; border-radius: 999px; position: relative; }
+      .x-menu a::after { content: ""; position: absolute; left: 10px; right: 10px; bottom: 8px; height: 1.5px; background: var(--x-gold); transform: scaleX(0); transition: transform .25s var(--ease-out); }
+      .x-menu a:hover::after { transform: scaleX(1); }
+      .x-search { display: flex; align-items: center; gap: 8px; min-width: 200px; height: 44px; padding: 0 16px; border-radius: 999px; background: var(--x-paper); border: 1px solid var(--x-line); color: var(--x-muted); font: 400 14px/1 var(--x-body); }
+      .x-search .x-ico { width: 18px; height: 18px; }
+      .x-wa-btn { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--x-green); color: #fff; transition: transform .2s var(--ease-out); }
+      .x-wa-btn:hover { transform: translateY(-2px); }
+      .x-wa-btn svg { width: 22px; height: 22px; fill: currentColor; }
+
+      /* Buttons */
+      .x-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 999px; font: 600 15px/1 var(--x-body); text-decoration: none; transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out), background .2s; border: 1.5px solid var(--x-brown); }
+      .x-btn--solid { background: var(--x-brown); color: var(--x-cream); }
+      .x-btn--solid:hover { background: var(--x-ink); transform: translateY(-2px); box-shadow: var(--x-shadow); }
+      .x-btn--ghost { background: transparent; color: var(--x-brown); }
+      .x-btn--ghost:hover { background: var(--x-brown); color: var(--x-cream); transform: translateY(-2px); }
+      .x-btn--white { background: #fff; color: var(--x-brown); border-color: #fff; }
+      .x-btn--white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(0,0,0,.5); }
+      .x-btn svg { width: 18px; height: 18px; }
+
+      /* Sections */
+      .x-sec { padding-block: 72px 8px; scroll-margin-top: 80px; }
+      .x-sec__head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+      .x-sec__head h2 { font-size: clamp(30px, 4vw, 42px); line-height: 1.1; margin-top: 10px; }
+      .x-sec__head p { max-width: 380px; }
+
+      /* Hero */
+      .x-hero { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: center; padding-top: 48px; }
+      .x-hero h1 { font-size: clamp(38px, 5.4vw, 64px); line-height: 1.04; margin: 18px 0 20px; }
+      .x-hero h1 em { font-style: italic; color: var(--x-green); }
+      .x-hero__lead { font-size: 17px; max-width: 500px; }
+      .x-hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+      .x-feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--x-line); }
+      .x-feat { display: flex; gap: 10px; align-items: flex-start; }
+      .x-feat__ic { width: 42px; height: 42px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--x-cream-2); color: var(--x-brown); }
+      .x-feat b { display: block; font: 600 14px/1.3 var(--x-body); color: var(--x-brown); }
+      .x-feat span { font-size: 13px; color: var(--x-muted); }
+      .x-hero__art { position: relative; }
+      .x-hero__art img { width: 100%; aspect-ratio: 4 / 4.3; object-fit: cover; border-radius: 200px 200px 28px 28px; box-shadow: var(--x-shadow); }
+      .x-hero__note { position: absolute; left: -36px; top: 18%; display: flex; flex-direction: column; align-items: flex-start; color: var(--x-brown); font-size: 30px; line-height: 1; transform: rotate(-8deg); pointer-events: none; }
+      .x-hero__note span { background: var(--x-cream); padding: 6px 14px; border-radius: 12px; box-shadow: var(--x-shadow); }
+      .x-hero__note svg { width: 74px; height: 60px; margin-left: 60px; stroke: var(--x-brown); fill: none; stroke-width: 2; stroke-linecap: round; }
+      .x-hero__badge { position: absolute; right: 18px; bottom: 18px; background: rgba(251, 248, 242, .94); border-radius: 18px; padding: 12px 16px; display: flex; gap: 10px; align-items: center; box-shadow: var(--x-shadow); }
+      .x-hero__badge b { display: block; font: 600 14px/1.2 var(--x-body); color: var(--x-brown); }
+      .x-hero__badge small { font-size: 12px; color: var(--x-muted); }
+      .x-hero__badge .x-ico { color: var(--x-green); width: 28px; height: 28px; }
+
+      /* Categories */
+      .x-cats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+      .x-cat { position: relative; display: flex; flex-direction: column; background: var(--x-paper); border: 1px solid var(--x-line); border-radius: 24px; padding: 10px 10px 18px; text-decoration: none; transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out); }
+      .x-cat:hover { transform: translateY(-6px); box-shadow: var(--x-shadow); }
+      .x-cat__art { aspect-ratio: 1 / 1; border-radius: 18px; display: grid; place-items: center; position: relative; overflow: hidden; }
+      .x-cat__art::after { content: ""; position: absolute; left: 0; right: 0; bottom: 14px; height: 7px; background: linear-gradient(to bottom, var(--x-cream) 0 2px, transparent 2px 3px, var(--x-red) 3px 4px, transparent 4px 5px, var(--x-cream) 5px 7px); opacity: .7; }
+      .x-cat__art svg { width: 46%; height: 46%; fill: none; stroke: var(--x-cream); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+      .x-cat__art--1 { background: radial-gradient(circle at 30% 25%, #6c8a45, var(--x-green)); }
+      .x-cat__art--2 { background: radial-gradient(circle at 30% 25%, #7a5640, var(--x-brown)); }
+      .x-cat__art--3 { background: radial-gradient(circle at 30% 25%, #c99d55, var(--x-gold)); }
+      .x-cat__art--4 { background: radial-gradient(circle at 30% 25%, #b2443d, var(--x-red)); }
+      .x-cat__art--5 { background: radial-gradient(circle at 30% 25%, #4f6a30, #3c5226); }
+      .x-cat h3 { font-size: 19px; margin: 16px 8px 4px; }
+      .x-cat p { font-size: 13px; line-height: 1.45; margin: 0 8px; padding-right: 44px; }
+      .x-cat__go { position: absolute; right: 14px; bottom: 16px; width: 36px; height: 36px; border-radius: 50%; background: var(--x-brown); color: var(--x-cream); display: grid; place-items: center; transition: transform .2s var(--ease-out); }
+      .x-cat:hover .x-cat__go { transform: translateX(3px); }
+      .x-cat__go svg { width: 16px; height: 16px; }
+
+      /* Story band */
+      .x-story { display: grid; grid-template-columns: 1fr 1fr; border-radius: 32px; overflow: hidden; background: var(--x-paper); border: 1px solid var(--x-line); }
+      .x-story__img { position: relative; min-height: 520px; background: var(--x-ink); }
+      .x-story__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .x-story__img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30, 18, 10, .85), rgba(30, 18, 10, .1) 60%); }
+      .x-story__quote { position: absolute; left: 32px; right: 32px; bottom: 32px; z-index: 1; color: #F6E7C8 !important; font-size: clamp(32px, 3.4vw, 44px); line-height: 1.05; }
+      .x-story__body { padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; }
+      .x-story__body h2 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.1; margin: 14px 0 16px; }
+      .x-story__body .x-btn { align-self: flex-start; margin-top: 24px; }
+      .x-list { list-style: none; padding: 0; margin: 32px 0 0; }
+      .x-list li { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--x-line); }
+      .x-list li:last-child { border-bottom: 1px solid var(--x-line); }
+      .x-list .x-ico { color: var(--x-green); width: 26px; height: 26px; }
+      .x-list b { font: 600 15px/1.3 var(--x-body); color: var(--x-brown); }
+      .x-list span { font-size: 14px; color: var(--x-muted); }
+      .x-list b + span::before { content: " · "; }
+
+      /* Products */
+      .x-prods { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+      .x-prod { position: relative; display: flex; flex-direction: column; background: var(--x-paper); border: 1px solid var(--x-line); border-radius: 24px; padding: 10px; transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out); }
+      .x-prod:hover { transform: translateY(-6px); box-shadow: var(--x-shadow); }
+      .x-prod__img { aspect-ratio: 1 / 1.05; border-radius: 18px; overflow: hidden; background: var(--x-cream-2); }
+      .x-prod__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease-out); }
+      .x-prod:hover .x-prod__img img { transform: scale(1.04); }
+      .x-heart { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(251, 248, 242, .92); color: var(--x-brown); display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 12px -4px rgba(0,0,0,.25); }
+      .x-heart svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; transition: transform .2s; }
+      .x-heart[aria-pressed="true"] { color: var(--x-red); }
+      .x-heart[aria-pressed="true"] svg { fill: currentColor; transform: scale(1.1); }
+      .x-tag { position: absolute; top: 20px; left: 20px; background: var(--x-red); color: #fff; font: 600 11px/1 var(--x-body); letter-spacing: .08em; text-transform: uppercase; padding: 7px 10px; border-radius: 999px; }
+      .x-prod__body { padding: 16px 8px 8px; display: flex; flex-direction: column; flex: 1; }
+      .x-prod h3 { font-size: 19px; line-height: 1.2; }
+      .x-prod__desc { font-size: 14px; margin-top: 4px; }
+      .x-prod__price { margin: 14px 0 14px; padding-top: 12px; border-top: 1px dashed var(--x-line); font: 600 14px/1 var(--x-body); color: var(--x-green) !important; display: flex; align-items: center; gap: 8px; margin-top: auto; }
+      .x-prod__desc { margin-bottom: 14px; }
+      .x-prod .x-btn { width: 100%; padding: 0 14px; font-size: 14px; }
+
+      /* How to order */
+      .x-how { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+      .x-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; counter-reset: s; }
+      .x-steps li { display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: center; background: var(--x-paper); border: 1px solid var(--x-line); border-radius: 22px; padding: 18px 20px; transition: transform .25s var(--ease-out); }
+      .x-steps li:hover { transform: translateX(4px); }
+      .x-steps li::before { counter-increment: s; content: counter(s); width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--x-brown); color: var(--x-cream); font: 600 24px/1 var(--x-serif); }
+      .x-steps b { display: block; font: 600 18px/1.3 var(--x-serif); color: var(--x-brown); }
+      .x-steps span { font-size: 14px; color: var(--x-muted); }
+      .x-how__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 26px; }
+      .x-how__cta a.x-phone { font: 600 16px/1 var(--x-body); color: var(--x-brown); text-decoration: none; }
+      .x-collage { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+      .x-collage img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; box-shadow: var(--x-shadow); }
+      .x-collage img:nth-child(2) { margin-top: 48px; }
+      .x-collage__note { position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%) rotate(-4deg); background: var(--x-cream); color: var(--x-brown); padding: 6px 16px; border-radius: 12px; font-size: 26px; box-shadow: var(--x-shadow); white-space: nowrap; }
+
+      /* Final banner */
+      .x-banner { position: relative; border-radius: 32px; overflow: hidden; min-height: 400px; display: flex; align-items: center; background: var(--x-ink); }
+      .x-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .x-banner::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(30, 18, 10, .88) 0%, rgba(30, 18, 10, .55) 45%, rgba(30, 18, 10, 0) 80%); }
+      .x-banner__copy { position: relative; z-index: 2; padding: 56px; max-width: 600px; }
+      .x-banner__copy .x-script { color: #E9C98A !important; font-size: 32px; line-height: 1; }
+      .x-banner__copy h2 { color: #fff !important; font-size: clamp(30px, 4vw, 48px); line-height: 1.08; margin: 10px 0 28px; }
+
+      /* Footer */
+      .x-foot { margin-top: 72px; padding-top: 40px; }
+      .x-foot__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; padding: 36px 0 28px; }
+      .x-foot h3 { font: 600 13px/1 var(--x-body) !important; letter-spacing: .14em; text-transform: uppercase; color: var(--x-gold) !important; margin-bottom: 14px; }
+      .x-foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
+      .x-foot ul a { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; color: var(--x-brown); text-decoration: none; font-size: 15px; }
+      .x-foot ul a:hover { color: var(--x-green); }
+      .x-foot ul .x-ico { width: 18px; height: 18px; }
+      .x-foot__brand p { margin-top: 14px; max-width: 320px; }
+      .x-foot__base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 18px 0 8px; border-top: 1px solid var(--x-line); font-size: 13px; color: var(--x-muted); }
+
+      /* Floating WhatsApp */
+      .x-float { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 60px; height: 60px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 12px 28px -8px rgba(0,0,0,.4); transition: transform .2s var(--ease-out); }
+      .x-float:hover { transform: scale(1.08); }
+      .x-float svg { width: 30px; height: 30px; fill: currentColor; }
+
+      /* Fade-in */
+      .x-js .x-fade { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+      .x-js .x-fade.is-in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) {
+        .x-js .x-fade { opacity: 1; transform: none; transition: none; }
+        .x-site *, .x-float { transition: none !important; }
+      }
+
+      /* Responsive */
+      @media (max-width: 1100px) {
+        .x-search { display: none; }
+        .x-cats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      }
+      @media (max-width: 899px) {
+        .x-menu { display: none; }
+        .x-header { justify-content: space-between; }
+        .x-hero, .x-how { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+        .x-hero > *, .x-how > * { min-width: 0; }
+        .x-hero__note { left: 8px; top: 8px; font-size: 26px; }
+        .x-hero__note svg { display: none; }
+        .x-story { grid-template-columns: 1fr; }
+        .x-story__img { min-height: 380px; }
+        .x-story__body { padding: 40px 28px; }
+        .x-prods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .x-cats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .x-foot__grid { grid-template-columns: 1fr 1fr; }
+        .x-foot__brand { grid-column: 1 / -1; }
+      }
+      @media (max-width: 599px) {
+        .x-sec { padding-top: 56px; }
+        .x-hero { padding-top: 28px; }
+        .x-feats { grid-template-columns: 1fr; gap: 14px; }
+        .x-hero__cta .x-btn { flex: 1 1 100%; }
+        .x-hero__badge { left: 12px; right: 12px; bottom: 12px; }
+        .x-cats { grid-template-columns: 1fr 1fr; gap: 12px; }
+        .x-cat h3 { font-size: 17px; }
+        .x-cat p { padding-right: 0; margin-bottom: 44px; }
+        .x-cat__go { left: 18px; right: auto; }
+        .x-prods { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin-inline: calc(var(--gutter) * -1); padding: 4px var(--gutter) 16px; scroll-padding-inline: var(--gutter); scrollbar-width: none; }
+        .x-prods::-webkit-scrollbar { display: none; }
+        .x-prod { flex: 0 0 78%; scroll-snap-align: start; }
+        .x-prod:hover { transform: none; }
+        .x-collage__note { font-size: 22px; }
+        .x-banner { min-height: 440px; align-items: flex-end; }
+        .x-banner::before { background: linear-gradient(0deg, rgba(30, 18, 10, .9) 0%, rgba(30, 18, 10, .5) 55%, rgba(30, 18, 10, .1) 100%); }
+        .x-banner__copy { padding: 32px 24px; }
+        .x-foot__grid { grid-template-columns: 1fr; }
+        .x-brand span { font-size: 20px; }
+        .x-float { right: 14px; bottom: 14px; width: 56px; height: 56px; }
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-cuia" viewBox="0 0 32 32"><path d="M8 13c0 7 3.6 13 8 13s8-6 8-13" /><path d="M7 13h18" /><path d="M10 13c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5" /><path d="M19 9.5 24 3" /><path d="M23 2.5l2 1.5" /><path d="M12 19c1.2 1 2.6 1.5 4 1.5" /></symbol>
+        <symbol id="i-arauc" viewBox="0 0 32 32"><path d="M16 29V10" /><path d="M16 10c-4 0-9 1-12 4M16 10c4 0 9 1 12 4" /><path d="M16 15c-3 0-7 .8-10 3M16 15c3 0 7 .8 10 3" /><path d="M16 6c-2 0-5 .6-7 2M16 6c2 0 5 .6 7 2" /><path d="M16 3v3" /></symbol>
+        <symbol id="i-gift" viewBox="0 0 32 32"><rect x="5" y="12" width="22" height="16" rx="2" /><path d="M3 8h26v4H3zM16 8v20" /><path d="M16 8c-2-4-7-5-7-2s4 2 7 2c3 0 7 1 7-2s-5-2-7 2" /></symbol>
+        <symbol id="i-truck" viewBox="0 0 32 32"><path d="M2 8h17v14H2zM19 13h6l4 5v4h-10" /><circle cx="8" cy="24" r="2.5" /><circle cx="23" cy="24" r="2.5" /></symbol>
+        <symbol id="i-hand" viewBox="0 0 32 32"><path d="M16 27s-10-6-10-13a5.5 5.5 0 0 1 10-3 5.5 5.5 0 0 1 10 3c0 7-10 13-10 13z" /><path d="M11 14.5c.5-1.6 1.7-2.5 3-2.5" /></symbol>
+        <symbol id="i-pen" viewBox="0 0 32 32"><path d="M21 5l6 6L12 26l-7 1 1-7z" /><path d="M18 8l6 6" /></symbol>
+        <symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 3l10 4v8c0 7-5 12-10 14-5-2-10-7-10-14V7z" /><path d="M11.5 16l3 3 6-6" /></symbol>
+        <symbol id="i-bag" viewBox="0 0 32 32"><path d="M7 11h18l-1.5 16h-15z" /><path d="M11 11c0-6 10-6 10 0" /><path d="M10 17h12M10.5 21h11" /></symbol>
+        <symbol id="i-leaf" viewBox="0 0 32 32"><path d="M6 26C6 13 13 6 27 5c0 14-8 21-21 21z" /><path d="M6 26 18 14" /></symbol>
+        <symbol id="i-flower" viewBox="0 0 32 32"><circle cx="16" cy="14" r="3" /><path d="M16 11c-2-5 2-7 0-7s2 2 0 7M19 14c5-2 7 2 7 0s-2 2-7 0M16 17c2 5-2 7 0 7s-2-2 0-7M13 14c-5 2-7-2-7 0s2-2 7 0" /><path d="M16 24v5" /></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.2-4.2" /></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.6 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z" /></symbol>
+        <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r=".6" /></symbol>
+        <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z" /></symbol>
+      </defs>
+    </svg>
+
+    <div class="page" id="top">
+      <div class="x-site">
+        <p class="x-ribbon">🧉 <b>Enviamos para todo o Brasil</b> · Kits prontos para presente</p>
+
+        <header class="x-header">
+          <a class="x-brand" href="#top" aria-label="Bela Cuia, início">
+            <img src="logo.jpg" alt="" />
+            <span>Bela Cuia<small>Artigos de chimarrão</small></span>
+          </a>
+          <nav class="x-menu" aria-label="Seções">
+            <a href="#loja">Loja</a>
+            <a href="#kits">Kits</a>
+            <a href="#personalizados">Personalizados</a>
+            <a href="#historia">Nossa história</a>
+            <a href="#contato">Contato</a>
+          </nav>
+          <div class="x-search" aria-hidden="true"><svg class="x-ico"><use href="#i-search" /></svg>Procure sua cuia...</div>
+          <a class="x-wa-btn" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#i-wa" /></svg></a>
+        </header>
+
+        <main>
+          <section class="x-hero">
+            <div class="x-fade">
+              <p class="x-eyebrow">Tradição que encanta</p>
+              <h1>Transformando seu mate em um <em>momento único.</em></h1>
+              <p class="x-hero__lead">Cuias decoradas, bombas, mateiras e kits completos de chimarrão, feitos com carinho no interior de Santa Catarina. Encontre aqui o presente perfeito, pra você ou pra quem é da roda de mate.</p>
+              <div class="x-hero__cta">
+                <a class="x-btn x-btn--solid" href="#loja">Ver produtos <svg><use href="#i-arrow" /></svg></a>
+                <a class="x-btn x-btn--ghost" href="#historia">Nossa história</a>
+              </div>
+              <div class="x-feats">
+                <div class="x-feat"><span class="x-feat__ic"><svg class="x-ico"><use href="#i-pen" /></svg></span><div><b>Peças personalizadas</b><span>Do seu jeito</span></div></div>
+                <div class="x-feat"><span class="x-feat__ic"><svg class="x-ico"><use href="#i-truck" /></svg></span><div><b>Envio para todo o Brasil</b><span>Embalagem caprichada</span></div></div>
+                <div class="x-feat"><span class="x-feat__ic"><svg class="x-ico"><use href="#i-gift" /></svg></span><div><b>Presente perfeito</b><span>Kits prontos</span></div></div>
+              </div>
+            </div>
+            <div class="x-hero__art x-fade">
+              <img src="hero-chimarrao.png" alt="Chimarrão servido sobre mesa rústica, com a janela aberta para o pampa" />
+              <div class="x-hero__note x-script">
+                <span>Mais que uma cuia</span>
+                <svg viewBox="0 0 80 64" aria-hidden="true"><path d="M6 6c10 22 34 6 30 -2s-16 4-6 20 26 22 42 30" /><path d="M64 46l9 9-12 1" /></svg>
+              </div>
+              <div class="x-hero__badge"><svg class="x-ico"><use href="#i-arauc" /></svg><div><b>De Zortéa, SC</b><small>pra todo o Brasil</small></div></div>
+            </div>
+          </section>
+
+          <section class="x-sec" id="loja">
+            <div class="x-sec__head x-fade">
+              <div><p class="x-eyebrow">Loja</p><h2>Compre por categoria</h2></div>
+              <p>Escolha o que combina com a sua roda e chame a gente no WhatsApp.</p>
+            </div>
+            <div class="x-cats">
+              <a class="x-cat x-fade" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener">
+                <span class="x-cat__art x-cat__art--1"><svg><use href="#i-flower" /></svg></span>
+                <h3>Cuias decoradas</h3><p>Charme em cada detalhe</p>
+                <span class="x-cat__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+              </a>
+              <a class="x-cat x-fade" id="kits" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener">
+                <span class="x-cat__art x-cat__art--2"><svg><use href="#i-gift" /></svg></span>
+                <h3>Kits completos</h3><p>Tudo pra levar seu mate</p>
+                <span class="x-cat__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+              </a>
+              <a class="x-cat x-fade" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener">
+                <span class="x-cat__art x-cat__art--3"><svg><use href="#i-pen" /></svg></span>
+                <h3>Personalizados</h3><p>Enfeites feitos à mão</p>
+                <span class="x-cat__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+              </a>
+              <a class="x-cat x-fade" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener">
+                <span class="x-cat__art x-cat__art--4"><svg><use href="#i-bag" /></svg></span>
+                <h3>Mateiras</h3><p>Couro e crochê, praticidade com estilo</p>
+                <span class="x-cat__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+              </a>
+              <a class="x-cat x-fade" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener">
+                <span class="x-cat__art x-cat__art--5"><svg><use href="#i-leaf" /></svg></span>
+                <h3>Erva-mate &amp; bombas</h3><p>O essencial da roda</p>
+                <span class="x-cat__go" aria-hidden="true"><svg><use href="#i-arrow" /></svg></span>
+              </a>
+            </div>
+          </section>
+
+          <section class="x-sec" id="historia">
+            <hr class="x-pala x-pala--short" style="margin-bottom:40px" />
+            <div class="x-story x-fade">
+              <div class="x-story__img">
+                <img src="ritual.png" alt="Mãos servindo água quente na cuia de chimarrão" loading="lazy" />
+                <p class="x-story__quote x-script">Chimarrão é pausa, prosa e tradição</p>
+              </div>
+              <div class="x-story__body">
+                <p class="x-eyebrow">Da serra pra sua roda</p>
+                <h2>Porque não é só uma cuia</h2>
+                <p>É aquele momento de pausa, conversa e tradição. Na Bela Cuia, cada peça é escolhida e decorada com cuidado pra deixar a sua hora do mate ainda mais especial, do chimarrão de todo dia ao presente que emociona.</p>
+                <ul class="x-list">
+                  <li><svg class="x-ico"><use href="#i-hand" /></svg><p><b>Feito com carinho</b><span>decoração artesanal</span></p></li>
+                  <li><svg class="x-ico"><use href="#i-arauc" /></svg><p><b>Tradição gaúcha</b><span>do jeito que o sul gosta</span></p></li>
+                  <li><svg class="x-ico"><use href="#i-gift" /></svg><p><b>Kits pra presente</b><span>prontos pra entregar</span></p></li>
+                  <li><svg class="x-ico"><use href="#i-shield" /></svg><p><b>Envio seguro</b><span>pra todo o Brasil</span></p></li>
+                </ul>
+                <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener">Fale com a gente <svg><use href="#i-arrow" /></svg></a>
+              </div>
+            </div>
+          </section>
+
+          <section class="x-sec" id="destaques">
+            <div class="x-sec__head x-fade">
+              <div><p class="x-eyebrow">Os queridinhos da roda</p><h2>Produtos em destaque</h2></div>
+              <p>Gostou de algum? Toque em “Pedir no WhatsApp” e a gente te passa o valor e as opções de cor.</p>
+            </div>
+            <div class="x-prods">
+              <article class="x-prod x-fade">
+                <span class="x-tag">Presente</span>
+                <button class="x-heart" type="button" aria-pressed="false" aria-label="Favoritar Kit Chimarrão Florença"><svg><use href="#i-heart" /></svg></button>
+                <div class="x-prod__img"><img src="kit-florenca.jpg" alt="Kit Chimarrão Florença: mateira branca, garrafa térmica e pote" loading="lazy" /></div>
+                <div class="x-prod__body">
+                  <h3>Kit Chimarrão Florença</h3>
+                  <p class="x-prod__desc">Mateira, garrafa térmica e pote</p>
+                  <p class="x-prod__price">Consulte o valor</p>
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+                </div>
+              </article>
+              <article class="x-prod x-fade">
+                <button class="x-heart" type="button" aria-pressed="false" aria-label="Favoritar Kit Margaridas"><svg><use href="#i-heart" /></svg></button>
+                <div class="x-prod__img"><img src="kit-margaridas.jpg" alt="Kit Margaridas: garrafa térmica branca e cuia preta com margaridas vermelhas" loading="lazy" /></div>
+                <div class="x-prod__body">
+                  <h3>Kit Margaridas</h3>
+                  <p class="x-prod__desc">Garrafa + cuia com margaridas</p>
+                  <p class="x-prod__price">Consulte o valor</p>
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+                </div>
+              </article>
+              <article class="x-prod x-fade" id="personalizados">
+                <button class="x-heart" type="button" aria-pressed="false" aria-label="Favoritar Cuia Cerejas"><svg><use href="#i-heart" /></svg></button>
+                <div class="x-prod__img"><img src="cuia-cerejas.jpg" alt="Cuia branca decorada com cerejas, sobre a grama" loading="lazy" /></div>
+                <div class="x-prod__body">
+                  <h3>Cuia Cerejas</h3>
+                  <p class="x-prod__desc">Delicada e cheia de charme</p>
+                  <p class="x-prod__price">Consulte o valor</p>
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+                </div>
+              </article>
+              <article class="x-prod x-fade">
+                <button class="x-heart" type="button" aria-pressed="false" aria-label="Favoritar Kit Mateira de Crochê"><svg><use href="#i-heart" /></svg></button>
+                <div class="x-prod__img"><img src="kit-croche.jpg" alt="Kit com mateira de crochê, garrafa térmica e cuia decorada" loading="lazy" /></div>
+                <div class="x-prod__body">
+                  <h3>Kit Mateira de Crochê</h3>
+                  <p class="x-prod__desc">Aconchego pra levar o mate</p>
+                  <p class="x-prod__price">Consulte o valor</p>
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Pedir no WhatsApp</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="x-sec" id="como-pedir">
+            <div class="x-how">
+              <div class="x-fade">
+                <p class="x-eyebrow">Simples assim</p>
+                <h2 style="font-size:clamp(30px,4vw,42px);line-height:1.1;margin:10px 0 28px">Como pedir</h2>
+                <ol class="x-steps">
+                  <li><p><b>Escolha sua cuia ou kit</b><span>Navegue pela loja e veja o que combina com você.</span></p></li>
+                  <li><p><b>Chame no WhatsApp</b><span>Personalize cores e enfeites do seu jeito.</span></p></li>
+                  <li><p><b>Receba em casa</b><span>Em qualquer lugar do Brasil.</span></p></li>
+                </ol>
+                <div class="x-how__cta">
+                  <a class="x-btn x-btn--solid" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg><use href="#i-wa" fill="currentColor" /></svg>Chamar no WhatsApp</a>
+                  <a class="x-phone" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener">(49) 99953-1855</a>
+                </div>
+              </div>
+              <div class="x-collage x-fade">
+                <img src="enfeite-personalizado.jpg" alt="Enfeite personalizado de cuia com borboleta, rosas e plaquinha “Boraaa tomar um”" loading="lazy" />
+                <img src="cuia-pedras-erva.jpg" alt="Cuia preta com pedrarias ao lado de erva-mate sabor menta" loading="lazy" />
+                <p class="x-collage__note x-script">Do seu jeitinho!</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="x-sec">
+            <div class="x-banner x-fade">
+              <img src="pampa.png" alt="Pampa e serra ao entardecer, em luz dourada" loading="lazy" />
+              <div class="x-banner__copy">
+                <p class="x-script">Bah, que mate bom!</p>
+                <h2>Leve a tradição do sul pra sua roda de mate.</h2>
+                <a class="x-btn x-btn--white" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener">Escolher meu kit <svg><use href="#i-arrow" /></svg></a>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer class="x-foot" id="contato">
+          <hr class="x-pala" />
+          <div class="x-foot__grid">
+            <div class="x-foot__brand">
+              <a class="x-brand" href="#top" aria-label="Bela Cuia, voltar ao topo"><img src="logo.jpg" alt="" /><span>Bela Cuia<small>Artigos de chimarrão</small></span></a>
+              <p>Artigos de chimarrão · Zortéa, SC</p>
+            </div>
+            <div>
+              <h3>Navegue</h3>
+              <ul>
+                <li><a href="#loja">Loja</a></li>
+                <li><a href="#kits">Kits</a></li>
+                <li><a href="#personalizados">Personalizados</a></li>
+                <li><a href="#historia">Nossa história</a></li>
+                <li><a href="#como-pedir">Como pedir</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Contato</h3>
+              <ul>
+                <li><a href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener"><svg class="x-ico" style="fill:currentColor;stroke:none"><use href="#i-wa" /></svg>(49) 99953-1855</a></li>
+                <li><a href="https://www.instagram.com/bellacuiia/" target="_blank" rel="noopener"><svg class="x-ico"><use href="#i-insta" /></svg>@bellacuiia</a></li>
+                <li><a href="#top"><svg class="x-ico"><use href="#i-truck" /></svg>Enviamos para todo o Brasil</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="x-foot__base"><span>© 2026 Bela Cuia</span><span>Feito com carinho na serra catarinense 🧉</span></div>
+        </footer>
+      </div>
+    </div>
+
+    <a class="x-float" href="https://wa.me/5549999531855?text=Ol%C3%A1%21+Vi+o+site+e+quero+saber+mais+sobre+os+kits+%F0%9F%A7%89" target="_blank" rel="noopener" aria-label="Pedir pelo WhatsApp"><svg><use href="#i-wa" /></svg></a>
+
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        document.querySelectorAll(".x-heart").forEach(function (b) {
+          b.addEventListener("click", function () {
+            b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+          });
+        });
+        var items = document.querySelectorAll(".x-fade");
+        if (!("IntersectionObserver" in window)) return;
+        document.documentElement.classList.add("x-js");
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+          });
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+        items.forEach(function (el) { io.observe(el); });
+      })();
+    </script>
+  </body>
+</html>
